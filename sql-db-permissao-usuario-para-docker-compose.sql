@@ -1,0 +1,4 @@
+DROP USER IF EXISTS 'appuser'@'%';
+CREATE USER 'appuser'@'%' IDENTIFIED BY 'L@ur&nco@Mysql135';
+GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'%';
+FLUSH PRIVILEGES;

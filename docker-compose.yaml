@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: especialista-jpa-mysql
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: L@ur&nco@Mysql135
+      MYSQL_DATABASE: especialistajpadb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: L@ur&nco@Mysql135
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - especialista-jpa-mysql-data:/var/lib/mysql        # persistência dos dados
+      - ./sql-db-permissao-usuario-para-docker-compose.sql:/docker-entrypoint-initdb.d/sql-db-permissao-usuario-para-docker-compose.sql # Monta o arquivo SQL no container
+
+    command: >
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - especialista-jpa-mysql-net
+
+volumes:
+  especialista-jpa-mysql-data:
+
+networks:
+  especialista-jpa-mysql-net:
+    driver: bridge # tipo do driver
