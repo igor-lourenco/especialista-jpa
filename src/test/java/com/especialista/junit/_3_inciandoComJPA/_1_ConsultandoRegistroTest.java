@@ -1,4 +1,4 @@
-package com.especialista.junit._3_inciandoComJpa;
+package com.especialista.junit._3_inciandoComJPA;
 
 import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
 import org.junit.*;
