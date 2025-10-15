@@ -5,7 +5,7 @@
              version="2.2">
     <persistence-unit name="EspecialistaJPADB-PU">
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.54:3307/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
             <property name="javax.persistence.jdbc.user" value="appuser" />
             <property name="javax.persistence.jdbc.password" value="L@ur&amp;nco@Mysql135" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
