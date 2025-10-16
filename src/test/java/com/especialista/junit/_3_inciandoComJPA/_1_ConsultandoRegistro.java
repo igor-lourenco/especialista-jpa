@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class _1_ConsultandoRegistroTest {
+public class _1_ConsultandoRegistro {
 
     private static EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
