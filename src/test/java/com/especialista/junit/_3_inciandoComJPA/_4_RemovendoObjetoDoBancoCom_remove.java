@@ -24,7 +24,7 @@ public class _4_RemovendoObjetoDoBancoCom_remove extends EntityManagerTest {
         entityManager.getTransaction().commit(); // Fim da transação (confirma a transação)
 
 //      Limpa o contexto de persistência, fazendo com que todas as entidades gerenciadas sejam desanexadas.
-//        entityManager.clear(); // Não é necessário para operação de remoção
+//      entityManager.clear(); // Não é necessário para operação de remoção
 
         System.out.println(">>> 3. Fazendo a consulta no banco de dados para verificar se o produto foi removido...");
         Produto produtoVerificado = entityManager.find(Produto.class, 3);

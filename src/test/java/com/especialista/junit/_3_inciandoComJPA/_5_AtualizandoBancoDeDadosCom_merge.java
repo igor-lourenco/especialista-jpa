@@ -11,7 +11,7 @@ public class _5_AtualizandoBancoDeDadosCom_merge extends EntityManagerTest {
 
 
     @Test
-    public void removendoObjeto() {
+    public void atualizandoObjeto() {
         System.out.println(">>> 1. Instanciando o produto...");
 
         Produto produto = new Produto(); // os atributos que não estiver preenchido o JPA irá salvar como null

@@ -20,7 +20,7 @@ public class _3_InserindoOPrimeiroObjetoCom_persist extends EntityManagerTest {
 
         entityManager.getTransaction().begin(); // Início da transação
 
-//      Cria uma instância do objeto e coloca na memória para ser gerenciada e persistente
+//      Coloca o objeto no estado "managed" a partir desse momento, o EntityManager começa a gerenciar essa instância.
         entityManager.persist(novoProduto);
 
         System.out.println(">>> 1. Fazendo a inserção do novo produto no banco de dados...");

@@ -28,9 +28,10 @@ public class _7_InserindoRegistrosCom_merge extends EntityManagerTest {
         entityManager.getTransaction().begin(); // Início da transação
 
 
-        System.out.println(">>> 2. Fazendo a inserção do produto no banco de dados e no retorno coloca o objeto na " +
+        System.out.println(">>> 2. Fazendo a inserção do produto no banco de dados e coloca o objeto na " +
             "memória para ser gerenciada pelo EntityManager...");
-        entityManager.persist(produtoPersist); // Cria uma instância do objeto e coloca na memória para ser gerenciada e persistente
+        entityManager.persist(produtoPersist); // Coloca o objeto no estado "managed" a partir desse momento, o EntityManager começa a gerenciar essa instância.
+
 
         System.out.println(">>> 3. Fazendo a atualização do produto no banco de dados na mesma transação...");
         produtoPersist.setNome("Smartphone Two Plus");
