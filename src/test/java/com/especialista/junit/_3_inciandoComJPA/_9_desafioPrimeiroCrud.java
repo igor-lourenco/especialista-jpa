@@ -5,7 +5,7 @@ import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class _8_desafioPrimeiroCrud extends EntityManagerTest {
+public class _9_desafioPrimeiroCrud extends EntityManagerTest {
 
 
     @Test
