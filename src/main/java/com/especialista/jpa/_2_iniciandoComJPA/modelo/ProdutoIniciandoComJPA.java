@@ -7,18 +7,22 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cliente_iniciando_com_jpa")
-public class Cliente {
+@Table(name = "produto_iniciando_com_jpa")
+public class ProdutoIniciandoComJPA {
 
     @Id
     private Integer id;
     private String nome;
+    private String descricao;
+    private BigDecimal preco;
 
-    public Cliente() {}
+    public ProdutoIniciandoComJPA() {}
 
-    public Cliente(Integer id, String nome) {
+    public ProdutoIniciandoComJPA(Integer id, String nome, String descricao, BigDecimal preco) {
         this.id = id;
         this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
     }
 
     public Integer getId() {
@@ -37,12 +41,28 @@ public class Cliente {
         this.nome = nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        Cliente cliente = (Cliente) object;
-        return Objects.equals(id, cliente.id);
+        ProdutoIniciandoComJPA produto = (ProdutoIniciandoComJPA) object;
+        return Objects.equals(id, produto.id);
     }
 
     @Override
@@ -52,9 +72,11 @@ public class Cliente {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Cliente{");
+        final StringBuilder sb = new StringBuilder("Produto{");
         sb.append("id=").append(id);
         sb.append(", nome='").append(nome).append('\'');
+        sb.append(", descricao='").append(descricao).append('\'');
+        sb.append(", preco=").append(preco);
         sb.append('}');
         return sb.toString();
     }

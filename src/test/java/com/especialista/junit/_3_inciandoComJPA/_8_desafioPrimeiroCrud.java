@@ -1,12 +1,9 @@
 package com.especialista.junit._3_inciandoComJPA;
 
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Cliente;
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
+import com.especialista.jpa._2_iniciandoComJPA.modelo.ClienteIniciandoComJPA;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.math.BigDecimal;
 
 public class _8_desafioPrimeiroCrud extends EntityManagerTest {
 
@@ -14,14 +11,14 @@ public class _8_desafioPrimeiroCrud extends EntityManagerTest {
     @Test
     public void buscandoClientePeloId() {
         System.out.println(">>> 1. Fazendo a consulta do cliente no banco de dados...");
-        Cliente cliente = entityManager.find(Cliente.class, 1);
+        ClienteIniciandoComJPA cliente = entityManager.find(ClienteIniciandoComJPA.class, 1);
 
         Assert.assertNotNull(cliente);
     }
 
     @Test
     public void inserindoCliente() {
-        Cliente novoCliente = new Cliente();
+        ClienteIniciandoComJPA novoCliente = new ClienteIniciandoComJPA();
         novoCliente.setId(3);
         novoCliente.setNome("João Green");
 
@@ -38,7 +35,7 @@ public class _8_desafioPrimeiroCrud extends EntityManagerTest {
         entityManager.clear();
 
         System.out.println(">>> 2. Fazendo a consulta do cliente no banco de dados...");
-        Cliente clienteCriado = entityManager.find(Cliente.class, novoCliente.getId());
+        ClienteIniciandoComJPA clienteCriado = entityManager.find(ClienteIniciandoComJPA.class, novoCliente.getId());
         Assert.assertNotNull(clienteCriado);
     }
 
@@ -46,7 +43,7 @@ public class _8_desafioPrimeiroCrud extends EntityManagerTest {
     public void atualizandoObjeto() {
         System.out.println(">>> 1. Instanciando o cliente...");
 
-        Cliente cliente = new Cliente(); // os atributos que não estiver preenchido o JPA irá salvar como null
+        ClienteIniciandoComJPA cliente = new ClienteIniciandoComJPA(); // os atributos que não estiver preenchido o JPA irá salvar como null
         cliente.setId(1);
         cliente.setNome("Fernando Medeiros atualizado");
 
@@ -63,7 +60,7 @@ public class _8_desafioPrimeiroCrud extends EntityManagerTest {
         entityManager.clear();
 
         System.out.println(">>> 3. Fazendo a consulta no banco de dados para verificar se o cliente foi atualizado...");
-        Cliente clienteVerificado = entityManager.find(Cliente.class, cliente.getId());
+        ClienteIniciandoComJPA clienteVerificado = entityManager.find(ClienteIniciandoComJPA.class, cliente.getId());
         Assert.assertNotNull(clienteVerificado);
         Assert.assertEquals("Fernando Medeiros atualizado", clienteVerificado.getNome());
     }
@@ -72,7 +69,7 @@ public class _8_desafioPrimeiroCrud extends EntityManagerTest {
     @Test
     public void removendoObjeto() {
         System.out.println(">>> 1. Fazendo a consulta do cliente no banco de dados...");
-        Cliente cliente = entityManager.find(Cliente.class, 2);
+        ClienteIniciandoComJPA cliente = entityManager.find(ClienteIniciandoComJPA.class, 2);
 
         entityManager.getTransaction().begin(); // Início da transação
 
@@ -86,7 +83,7 @@ public class _8_desafioPrimeiroCrud extends EntityManagerTest {
 //      entityManager.clear(); // Não é necessário para operação de remoção
 
         System.out.println(">>> 3. Fazendo a consulta no banco de dados para verificar se o cliente foi removido...");
-        Cliente clienteVerificado = entityManager.find(Cliente.class, cliente.getId());
+        ClienteIniciandoComJPA clienteVerificado = entityManager.find(ClienteIniciandoComJPA.class, cliente.getId());
         Assert.assertNull(clienteVerificado);
     }
 }

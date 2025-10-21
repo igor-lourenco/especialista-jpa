@@ -1,19 +1,15 @@
 package com.especialista.junit._3_inciandoComJPA;
 
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
+import com.especialista.jpa._2_iniciandoComJPA.modelo.ProdutoIniciandoComJPA;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.*;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 public class _2_AbrindoEFechandoUmaTransacao extends EntityManagerTest {
 
 
     @Test
     public void abrirEFecharATransacao() {
-        Produto produto = new Produto(); // apenas para não dar erro no código
+        ProdutoIniciandoComJPA produto = new ProdutoIniciandoComJPA(); // apenas para não dar erro no código
 
         entityManager.getTransaction().begin(); // Início da transação
 

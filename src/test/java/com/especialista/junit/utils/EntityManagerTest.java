@@ -1,6 +1,5 @@
 package com.especialista.junit.utils;
 
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
 import org.junit.*;
 
 import javax.persistence.EntityManager;

@@ -1,6 +1,6 @@
 package com.especialista.junit._3_inciandoComJPA;
 
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
+import com.especialista.jpa._2_iniciandoComJPA.modelo.ProdutoIniciandoComJPA;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +12,7 @@ public class _3_InserindoOPrimeiroObjetoCom_persist extends EntityManagerTest {
 
     @Test
     public void inserindoPrimeiroObjeto() {
-        Produto novoProduto = new Produto();
+        ProdutoIniciandoComJPA novoProduto = new ProdutoIniciandoComJPA();
         novoProduto.setId(2);
         novoProduto.setNome("Câmera Canon");
         novoProduto.setDescricao("A melhor definição para suas fotos");
@@ -31,7 +31,7 @@ public class _3_InserindoOPrimeiroObjetoCom_persist extends EntityManagerTest {
         entityManager.clear();
 
         System.out.println(">>> 2. Fazendo a consulta do produto no banco de dados...");
-        Produto produtoCriado = entityManager.find(Produto.class, novoProduto.getId());
+        ProdutoIniciandoComJPA produtoCriado = entityManager.find(ProdutoIniciandoComJPA.class, novoProduto.getId());
         Assert.assertNotNull(produtoCriado);
     }
 }

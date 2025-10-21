@@ -1,11 +1,10 @@
 package com.especialista.junit._3_inciandoComJPA;
 
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
+import com.especialista.jpa._2_iniciandoComJPA.modelo.ProdutoIniciandoComJPA;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
 public class _7_InserindoRegistrosCom_merge extends EntityManagerTest {
@@ -19,7 +18,7 @@ public class _7_InserindoRegistrosCom_merge extends EntityManagerTest {
 
         System.out.println(">>> 1. Instanciando o produto...");
 
-        Produto produtoPersist = new Produto(); // os atributos que não estiver preenchido o JPA irá salvar como null
+        ProdutoIniciandoComJPA produtoPersist = new ProdutoIniciandoComJPA(); // os atributos que não estiver preenchido o JPA irá salvar como null
         produtoPersist.setId(5);
         produtoPersist.setNome("Smartphone One Plus");
         produtoPersist.setDescricao("O processador mais rápido");
@@ -43,7 +42,7 @@ public class _7_InserindoRegistrosCom_merge extends EntityManagerTest {
         entityManager.clear();
 
         System.out.println(">>> 4. Fazendo a consulta no banco de dados para verificar se o produto foi atualizado...");
-        Produto produtoVerificadoPersist = entityManager.find(Produto.class, produtoPersist.getId());
+        ProdutoIniciandoComJPA produtoVerificadoPersist = entityManager.find(ProdutoIniciandoComJPA.class, produtoPersist.getId());
         Assert.assertNotNull(produtoVerificadoPersist);
         Assert.assertEquals("Smartphone Two Plus", produtoVerificadoPersist.getNome());
 
@@ -55,7 +54,7 @@ public class _7_InserindoRegistrosCom_merge extends EntityManagerTest {
 
         System.out.println(">>> 5. Instanciando o produto...");
 
-        Produto produtoMerge = new Produto(); // os atributos que não estiver preenchido o JPA irá salvar como null
+        ProdutoIniciandoComJPA produtoMerge = new ProdutoIniciandoComJPA(); // os atributos que não estiver preenchido o JPA irá salvar como null
         produtoMerge.setId(6);
         produtoMerge.setNome("Notebook Dell");
         produtoMerge.setDescricao("O melhor da categoria");
@@ -79,7 +78,7 @@ public class _7_InserindoRegistrosCom_merge extends EntityManagerTest {
         entityManager.clear();
 
         System.out.println(">>> 8. Fazendo a consulta no banco de dados para verificar se o produto foi atualizado...");
-        Produto produtoVerificadoMerge = entityManager.find(Produto.class, produtoMerge.getId());
+        ProdutoIniciandoComJPA produtoVerificadoMerge = entityManager.find(ProdutoIniciandoComJPA.class, produtoMerge.getId());
         Assert.assertNotNull(produtoVerificadoMerge);
         Assert.assertEquals("Smartphone Two Plus", produtoVerificadoMerge.getNome());
     }

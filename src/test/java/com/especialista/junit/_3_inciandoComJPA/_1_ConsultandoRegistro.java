@@ -1,6 +1,6 @@
 package com.especialista.junit._3_inciandoComJPA;
 
-import com.especialista.jpa._2_iniciandoComJPA.modelo.Produto;
+import com.especialista.jpa._2_iniciandoComJPA.modelo.ProdutoIniciandoComJPA;
 import org.junit.*;
 
 import javax.persistence.EntityManager;
@@ -43,7 +43,7 @@ public class _1_ConsultandoRegistro {
     public void buscarPorId(){
         System.out.println("1. Buscando produto pelo id...");
 
-        Produto produto = entityManager.find(Produto.class, 1);
+        ProdutoIniciandoComJPA produto = entityManager.find(ProdutoIniciandoComJPA.class, 1);
         System.out.println(">>> Já fez a consulta!!!");
 
         Assert.assertNotNull("Produto não pode ser nulo", produto);
@@ -54,7 +54,7 @@ public class _1_ConsultandoRegistro {
     public void buscarPorReferencia(){
         System.out.println("2. Buscando produto pelo id usando referência...");
 
-        Produto produto = entityManager.getReference(Produto.class, 1);
+        ProdutoIniciandoComJPA produto = entityManager.getReference(ProdutoIniciandoComJPA.class, 1);
         System.out.println(">>> Ainda não fez na consulta!!!");
 
         Assert.assertNotNull("Produto não pode ser nulo", produto);
@@ -66,7 +66,7 @@ public class _1_ConsultandoRegistro {
     public void atualizarAReferencia(){
         System.out.println("3. Atualizando a referência...");
 
-        Produto produto = entityManager.find(Produto.class, 1);
+        ProdutoIniciandoComJPA produto = entityManager.find(ProdutoIniciandoComJPA.class, 1);
         produto.setNome("Microfone Samson"); // dessa salva não será salvo no banco
 
         System.out.println(">>> Atualizando o estado da instância do banco de dados, sobrescrevendo as alterações feitas na entidade, se houver");
