@@ -33,4 +33,7 @@ public class Pedido {
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private StatusPedido status;
 
+    @Embedded // Indica que a classe marcada com @Embeddable deve ser incorporada a essa entidade
+    private Endereco enderecoEntrega;
+
 }
