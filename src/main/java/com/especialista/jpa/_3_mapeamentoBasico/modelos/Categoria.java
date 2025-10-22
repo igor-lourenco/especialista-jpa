@@ -16,9 +16,13 @@ public class Categoria {
     @Id
     @EqualsAndHashCode.Include
 
-//  Especifica que a implementação do JPA(Hibernate) vai escolher a forma(estratégia) mais apropriada que o id vai ser atribuído,
-//  pode usar: IDENTITY, SEQUENCE ou TABLE
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//  Usa uma sequência nativa do banco de dados para gerar os valores da chave primária.
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    @SequenceGenerator(name = "seq",
+        sequenceName = "tb_categoria_sequencias_chave_primaria", // nome da sequência no banco
+        allocationSize = 100, // define quantos valores o JPA reserva por vez em cache. (1 = sem cache).
+        initialValue = 0 // valor inicial
+    )
     private Integer id;
 
     private String nome;
