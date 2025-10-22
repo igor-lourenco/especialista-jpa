@@ -4,10 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -18,6 +15,10 @@ public class Categoria {
 
     @Id
     @EqualsAndHashCode.Include
+
+//  Especifica que a implementação do JPA(Hibernate) vai escolher a forma(estratégia) mais apropriada que o id vai ser atribuído,
+//  pode usar: IDENTITY, SEQUENCE ou TABLE
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String nome;
