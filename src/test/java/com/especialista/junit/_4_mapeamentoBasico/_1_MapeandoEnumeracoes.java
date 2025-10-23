@@ -13,7 +13,7 @@ public class _1_MapeandoEnumeracoes  extends EntityManagerTest {
         System.out.println(">>> 1. Instanciando o cliente...");
 
         Cliente cliente = new Cliente();
-        cliente.setId(1);
+//        cliente.setId(1); // Comentado porque está usando o GenerationType.IDENTITY e causa PersistentObjectException: detached entity passed to persist
         cliente.setNome("José Mineiro");
         cliente.setSexo(SexoCliente.MASCULINO);
 

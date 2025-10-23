@@ -18,3 +18,8 @@ Uma entidade pode assumir alguns estados com relação ao EntityManager. Os esta
 - Desanexado (detached)
 
 ![Estados_de_uma_entidade.png](imagens%2FEstados_de_uma_entidade.png)
+
+
+## Estratégias paa geração de chave primária
+
+![Estrategias_para_geracao_da_chave_primaria.png](imagens%2FEstrategias_para_geracao_da_chave_primaria.png)

@@ -15,6 +15,7 @@ public class Cliente {
 
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
     private String nome;

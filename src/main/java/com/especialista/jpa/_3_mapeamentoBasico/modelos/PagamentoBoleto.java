@@ -15,6 +15,7 @@ public class PagamentoBoleto {
 
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
     @Column(name = "pedido_id")
