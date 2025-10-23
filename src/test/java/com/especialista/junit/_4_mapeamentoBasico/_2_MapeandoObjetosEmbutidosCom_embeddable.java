@@ -1,6 +1,5 @@
 package com.especialista.junit._4_mapeamentoBasico;
 
-import com.especialista.jpa._3_mapeamentoBasico.modelos.*;
 import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Endereco;
 import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Pedido;
 import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.StatusPedido;

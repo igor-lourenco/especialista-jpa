@@ -37,4 +37,9 @@ public class Pedido {
     @Embedded // Indica que a classe marcada com @Embeddable deve ser incorporada a essa entidade
     private Endereco enderecoEntrega;
 
+
+    @ManyToOne // muitos pedidos tem um cliente
+    @JoinColumn(name = "cliente_id") // especifica uma coluna para unir as associações.
+    private Cliente cliente;
+
 }

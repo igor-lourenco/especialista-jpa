@@ -3,3 +3,8 @@ insert into produto_iniciando_com_jpa (id, nome, preco, descricao) values (3, 'C
 
 insert into cliente_iniciando_com_jpa (id, nome) values (1, 'Fernando Medeiros');
 insert into cliente_iniciando_com_jpa (id, nome) values (2, 'Marcos Mariano');
+
+-- ###################################################################################
+
+insert into tb_cliente(id, nome) values (1, 'Fernando Medeiros');
+insert into tb_cliente(id, nome) values (2, 'Marcos Mariano');
