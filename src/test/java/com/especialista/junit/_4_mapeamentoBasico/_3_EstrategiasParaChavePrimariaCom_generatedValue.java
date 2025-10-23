@@ -1,15 +1,9 @@
 package com.especialista.junit._4_mapeamentoBasico;
 
-import com.especialista.jpa._3_mapeamentoBasico.modelos.Categoria;
-import com.especialista.jpa._3_mapeamentoBasico.modelos.Endereco;
-import com.especialista.jpa._3_mapeamentoBasico.modelos.Pedido;
-import com.especialista.jpa._3_mapeamentoBasico.modelos.StatusPedido;
+import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Categoria;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class _3_EstrategiasParaChavePrimariaCom_generatedValue extends EntityManagerTest {
 

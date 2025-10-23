@@ -1,18 +1,17 @@
-package com.especialista.jpa._3_mapeamentoBasico.modelos;
+package com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "tb_nota_fiscal", schema = "especialistajpadb")
-public class NotaFiscal {
+@Table(name = "tb_pagamento_boleto", schema = "especialistajpadb")
+public class PagamentoBoleto {
 
     @Id
     @EqualsAndHashCode.Include
@@ -22,9 +21,9 @@ public class NotaFiscal {
     @Column(name = "pedido_id")
     private Integer pedidoId;
 
-    private String xml;
+    @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
+    private StatusPagamento status;
 
-    @Column(name = "data_emissao")
-    private Date dataEmissao;
-
+    @Column(name = "produto_id")
+    private String codigoBarras;
 }

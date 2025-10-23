@@ -1,7 +1,7 @@
 package com.especialista.junit._4_mapeamentoBasico;
 
-import com.especialista.jpa._3_mapeamentoBasico.modelos.Cliente;
-import com.especialista.jpa._3_mapeamentoBasico.modelos.SexoCliente;
+import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Cliente;
+import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.SexoCliente;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;

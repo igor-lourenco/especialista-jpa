@@ -1,4 +1,4 @@
-package com.especialista.jpa._3_mapeamentoBasico.modelos;
+package com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos;
 
 public enum StatusPagamento {
 

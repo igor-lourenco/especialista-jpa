@@ -1,18 +1,17 @@
-package com.especialista.jpa._3_mapeamentoBasico.modelos;
+package com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "tb_item_pedido", schema = "especialistajpadb")
-public class ItemPedido {
+@Table(name = "tb_pagamento_cartao", schema = "especialistajpadb")
+public class PagamentoCartao {
 
     @Id
     @EqualsAndHashCode.Include
@@ -22,13 +21,9 @@ public class ItemPedido {
     @Column(name = "pedido_id")
     private Integer pedidoId;
 
-    @Column(name = "produto_id")
-    private Integer produtoId;
+    @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
+    private StatusPagamento status;
 
-
-    @Column(name = "preco_produto")
-    private BigDecimal precoProduto;
-
-    private Integer quantidade;
+    private String numero;
 
 }
