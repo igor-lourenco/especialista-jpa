@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +23,7 @@ public class Cliente {
 
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private SexoCliente sexo;
+
+    @OneToMany(mappedBy = "cliente") // um cliente tem muitos pedidos
+    private List<Pedido> pedidos;
 }
