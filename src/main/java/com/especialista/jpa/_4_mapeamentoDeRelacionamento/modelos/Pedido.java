@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -42,4 +43,6 @@ public class Pedido {
     @JoinColumn(name = "cliente_id") // especifica uma coluna para unir as associações.
     private Cliente cliente;
 
+    @OneToMany(mappedBy = "pedido") // um pedido tem em muitos itens de pedido
+    private List<ItemPedido> itensPedido;
 }
