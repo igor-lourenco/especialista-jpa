@@ -19,11 +19,13 @@ public class ItemPedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "pedido_id")
-    private Integer pedidoId;
+    @ManyToOne // muitos itemPedido tem em um pedido
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
 
-    @Column(name = "produto_id")
-    private Integer produtoId;
+    @ManyToOne // muitos itemPedido tem um produto
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
 
 
     @Column(name = "preco_produto")
