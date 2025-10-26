@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class _8_MapeandoRelacionamentosCom_OneToOne extends EntityManagerTest {
 
     @Test
-    public void verificarRelacionamento_ManyToMany(){
+    public void verificarRelacionamento_OneToOne(){
         System.out.println("\n>>> 1. Buscando pedido no banco de dados...");
         Pedido pedido = entityManager.find(Pedido.class, 1);
 

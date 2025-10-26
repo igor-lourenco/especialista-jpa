@@ -24,6 +24,6 @@ public class PagamentoCartao {
     private String numero;
 
     @OneToOne // um pagamentoCartao tem um pedido
-    @JoinColumn(name = "pedido_id")  // owner
+    @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 }

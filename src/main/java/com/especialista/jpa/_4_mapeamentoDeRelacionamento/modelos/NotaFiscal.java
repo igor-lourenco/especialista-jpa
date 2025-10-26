@@ -19,12 +19,13 @@ public class NotaFiscal {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "pedido_id")
-    private Integer pedidoId;
-
     private String xml;
 
     @Column(name = "data_emissao")
     private Date dataEmissao;
 
+
+    @OneToOne // uma notaFiscal tem um pedido
+    @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
+    private Pedido pedido;
 }

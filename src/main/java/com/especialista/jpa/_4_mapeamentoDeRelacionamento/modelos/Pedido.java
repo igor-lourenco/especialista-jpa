@@ -27,8 +27,6 @@ public class Pedido {
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
 
-    @Column(name = "nota_fiscal_id")
-    private Integer notaFiscalId;
 
     private BigDecimal total;
 
@@ -40,12 +38,16 @@ public class Pedido {
 
 
     @ManyToOne // muitos pedidos tem um cliente
-    @JoinColumn(name = "cliente_id") // especifica uma coluna para unir as associações.
+    @JoinColumn(name = "cliente_id") // especifica uma coluna para unir as associações. (owner)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedido") // um pedido tem em muitos itens de pedido
+    @OneToMany(mappedBy = "pedido") // um pedido tem em muitos itens de pedido (não owner)
     private List<ItemPedido> itensPedido;
 
     @OneToOne(mappedBy = "pedido") // um pedido tem um pamento cartão (não owner)
     private PagamentoCartao pagamento;
+
+
+    @OneToOne(mappedBy = "pedido") // um pedido tem uma nota fiscal (não owner)
+    private NotaFiscal notaFiscal;
 }
