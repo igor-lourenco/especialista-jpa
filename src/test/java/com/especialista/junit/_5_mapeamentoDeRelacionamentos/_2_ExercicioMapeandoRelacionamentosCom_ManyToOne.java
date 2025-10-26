@@ -24,20 +24,23 @@ public class _2_ExercicioMapeandoRelacionamentosCom_ManyToOne extends EntityMana
         System.out.println("\n>>> 4. Instanciando o pedido...");
         Pedido pedido = getPedido();
 
-        System.out.println("\n>>> 5. Associando pedido a endereco e cliente...");
+        System.out.println("\n>>> 5. Associando pedido(owner) ao cliente(não owner) e endereço ...");
         pedido.setEnderecoEntrega(enderecoEntrega);
         pedido.setCliente(cliente);
 
         System.out.println("\n>>> 6. Instanciando itemPedido...");
-        ItemPedido itemPedido = getItemPedido(pedido, produto);
+        ItemPedido itemPedido = getItemPedido(produto);
 
+        System.out.println("\n>>> 7. Associando itemPedido(owner) a produto(não owner) e pedido(não owner) ...");
+        itemPedido.setProduto(produto);
+        itemPedido.setPedido(pedido);
 
         entityManager.getTransaction().begin(); // Início da transação
 
 
-        System.out.println("\n>>> 7. Fazendo a inserção do novo pedido no banco de dados...");
+        System.out.println("\n>>> 8. Fazendo a inserção do novo pedido no banco de dados...");
         entityManager.persist(pedido);
-        System.out.println("\n>>> 8. Fazendo a inserção do novo itemPedido no banco de dados...");
+        System.out.println("\n>>> 9. Fazendo a inserção do novo itemPedido no banco de dados...");
         entityManager.persist(itemPedido);
 
 
@@ -46,7 +49,7 @@ public class _2_ExercicioMapeandoRelacionamentosCom_ManyToOne extends EntityMana
         entityManager.clear(); //Limpa o contexto de persistência, fazendo com que todas as entidades gerenciadas sejam desanexadas.
 
 
-        System.out.println("\n>>> 9. Fazendo a consulta do pedido e itemPedido no banco de dados...");
+        System.out.println("\n>>> 10. Fazendo a consulta do pedido e itemPedido no banco de dados...");
         Pedido pedidoVerificado = entityManager.find(Pedido.class, pedido.getId());
         ItemPedido itemPedidoVErificado = entityManager.find(ItemPedido.class, itemPedido.getId());
         Assert.assertNotNull(pedidoVerificado);
@@ -56,12 +59,10 @@ public class _2_ExercicioMapeandoRelacionamentosCom_ManyToOne extends EntityMana
         Assert.assertNotNull(itemPedidoVErificado.getPedido());
     }
 
-    private static ItemPedido getItemPedido(Pedido pedido, Produto produto) {
+    private static ItemPedido getItemPedido(Produto produto) {
         ItemPedido itemPedido = new ItemPedido();
-        itemPedido.setPedido(pedido);
-        itemPedido.setProduto(produto);
-        itemPedido.setQuantidade(1);
         itemPedido.setPrecoProduto(produto.getPreco());
+        itemPedido.setQuantidade(1);
         return itemPedido;
     }
 

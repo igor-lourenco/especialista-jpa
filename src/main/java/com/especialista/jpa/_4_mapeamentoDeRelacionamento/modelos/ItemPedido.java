@@ -26,11 +26,11 @@ public class ItemPedido {
 
 
     @ManyToOne // muitos itemPedido tem em um pedido
-    @JoinColumn(name = "pedido_id")
+    @JoinColumn(name = "pedido_id")  // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 
     @ManyToOne // muitos itemPedido tem um produto
-    @JoinColumn(name = "produto_id")
+    @JoinColumn(name = "produto_id")  // especifica uma coluna para unir as associações. (owner)
     private Produto produto;
 
 }

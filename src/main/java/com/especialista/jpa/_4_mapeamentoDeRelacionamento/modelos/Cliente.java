@@ -24,6 +24,6 @@ public class Cliente {
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private SexoCliente sexo;
 
-    @OneToMany(mappedBy = "cliente") // um cliente tem muitos pedidos
+    @OneToMany(mappedBy = "cliente") // um cliente tem muitos pedidos (não owner)
     private List<Pedido> pedidos;
 }

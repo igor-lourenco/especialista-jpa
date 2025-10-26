@@ -28,7 +28,7 @@ public class _1_MapeandoRelacionamentosCom_ManyToOne extends EntityManagerTest {
         pedido.setStatus(StatusPedido.AGUARDANDO);
         pedido.setTotal(new BigDecimal("1000"));
 
-        System.out.println("\n>>> 4. Associando cliente e endereço a um pedido...");
+        System.out.println("\n>>> 4. Associando pedido(owner) ao cliente(não owner) e endereço ...");
         pedido.setEnderecoEntrega(enderecoEntrega);
         pedido.setCliente(cliente);
 

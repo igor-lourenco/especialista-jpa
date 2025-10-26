@@ -17,10 +17,10 @@ public class _6_RemovendoObjetosReferenciados extends EntityManagerTest {
 
         entityManager.getTransaction().begin(); // Início da transação
 
-        System.out.println("\n>>> 4. Fazendo a remoção dos itemPedido no banco de dados...");
+        System.out.println("\n>>> 4. Fazendo a remoção dos itemPedido(owner) no banco de dados...");
         pedido.getItensPedido().forEach(entityManager::remove);
 
-        System.out.println("\n>>> 5. Fazendo a remoção do pedido no banco de dados...");
+        System.out.println("\n>>> 5. Fazendo a remoção do pedido(não owner) no banco de dados...");
         entityManager.remove(pedido);
 
 

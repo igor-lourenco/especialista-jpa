@@ -28,4 +28,9 @@ public class NotaFiscal {
     @OneToOne // uma notaFiscal tem um pedido
     @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
+
+/*  Exemplo usando JoinTable com relacionamento OneToOne com notaFiscal e pedido
+    @JoinTable(name = "tb_nota_fiscal_pedido",
+        joinColumns = @JoinColumn(name = "nota_fiscal_id", unique = true),// coluna que referencia o id dessa entidade NotaFiscal (owner)
+        inverseJoinColumns = @JoinColumn(name = "pedido_id", unique = true)) // coluna que referencia o id da entidade Pedido (não owner) */
 }

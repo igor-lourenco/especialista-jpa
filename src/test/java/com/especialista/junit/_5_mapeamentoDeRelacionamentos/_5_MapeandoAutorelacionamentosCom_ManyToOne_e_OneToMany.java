@@ -12,21 +12,23 @@ public class _5_MapeandoAutorelacionamentosCom_ManyToOne_e_OneToMany extends Ent
 
     @Test
     public void verificarRelacionamento_ManyToOne(){
-        System.out.println("\n>>> 1. Instanciando categoria mãe...");
-        Categoria categoriaMae = new Categoria();
-        categoriaMae.setNome("Eletrônicos");
+        System.out.println("\n>>> 1. Instanciando categoria pai...");
+        Categoria categoriaPai = new Categoria();
+        categoriaPai.setNome("Eletrônicos");
 
         System.out.println("\n>>> 2. Instanciando categoria filha...");
         Categoria categoriaFilha = new Categoria();
         categoriaFilha.setNome("Celulares");
-        categoriaFilha.setCategoriaPai(categoriaMae);
+
+        System.out.println("\n>>> 7. Associando categoriaFilha(owner) a categoriaPai(não owner)...");
+        categoriaFilha.setCategoriaPai(categoriaPai);
 
 
         entityManager.getTransaction().begin(); // Início da transação
 
 
-        System.out.println("\n>>> 3. Fazendo a inserção da nova categoriaMae no banco de dados...");
-        entityManager.persist(categoriaMae);
+        System.out.println("\n>>> 3. Fazendo a inserção da nova categoriaPai no banco de dados...");
+        entityManager.persist(categoriaPai);
         System.out.println("\n>>> 4. Fazendo a inserção da nova categoriaFilha no banco de dados...");
         entityManager.persist(categoriaFilha);
 

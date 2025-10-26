@@ -21,14 +21,14 @@ public class Categoria {
 
     private String nome;
 
-    @ManyToOne // muitas categorias filha tem uma categoria mãe
-    @JoinColumn(name = "categoria_pai_id")
+    @ManyToOne // muitas categorias filha tem uma categoria pai
+    @JoinColumn(name = "categoria_pai_id")  // especifica uma coluna para unir as associações. (owner)
     private Categoria categoriaPai;
 
-    @OneToMany(mappedBy = "categoriaPai") // uma categoria mãe tem muitas categorias filhas
+    @OneToMany(mappedBy = "categoriaPai") // uma categoria pai tem muitas categorias filhas (não owner)
     private List<Categoria> categorias;
 
 
-    @ManyToMany(mappedBy = "categorias")//  (não owner)
+    @ManyToMany(mappedBy = "categorias") //  (não owner)
     private List<Produto> produtos;
 }

@@ -26,7 +26,7 @@ public class _7_MapeandoRelacionamentosCom_ManyToMany extends EntityManagerTest 
 
         produto.setCategorias(Arrays.asList(categoria));
 
-        System.out.println("\n>>> 5. Salvando produto e categoria no banco de dados...");
+        System.out.println("\n>>> 5. Salvando produto(owner) no banco de dados...");
         entityManager.persist(produto);
 
         entityManager.getTransaction().commit(); // Fim da transação (confirma a transação)

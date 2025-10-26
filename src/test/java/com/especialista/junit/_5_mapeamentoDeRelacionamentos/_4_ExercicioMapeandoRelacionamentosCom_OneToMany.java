@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class _4_ExercicioMapeandoRelacionamentosCom_OneToMany extends EntityManagerTest {
 
     @Test
-    public void verificarRelacionamento_ManyToOne(){
+    public void verificarRelacionamento_OneToMany(){
         System.out.println("\n>>> 1. Buscando o cliente...");
         Cliente cliente = entityManager.find(Cliente.class, 1);
 
@@ -24,20 +24,24 @@ public class _4_ExercicioMapeandoRelacionamentosCom_OneToMany extends EntityMana
         System.out.println("\n>>> 4. Instanciando o pedido...");
         Pedido pedido = getPedido();
 
-        System.out.println("\n>>> 5. Associando pedido a endereco e cliente...");
+        System.out.println("\n>>> 5. Associando pedido(owner) a endereco e cliente(não owner)...");
         pedido.setEnderecoEntrega(enderecoEntrega);
         pedido.setCliente(cliente);
 
         System.out.println("\n>>> 6. Instanciando itemPedido...");
-        ItemPedido itemPedido = getItemPedido(pedido, produto);
+        ItemPedido itemPedido = getItemPedido(produto);
+
+        System.out.println("\n>>> 7. Associando itemPedido(owner) a produto(não owner) e pedido(não owner) ...");
+        itemPedido.setPedido(pedido);
+        itemPedido.setProduto(produto);
 
 
         entityManager.getTransaction().begin(); // Início da transação
 
 
-        System.out.println("\n>>> 7. Fazendo a inserção do novo pedido no banco de dados...");
+        System.out.println("\n>>> 8. Fazendo a inserção do novo pedido no banco de dados...");
         entityManager.persist(pedido);
-        System.out.println("\n>>> 8. Fazendo a inserção do novo itemPedido no banco de dados...");
+        System.out.println("\n>>> 9. Fazendo a inserção do novo itemPedido no banco de dados...");
         entityManager.persist(itemPedido);
 
 
@@ -46,15 +50,14 @@ public class _4_ExercicioMapeandoRelacionamentosCom_OneToMany extends EntityMana
         entityManager.clear(); //Limpa o contexto de persistência, fazendo com que todas as entidades gerenciadas sejam desanexadas.
 
 
-        System.out.println("\n>>> 9. Fazendo a consulta do pedido no banco de dados...");
+        System.out.println("\n>>> 10. Fazendo a consulta do pedido no banco de dados...");
         Pedido pedidoVerificado = entityManager.find(Pedido.class, itemPedido.getPedido().getId());
         Assert.assertFalse(pedidoVerificado.getItensPedido().isEmpty());
     }
 
-    private static ItemPedido getItemPedido(Pedido pedido, Produto produto) {
+    private static ItemPedido getItemPedido(Produto produto) {
         ItemPedido itemPedido = new ItemPedido();
-        itemPedido.setPedido(pedido);
-        itemPedido.setProduto(produto);
+
         itemPedido.setQuantidade(1);
         itemPedido.setPrecoProduto(produto.getPreco());
         return itemPedido;
