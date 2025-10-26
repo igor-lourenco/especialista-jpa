@@ -18,12 +18,12 @@ public class PagamentoCartao {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "pedido_id")
-    private Integer pedidoId;
-
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private StatusPagamento status;
 
     private String numero;
 
+    @OneToOne // um pagamentoCartao tem um pedido
+    @JoinColumn(name = "pedido_id")  // owner
+    private Pedido pedido;
 }

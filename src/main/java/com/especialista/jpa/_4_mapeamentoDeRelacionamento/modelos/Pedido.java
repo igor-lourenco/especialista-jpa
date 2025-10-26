@@ -45,4 +45,7 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido") // um pedido tem em muitos itens de pedido
     private List<ItemPedido> itensPedido;
+
+    @OneToOne(mappedBy = "pedido") // um pedido tem um pamento cartão (não owner)
+    private PagamentoCartao pagamento;
 }
