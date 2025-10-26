@@ -28,4 +28,7 @@ public class Categoria {
     @OneToMany(mappedBy = "categoriaPai") // uma categoria mãe tem muitas categorias filhas
     private List<Categoria> categorias;
 
+
+    @ManyToMany(mappedBy = "categorias")//  (não owner)
+    private List<Produto> produtos;
 }
