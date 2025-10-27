@@ -25,11 +25,11 @@ public class ItemPedido {
     private Integer quantidade;
 
 
-    @ManyToOne // muitos itemPedido tem em um pedido
+    @ManyToOne(fetch = FetchType.EAGER, optional = false) // muitos itemPedido tem em um pedido, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "pedido_id")  // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 
-    @ManyToOne // muitos itemPedido tem um produto
+    @ManyToOne(fetch = FetchType.EAGER, optional = false) // muitos itemPedido tem um produto, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "produto_id")  // especifica uma coluna para unir as associações. (owner)
     private Produto produto;
 

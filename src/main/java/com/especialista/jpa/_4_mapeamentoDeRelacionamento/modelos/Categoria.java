@@ -21,14 +21,17 @@ public class Categoria {
 
     private String nome;
 
-    @ManyToOne // muitas categorias filha tem uma categoria pai
+    @ManyToOne(fetch = FetchType.EAGER) // muitas categorias filha tem uma categoria pai, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "categoria_pai_id")  // especifica uma coluna para unir as associações. (owner)
     private Categoria categoriaPai;
 
-    @OneToMany(mappedBy = "categoriaPai") // uma categoria pai tem muitas categorias filhas (não owner)
+
+//   por padrão usa o Fetch.LAZY
+    @OneToMany(mappedBy = "categoriaPai", fetch = FetchType.LAZY) // uma categoria pai tem muitas categorias filhas (não owner)
     private List<Categoria> categorias;
 
 
-    @ManyToMany(mappedBy = "categorias") //  (não owner)
+//   por padrão usa o Fetch.LAZY
+    @ManyToMany(mappedBy = "categorias", fetch = FetchType.LAZY) // uma categoria tem muitos produtos (não owner)
     private List<Produto> produtos;
 }

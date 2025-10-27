@@ -26,8 +26,12 @@ public class Produto {
 
     private BigDecimal preco;
 
+//   por padrão usa o Fetch.EAGER
+    @OneToOne(mappedBy = "produto", fetch = FetchType.EAGER) // um produto em um estoque (não owner)
+    private Estoque estoque;
 
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.LAZY) // por padrão usa o Fetch.LAZY
     @JoinTable(name = "tb_produto_categoria",
         joinColumns = @JoinColumn(name = "produto_id"), // coluna que referencia o id dessa entidade Produto (owner)
         inverseJoinColumns = @JoinColumn(name = "categoria_id") // coluna que referencia o id da entidade Categoria (não owner)

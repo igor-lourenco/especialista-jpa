@@ -23,7 +23,7 @@ public class PagamentoCartao {
 
     private String numero;
 
-    @OneToOne // um pagamentoCartao tem um pedido
+    @OneToOne(fetch = FetchType.EAGER, optional = false) // um pagamentoCartao tem um pedido, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 }

@@ -25,7 +25,7 @@ public class NotaFiscal {
     private Date dataEmissao;
 
 
-    @OneToOne // uma notaFiscal tem um pedido
+    @OneToOne(fetch = FetchType.EAGER, optional = false) // uma notaFiscal tem um pedido, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 

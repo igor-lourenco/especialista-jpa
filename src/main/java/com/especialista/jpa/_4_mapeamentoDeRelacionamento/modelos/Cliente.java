@@ -24,6 +24,7 @@ public class Cliente {
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private SexoCliente sexo;
 
-    @OneToMany(mappedBy = "cliente") // um cliente tem muitos pedidos (não owner)
+//  por padrão usa o Fetch.LAZY
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY) // um cliente tem muitos pedidos (não owner)
     private List<Pedido> pedidos;
 }

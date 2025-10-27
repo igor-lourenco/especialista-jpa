@@ -18,8 +18,9 @@ public class Estoque {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "produto_id")
-    private Integer produtoId;
+    @OneToOne(fetch = FetchType.EAGER, optional = false) // por padrão usa o Fetch.EAGER
+    @Column(name = "produto_id")// um estoque tem um produto (owner)
+    private Produto produto;
 
     private Integer quantidade;
 
