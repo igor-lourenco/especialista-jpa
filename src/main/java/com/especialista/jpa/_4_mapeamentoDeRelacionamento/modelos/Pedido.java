@@ -37,17 +37,17 @@ public class Pedido {
     private Endereco enderecoEntrega;
 
 
-    @ManyToOne // muitos pedidos tem um cliente
+    @ManyToOne(fetch = FetchType.EAGER) // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "cliente_id") // especifica uma coluna para unir as associações. (owner)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedido") // um pedido tem em muitos itens de pedido (não owner)
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY) // um pedido tem em muitos itens de pedido (não owner), por padrão usa o Fetch.LAZY
     private List<ItemPedido> itensPedido;
 
-    @OneToOne(mappedBy = "pedido") // um pedido tem um pamento cartão (não owner)
+    @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem um pamento cartão (não owner)
     private PagamentoCartao pagamento;
 
 
-    @OneToOne(mappedBy = "pedido") // um pedido tem uma nota fiscal (não owner)
+    @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem uma nota fiscal (não owner)
     private NotaFiscal notaFiscal;
 }

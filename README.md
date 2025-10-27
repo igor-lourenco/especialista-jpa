@@ -6,8 +6,6 @@ Mapeamento Objeto Relacional é a representação de uma tabela de um banco de d
 
 ![Mapeamento_objeto_relacional.png](imagens%2FMapeamento_objeto_relacional.png)
 
-
-
 ## Estados de uma entidade
 
 Uma entidade pode assumir alguns estados com relação ao EntityManager. Os estados podem ser:
