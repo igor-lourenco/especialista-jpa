@@ -19,7 +19,7 @@ public class Estoque {
     private Integer id;
 
     @OneToOne(fetch = FetchType.EAGER, optional = false) // por padrão usa o Fetch.EAGER
-    @Column(name = "produto_id")// um estoque tem um produto (owner)
+    @JoinColumn(name = "produto_id")// um estoque tem um produto (owner)
     private Produto produto;
 
     private Integer quantidade;

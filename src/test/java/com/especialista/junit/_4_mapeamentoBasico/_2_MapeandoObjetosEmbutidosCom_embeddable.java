@@ -1,5 +1,6 @@
 package com.especialista.junit._4_mapeamentoBasico;
 
+import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Cliente;
 import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Endereco;
 import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Pedido;
 import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.StatusPedido;
@@ -14,7 +15,8 @@ public class _2_MapeandoObjetosEmbutidosCom_embeddable extends EntityManagerTest
 
     @Test
     public void analisarMapeandoObjetoEmbutido(){
-        System.out.println(">>> 1. Instanciando o pedido...");
+        System.out.println(">>> 1. Buscando cliente...");
+        Cliente cliente = entityManager.find(Cliente.class, 1);
 
         Endereco enderecoEntrega = new Endereco();
         enderecoEntrega.setCep("12345-67");
@@ -25,23 +27,27 @@ public class _2_MapeandoObjetosEmbutidosCom_embeddable extends EntityManagerTest
         enderecoEntrega.setCidade("Uberlândia");
         enderecoEntrega.setEstado("MG");
 
+        System.out.println(">>> 2. Instanciando pedido...");
         Pedido pedido = new Pedido();
 //        pedido.setId(1); // Comentado porque está usando o GenerationType.IDENTITY e causa PersistentObjectException: detached entity passed to persist
         pedido.setDataPedido(LocalDateTime.now());
         pedido.setStatus(StatusPedido.AGUARDANDO);
         pedido.setTotal(new BigDecimal("1000"));
+
+        System.out.println(">>> 3. Associando cliente(não owner) e endereço a um pedido(owner)...");
         pedido.setEnderecoEntrega(enderecoEntrega);
+        pedido.setCliente(cliente);
 
         entityManager.getTransaction().begin(); // Início da transação
 
         entityManager.persist(pedido);
 
-        System.out.println(">>> 2. Fazendo a inserção do novo pedido no banco de dados...");
+        System.out.println(">>> 4. Fazendo a inserção do novo pedido no banco de dados...");
         entityManager.getTransaction().commit(); // Fim da transação (confirma a transação)
 
         entityManager.clear(); //Limpa o contexto de persistência, fazendo com que todas as entidades gerenciadas sejam desanexadas.
 
-        System.out.println(">>> 3. Fazendo a consulta do pedido no banco de dados...");
+        System.out.println(">>> 5. Fazendo a consulta do pedido no banco de dados...");
         Pedido pedidoVerificado = entityManager.find(Pedido.class, pedido.getId());
         Assert.assertNotNull(pedidoVerificado);
         Assert.assertNotNull(pedidoVerificado.getEnderecoEntrega());
