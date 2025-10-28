@@ -1,11 +1,11 @@
 package com.especialista.junit._5_mapeamentoDeRelacionamentos;
 
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.*;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.PagamentoCartao;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Pedido;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.StatusPagamento;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 public class _8_MapeandoRelacionamentosCom_OneToOne extends EntityManagerTest {
 

@@ -1,13 +1,11 @@
 package com.especialista.junit._5_mapeamentoDeRelacionamentos;
 
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Categoria;
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Pedido;
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Produto;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Categoria;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Produto;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class _7_MapeandoRelacionamentosCom_ManyToMany extends EntityManagerTest {

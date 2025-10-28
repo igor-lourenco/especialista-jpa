@@ -1,17 +1,14 @@
 package com.especialista.junit._5_mapeamentoDeRelacionamentos;
 
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.*;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Categoria;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
 public class _5_MapeandoAutorelacionamentosCom_ManyToOne_e_OneToMany extends EntityManagerTest {
 
     @Test
-    public void verificarRelacionamento_ManyToOne(){
+    public void verificarRelacionamento_ManyToOne() {
         System.out.println("\n>>> 1. Instanciando categoria pai...");
         Categoria categoriaPai = new Categoria();
         categoriaPai.setNome("Eletrônicos");

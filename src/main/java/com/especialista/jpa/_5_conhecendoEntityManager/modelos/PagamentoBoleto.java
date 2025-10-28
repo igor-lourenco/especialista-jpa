@@ -1,30 +1,29 @@
-package com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos;
+package com.especialista.jpa._5_conhecendoEntityManager.modelos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "tb_cliente", schema = "especialistajpadb")
-public class Cliente {
+@Table(name = "tb_pagamento_boleto", schema = "especialistajpadb")
+public class PagamentoBoleto {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    private String nome;
+    @Column(name = "pedido_id")
+    private Integer pedidoId;
 
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
-    private SexoCliente sexo;
+    private StatusPagamento status;
 
-//  por padrão usa o Fetch.LAZY
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY) // um cliente tem muitos pedidos (não owner)
-    private List<Pedido> pedidos;
+    @Column(name = "produto_id")
+    private String codigoBarras;
 }

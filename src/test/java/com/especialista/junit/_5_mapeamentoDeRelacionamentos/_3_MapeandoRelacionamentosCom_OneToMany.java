@@ -1,9 +1,9 @@
 package com.especialista.junit._5_mapeamentoDeRelacionamentos;
 
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Cliente;
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Endereco;
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Pedido;
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.StatusPedido;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Cliente;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Endereco;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Pedido;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.StatusPedido;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;

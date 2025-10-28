@@ -1,6 +1,6 @@
 package com.especialista.junit._4_mapeamentoBasico;
 
-import com.especialista.jpa._4_mapeamentoDeRelacionamento.modelos.Categoria;
+import com.especialista.jpa._5_conhecendoEntityManager.modelos.Categoria;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
