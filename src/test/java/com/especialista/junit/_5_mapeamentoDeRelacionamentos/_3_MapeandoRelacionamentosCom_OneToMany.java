@@ -24,7 +24,7 @@ public class _3_MapeandoRelacionamentosCom_OneToMany extends EntityManagerTest {
         System.out.println("\n>>> 3. Instanciando o pedido...");
         Pedido pedido = new Pedido();
 //      pedido.setId(1); // Comentado porque está usando o GenerationType.IDENTITY e causa PersistentObjectException: detached entity passed to persist
-        pedido.setDataPedido(LocalDateTime.now());
+        pedido.setDataCriacao(LocalDateTime.now());
         pedido.setStatus(StatusPedido.AGUARDANDO);
         pedido.setTotal(new BigDecimal("1000"));
 

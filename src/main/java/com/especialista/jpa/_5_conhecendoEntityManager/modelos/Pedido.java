@@ -21,8 +21,11 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "data_pedido")
-    private LocalDateTime dataPedido;
+    @Column(name = "data_criacao")
+    private LocalDateTime dataCriacao;
+
+    @Column(name = "data_ultima_atualizacao")
+    private LocalDateTime dataUltimaAtualizacao;
 
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
@@ -52,4 +55,68 @@ public class Pedido {
 
     @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem uma nota fiscal (não owner)
     private NotaFiscal notaFiscal;
+
+
+
+//  ====================  USANDO CALLBACK DO JPA  ====================
+//  Obs: Só pode marcar o método com essas anotações apenas em um, não pode ter mais de um método usando a mesma anotação.
+
+//    @PrePersist
+//    @PreUpdate
+    public void calcularValorTotal(){
+        System.out.println(">>> Calculando valor total...");
+        if(this.itensPedido != null){
+            this.total = itensPedido.stream()
+                .map(ItemPedido::getPrecoProduto)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        }
+    }
+
+    @PrePersist
+    public void aoPersistir(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback ANTES de persistir no banco de dados...");
+        this.dataCriacao = LocalDateTime.now();
+
+        calcularValorTotal();
+    }
+
+    @PostPersist
+    public void aposPersistir(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback DEPOIS de persistir no banco de dados...");
+
+    }
+    @PreUpdate
+    public void aoAtualizar(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback ANTES de atualizar no banco de dados...");
+        this.dataUltimaAtualizacao = LocalDateTime.now();
+
+        calcularValorTotal();
+    }
+
+    @PostUpdate
+    public void aposAtualizar(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback DEPOIS de atualizar no banco de dados...");
+    }
+
+    @PreRemove
+    public void aoRemover(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback ANTES de remover no banco de dados...");
+    }
+
+    @PostRemove
+    public void aposRemover(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback DEPOIS de remover no banco de dados...");
+    }
+
+    @PostLoad
+    public void aoCarregar(){
+        System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
+        System.out.println(">>> Executando callback APÓS carregar pedido no banco de dados...");
+    }
 }
