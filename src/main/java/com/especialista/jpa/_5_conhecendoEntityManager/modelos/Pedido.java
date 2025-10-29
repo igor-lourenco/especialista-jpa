@@ -1,5 +1,7 @@
 package com.especialista.jpa._5_conhecendoEntityManager.modelos;
 
+import com.especialista.jpa.listeners.GenericoListener;
+import com.especialista.jpa.listeners.GerarNotaFiscalListener;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+// Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
+@EntityListeners({GerarNotaFiscalListener.class, GenericoListener.class})
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -56,6 +60,10 @@ public class Pedido {
     @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem uma nota fiscal (não owner)
     private NotaFiscal notaFiscal;
 
+
+    public boolean isPago(){
+        return StatusPedido.PAGO.equals(this.status);
+    }
 
 
 //  ====================  USANDO CALLBACK DO JPA  ====================

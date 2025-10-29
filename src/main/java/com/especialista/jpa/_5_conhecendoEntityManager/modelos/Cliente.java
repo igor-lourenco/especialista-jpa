@@ -1,5 +1,6 @@
 package com.especialista.jpa._5_conhecendoEntityManager.modelos;
 
+import com.especialista.jpa.listeners.GenericoListener;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +8,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+// Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
+@EntityListeners({GenericoListener.class})
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
