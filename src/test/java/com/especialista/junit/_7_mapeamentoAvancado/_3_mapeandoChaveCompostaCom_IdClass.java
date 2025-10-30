@@ -59,4 +59,12 @@ public class _3_mapeandoChaveCompostaCom_IdClass extends EntityManagerTest {
         Assert.assertFalse(pedidoVerificado.getItensPedido().isEmpty());
 
     }
+
+    @Test
+    public void buscarItem(){
+        System.out.println("\n>>> 1. Buscando ItemPedido a partir da classe de chave primária composta ItemPedidoId no banco de dados...");
+        ItemPedido itemPedido = entityManager.find(ItemPedido.class, new ItemPedidoId(1, 1));
+
+        Assert.assertNotNull(itemPedido);
+    }
 }
