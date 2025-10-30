@@ -25,10 +25,10 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "data_criacao")
+    @Column(name = "data_criacao", updatable = false) // para não atualizar no banco de dados após criado
     private LocalDateTime dataCriacao;
 
-    @Column(name = "data_ultima_atualizacao")
+    @Column(name = "data_ultima_atualizacao", insertable = false) // para não ser criado no banco de dados, ou seja, salvar como null
     private LocalDateTime dataUltimaAtualizacao;
 
     @Column(name = "data_conclusao")

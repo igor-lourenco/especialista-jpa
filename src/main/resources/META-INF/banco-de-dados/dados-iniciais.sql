@@ -16,7 +16,7 @@ insert into tb_cliente(id, nome) values (2, 'Marcos Mariano');
 insert into tb_produto(id, nome, preco, descricao, data_criacao) values (1, 'Kindle', 499.0, 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.', date_sub(sysdate(), interval 1 day));
 insert into tb_produto(id, nome, preco, descricao, data_criacao) values (3, 'Câmera GoPro Hero 7', 1400.0, 'Desempenho 2x melhor.', date_sub(sysdate(), interval 1 day));
 
-insert into tb_pedido (id, cliente_id, data_pedido, total, status) values (1, 1, sysdate(), 100.0, 'AGUARDANDO');
+insert into tb_pedido (id, cliente_id, data_criacao, total, status) values (1, 1, date_sub(sysdate(), interval 1 day), 100.0, 'AGUARDANDO');
 
 insert into tb_item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 1, 5.0, 2);
 
