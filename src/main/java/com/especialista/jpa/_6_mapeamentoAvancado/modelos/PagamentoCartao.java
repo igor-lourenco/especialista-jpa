@@ -1,4 +1,4 @@
-package com.especialista.jpa._5_conhecendoEntityManager.modelos;
+package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,20 +10,20 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "tb_pagamento_boleto", schema = "especialistajpadb")
-public class PagamentoBoleto {
+@Table(name = "tb_pagamento_cartao", schema = "especialistajpadb")
+public class PagamentoCartao {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
 
-    @Column(name = "pedido_id")
-    private Integer pedidoId;
-
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private StatusPagamento status;
 
-    @Column(name = "produto_id")
-    private String codigoBarras;
+    private String numero;
+
+    @OneToOne(fetch = FetchType.EAGER, optional = false) // um pagamentoCartao tem um pedido, por padrão usa o Fetch.EAGER
+    @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
+    private Pedido pedido;
 }

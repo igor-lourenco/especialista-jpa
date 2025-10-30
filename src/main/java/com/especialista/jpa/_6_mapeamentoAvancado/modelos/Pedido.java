@@ -1,4 +1,4 @@
-package com.especialista.jpa._5_conhecendoEntityManager.modelos;
+package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
 import com.especialista.jpa.listeners.GenericoListener;
 import com.especialista.jpa.listeners.GerarNotaFiscalListener;

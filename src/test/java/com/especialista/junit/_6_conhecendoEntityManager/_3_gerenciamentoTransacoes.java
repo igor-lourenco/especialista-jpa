@@ -1,7 +1,7 @@
 package com.especialista.junit._6_conhecendoEntityManager;
 
-import com.especialista.jpa._5_conhecendoEntityManager.modelos.Pedido;
-import com.especialista.jpa._5_conhecendoEntityManager.modelos.StatusPedido;
+import com.especialista.jpa._6_mapeamentoAvancado.modelos.Pedido;
+import com.especialista.jpa._6_mapeamentoAvancado.modelos.StatusPedido;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Test;
 

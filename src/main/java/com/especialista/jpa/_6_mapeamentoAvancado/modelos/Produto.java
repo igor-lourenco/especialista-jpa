@@ -1,4 +1,4 @@
-package com.especialista.jpa._5_conhecendoEntityManager.modelos;
+package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -25,6 +26,13 @@ public class Produto {
     private String descricao;
 
     private BigDecimal preco;
+
+    @Column(name = "data_criacao", updatable = false) // para não atualizar no banco de dados após criado
+    private LocalDateTime dataCriacao;
+
+    @Column(name = "data_ultima_atualizacao", insertable = false) // para não ser criado no banco de dados, ou seja, salvar como null
+    private LocalDateTime dataUltimaAtualizacao;
+
 
 //   por padrão usa o Fetch.EAGER
     @OneToOne(mappedBy = "produto", fetch = FetchType.EAGER) // um produto em um estoque (não owner)

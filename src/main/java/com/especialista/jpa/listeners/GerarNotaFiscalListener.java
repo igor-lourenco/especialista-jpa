@@ -1,6 +1,6 @@
 package com.especialista.jpa.listeners;
 
-import com.especialista.jpa._5_conhecendoEntityManager.modelos.Pedido;
+import com.especialista.jpa._6_mapeamentoAvancado.modelos.Pedido;
 import com.especialista.jpa.services.NotaFiscalService;
 
 import javax.persistence.PrePersist;

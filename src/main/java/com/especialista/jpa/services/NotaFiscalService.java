@@ -1,6 +1,6 @@
 package com.especialista.jpa.services;
 
-import com.especialista.jpa._5_conhecendoEntityManager.modelos.Pedido;
+import com.especialista.jpa._6_mapeamentoAvancado.modelos.Pedido;
 
 public class NotaFiscalService {
 

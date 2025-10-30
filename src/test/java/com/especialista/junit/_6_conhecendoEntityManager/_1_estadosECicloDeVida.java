@@ -1,6 +1,6 @@
 package com.especialista.junit._6_conhecendoEntityManager;
 
-import com.especialista.jpa._5_conhecendoEntityManager.modelos.Categoria;
+import com.especialista.jpa._6_mapeamentoAvancado.modelos.Categoria;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Test;
 
