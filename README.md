@@ -47,3 +47,8 @@ Uma entidade pode assumir alguns estados com relação ao EntityManager. Os esta
 ![Estados_de_uma_entidade.png](imagens%2FEstados_de_uma_entidade.png)
 
 
+- O estado **Transient** é o mais natural. É simplesmente quando construímos um objeto qualquer usando o operador new.
+- Para estar no estado **Managed**, podemos chamar os métodos persist(), merge() ou buscar a entidade usando o **EntityManager**.
+- O estado **Removed** é alcançado quando chamamos o método remove().
+- O estado **Detached** quando é passada para o método detach().
+- Importante notar que entidades **Detached** podem voltar a ser gerenciadas com a chamada do método merge().
