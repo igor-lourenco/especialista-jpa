@@ -11,13 +11,19 @@ import java.math.BigDecimal;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@IdClass(ItemPedidoId.class)
 @Table(name = "tb_item_pedido", schema = "especialistajpadb")
 public class ItemPedido {
 
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
-    private Integer id;
+    @Column(name = "pedido_id")
+    private Integer pedidoId;
+
+    @Id
+    @EqualsAndHashCode.Include
+    @Column(name = "produto_id")
+    private Integer produtoId;
 
     @Column(name = "preco_produto")
     private BigDecimal precoProduto;
@@ -26,11 +32,11 @@ public class ItemPedido {
 
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false) // muitos itemPedido tem em um pedido, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "pedido_id")  // especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "pedido_id", insertable = false, updatable = false)  // especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false) // muitos itemPedido tem um produto, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "produto_id")  // especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "produto_id", insertable = false, updatable = false)  // especifica uma coluna para unir as associações. (owner)
     private Produto produto;
 
 }

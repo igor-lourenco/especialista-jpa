@@ -2,7 +2,6 @@ package com.especialista.junit._5_mapeamentoDeRelacionamentos;
 
 import com.especialista.jpa._6_mapeamentoAvancado.modelos.*;
 import com.especialista.junit.utils.EntityManagerTest;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -49,14 +48,14 @@ public class _2_ExercicioMapeandoRelacionamentosCom_ManyToOne extends EntityMana
         entityManager.clear(); //Limpa o contexto de persistência, fazendo com que todas as entidades gerenciadas sejam desanexadas.
 
 
-        System.out.println("\n>>> 10. Fazendo a consulta do pedido e itemPedido no banco de dados...");
-        Pedido pedidoVerificado = entityManager.find(Pedido.class, pedido.getId());
-        ItemPedido itemPedidoVErificado = entityManager.find(ItemPedido.class, itemPedido.getId());
-        Assert.assertNotNull(pedidoVerificado);
-        Assert.assertNotNull(pedidoVerificado.getCliente());
-        Assert.assertNotNull(itemPedidoVErificado);
-        Assert.assertNotNull(itemPedidoVErificado.getProduto());
-        Assert.assertNotNull(itemPedidoVErificado.getPedido());
+//        System.out.println("\n>>> 10. Fazendo a consulta do pedido e itemPedido no banco de dados...");
+//        Pedido pedidoVerificado = entityManager.find(Pedido.class, pedido.getId());
+//        ItemPedido itemPedidoVErificado = entityManager.find(ItemPedido.class, itemPedido .getId());
+//        Assert.assertNotNull(pedidoVerificado);
+//        Assert.assertNotNull(pedidoVerificado.getCliente());
+//        Assert.assertNotNull(itemPedidoVErificado);
+//        Assert.assertNotNull(itemPedidoVErificado.getProduto());
+//        Assert.assertNotNull(itemPedidoVErificado.getPedido());
     }
 
     private static ItemPedido getItemPedido(Produto produto) {

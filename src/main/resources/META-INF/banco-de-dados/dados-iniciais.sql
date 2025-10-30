@@ -18,6 +18,6 @@ insert into tb_produto(id, nome, preco, descricao, data_criacao) values (3, 'Câ
 
 insert into tb_pedido (id, cliente_id, data_criacao, total, status) values (1, 1, date_sub(sysdate(), interval 1 day), 100.0, 'AGUARDANDO');
 
-insert into tb_item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 1, 5.0, 2);
+insert into tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 5.0, 2);
 
 insert into tb_categoria(id, nome) values (1, "Eletrônicos");
