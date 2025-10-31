@@ -16,7 +16,8 @@ public class NotaFiscal {
 
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+    @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
     private Integer id;
 
     private String xml;
@@ -25,8 +26,9 @@ public class NotaFiscal {
     private Date dataEmissao;
 
 
+    @MapsId // Especifica ao JPA que um ou mais campos da PK vêm do identificador de uma associação (@ManyToOne ou @OneToOne), evitando duplicidade de colunas e mantendo tudo sincronizado.
     @OneToOne(fetch = FetchType.EAGER, optional = false) // uma notaFiscal tem um pedido, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "pedido_id") // especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "pedido_id") // Especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
 
 /*  Exemplo usando JoinTable com relacionamento OneToOne com notaFiscal e pedido

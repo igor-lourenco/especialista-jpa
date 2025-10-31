@@ -6,8 +6,41 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
-public class _4_mapeandoChaveCompostaCom_EmbeddedId extends EntityManagerTest {
+public class _5_mapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_MapsId extends EntityManagerTest {
+
+
+    @Test
+    public void inserirPagamento(){
+        System.out.println("\n>>> 1. Buscando Pedido no banco de dados...");
+        Pedido pedido = entityManager.find(Pedido.class, 1);
+
+        System.out.println("\n>>> 2. Instânciando nova NotaFiscal...");
+        NotaFiscal notaFiscal = new NotaFiscal();
+        notaFiscal.setPedido(pedido);
+        notaFiscal.setDataEmissao(new Date());
+        notaFiscal.setXml("<xml/>");
+
+
+        System.out.println("\n>>> 3. Iniciando uma transação...");
+        entityManager.getTransaction().begin();// Início da transação
+
+        System.out.println("\n>>> 4. Colocando uma nova NotaFiscal no contexto de persistência usando o persist()...");
+        entityManager.persist(notaFiscal);
+
+        System.out.println("\n>>> 5. JPA confirmando a transação, salvando as alterações no banco de dados...");
+        entityManager.getTransaction().commit();// Fim da transação (confirma a transação)
+
+        System.out.println("\n>>> 6. Limpando o contexto de persistência, fazendo com que todas as entidades gerenciadas sejam desanexadas...");
+        entityManager.clear();
+
+        System.out.println("\n>>> 7. Buscando NotaFiscal criado no banco de dados...");
+        NotaFiscal notaFiscalVerificado = entityManager.find(NotaFiscal.class, notaFiscal.getId());
+
+        Assert.assertNotNull(notaFiscalVerificado);
+        Assert.assertEquals(notaFiscalVerificado.getId(), pedido.getId());
+    }
 
 
     @Test
@@ -40,7 +73,7 @@ public class _4_mapeandoChaveCompostaCom_EmbeddedId extends EntityManagerTest {
         itemPedido.setProduto(produto);
         itemPedido.setPrecoProduto(produto.getPreco());
         itemPedido.setQuantidade(1);
-        itemPedido.setId(new ItemPedidoId(pedido.getId(), produto.getId()));
+        itemPedido.setId(new ItemPedidoId());
 
 
         System.out.println("\n>>> 8. Colocando um novo ItemPedido no contexto de persistência usando o persist()...");
