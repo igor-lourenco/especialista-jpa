@@ -44,9 +44,9 @@ public class _2_ExercicioMapeandoRelacionamentosCom_ManyToOne extends EntityMana
         print("\n>>> 10. Associando itemPedido(owner) a produto(não owner) e pedido(não owner) ...");
         itemPedido.setProduto(produto);
         itemPedido.setPedido(pedido);
-        itemPedido.setPedidoId(pedido.getId());
-        itemPedido.setProdutoId(produto.getId());
-
+//        itemPedido.setPedidoId(pedido.getId()); // @IdClass - chave primária composta
+//        itemPedido.setProdutoId(produto.getId()); // @IdClass - chave primária composta
+        itemPedido.setId(new ItemPedidoId(pedido.getId(), produto.getId()));
 
         print("\n>>> 11. Colocando uma novo ItemPedido no contexto de persistência usando o persist()...");
         entityManager.persist(itemPedido);

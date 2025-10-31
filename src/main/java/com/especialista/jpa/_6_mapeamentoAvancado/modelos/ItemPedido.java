@@ -11,19 +11,11 @@ import java.math.BigDecimal;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@IdClass(ItemPedidoId.class) // Especifica uma classe de chave primária composta
 @Table(name = "tb_item_pedido", schema = "especialistajpadb")
 public class ItemPedido {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @Column(name = "pedido_id")
-    private Integer pedidoId; // mesmo campo da classe de chave primária composta
-
-    @Id
-    @EqualsAndHashCode.Include
-    @Column(name = "produto_id")
-    private Integer produtoId; // mesmo campo da classe de chave primária composta
+    @EmbeddedId // chave primária composta como um objeto de valor embutido dentro dessa entidade.
+    private ItemPedidoId id;
 
     @Column(name = "preco_produto")
     private BigDecimal precoProduto;

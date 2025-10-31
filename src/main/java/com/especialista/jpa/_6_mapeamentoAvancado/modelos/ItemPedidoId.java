@@ -2,12 +2,13 @@ package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
 import lombok.*;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 
-/* Classe de chave primária composta que é mapeada para vários campos ou propriedades da entidade.
-   Os nomes dos campos ou propriedades da classe de chave primária e os campos ou propriedades da chave primária
-   da entidade devem corresponder e seus tipos devem ser os mesmos.
-*/
+// Especifica que essa classe é embutível como parte intrínseca de uma entidade
+// Cada uma das propriedades ou campos persistentes desse objeto é mapeada para a tabela do banco
+@Embeddable
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,8 +17,10 @@ import java.io.Serializable;
 public class ItemPedidoId implements Serializable {
 
     @EqualsAndHashCode.Include
-    private Integer pedidoId; // mesmo campo da entidade mapeada
+    @Column(name = "pedido_id")
+    private Integer pedidoId; // mesmo campo da entidade
 
     @EqualsAndHashCode.Include
-    private Integer produtoId; // mesmo campo da entidade mapeada
+    @Column(name = "produto_id")
+    private Integer produtoId; // mesmo campo da entidade
 }

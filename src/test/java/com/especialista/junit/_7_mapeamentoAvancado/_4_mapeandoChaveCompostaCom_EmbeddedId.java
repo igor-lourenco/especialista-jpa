@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 
-public class _3_mapeandoChaveCompostaCom_IdClass extends EntityManagerTest {
+public class _4_mapeandoChaveCompostaCom_EmbeddedId extends EntityManagerTest {
 
 
     @Test
@@ -36,9 +36,7 @@ public class _3_mapeandoChaveCompostaCom_IdClass extends EntityManagerTest {
 
         System.out.println("\n>>> 4. Instânciando novo ItemPedido...");
         ItemPedido itemPedido = new ItemPedido();
-//        itemPedido.setPedidoId(pedido.getId()); // @IdClass - chave primária composta
         itemPedido.setPedido(pedido);
-//        itemPedido.setProdutoId(produto.getId()); // @IdClass - chave primária composta
         itemPedido.setProduto(produto);
         itemPedido.setPrecoProduto(produto.getPreco());
         itemPedido.setQuantidade(1);
