@@ -27,7 +27,23 @@ public class Cliente {
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private SexoCliente sexo;
 
-//  por padrão usa o Fetch.LAZY
+    //  por padrão usa o Fetch.LAZY
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY) // um cliente tem muitos pedidos (não owner)
     private List<Pedido> pedidos;
+
+    @Transient // JPA ignora essa propriedade e não será persistida
+    private String primeiroNome;
+
+
+    @PostLoad // Executa callback APÓS carregar cliente no banco de dados...
+    public void configurarPrimeiroNome() {
+        System.out.println(">>> Executando callback APÓS carregar cliente no banco de dados...");
+
+        if (nome != null && !nome.isBlank()) {
+            int index = nome.indexOf(" ");
+            if (index > -1) {
+                primeiroNome = nome.substring(0, index);
+            }
+        }
+    }
 }

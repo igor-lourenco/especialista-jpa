@@ -11,7 +11,7 @@ public class _6_exercicioMapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_
 
 
     @Test
-    public void inserirPagamento(){
+    public void inserirPagamentoCartao(){
         System.out.println("\n>>> 1. Buscando Pedido no banco de dados...");
         Pedido pedido = entityManager.find(Pedido.class, 1);
 
@@ -100,7 +100,7 @@ public class _6_exercicioMapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_
         Assert.assertNotNull(pedidoVerificado);
         Assert.assertFalse(pedidoVerificado.getItensPedido().isEmpty());
 
-        System.out.println("\n>>> 7. Buscando PagamentoCartao criado no banco de dados...");
+        System.out.println("\n>>> 15. Buscando PagamentoCartao criado no banco de dados...");
         PagamentoCartao pagamentoCartaoVerificado = entityManager.find(PagamentoCartao.class, pedido.getId());
 
         Assert.assertNotNull(pagamentoCartaoVerificado);
