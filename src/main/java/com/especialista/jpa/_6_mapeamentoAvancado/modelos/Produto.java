@@ -46,4 +46,10 @@ public class Produto {
     )
     private List<Categoria> categorias;
 
+
+    @ElementCollection
+    @CollectionTable(name = "tb_produto_tag",
+        joinColumns = @JoinColumn(name = "produto_id"))
+    @Column(name = "tag")
+    private List<String> tags;
 }
