@@ -47,9 +47,18 @@ public class Produto {
     private List<Categoria> categorias;
 
 
-    @ElementCollection
-    @CollectionTable(name = "tb_produto_tag",
-        joinColumns = @JoinColumn(name = "produto_id"))
-    @Column(name = "tag")
+    @ElementCollection // Indica que é uma coleção de elementos básicos ou objetos embutidos, JPA cria uma tabela separada para armazenar esses valores
+    @CollectionTable(
+        name = "tb_produto_tag", // nome da tabela no banco.
+        joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+    @Column(name = "tag") // Nome da coluna que vai armazenar cada valor da lista
     private List<String> tags;
+
+
+    @ElementCollection // Indica que é uma coleção de elementos básicos ou objetos embutidos, JPA cria uma tabela separada para armazenar esses valores
+    @CollectionTable(
+        name = "tb_produto_atributo", // nome da tabela no banco.
+        joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+    private List<Atributo> atributos;
+
 }
