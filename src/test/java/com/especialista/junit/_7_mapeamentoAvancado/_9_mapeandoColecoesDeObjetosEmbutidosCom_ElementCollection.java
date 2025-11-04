@@ -12,7 +12,7 @@ public class _9_mapeandoColecoesDeObjetosEmbutidosCom_ElementCollection extends 
 
 
     @Test
-    public void aplicarTags(){
+    public void aplicarAtributo(){
         System.out.println("\n>>> 1. Buscando Produto no banco de dados...");
         Produto produto = entityManager.find(Produto.class, 1);
 
