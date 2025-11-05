@@ -17,7 +17,7 @@ public class _9_ExercicioMapeandoRelacionamentosCom_OneToOne extends EntityManag
 
         System.out.println("\n>>> 2. Instanciando NotaFiscal...");
         NotaFiscal notaFiscal = new NotaFiscal();
-        notaFiscal.setXml("TESTE");
+        notaFiscal.setXml("TESTE".getBytes());
         notaFiscal.setDataEmissao(new Date());
         notaFiscal.setPedido(pedido);
 

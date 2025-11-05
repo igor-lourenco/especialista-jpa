@@ -37,8 +37,8 @@ public class Cliente {
     @CollectionTable(
         name = "tb_cliente_contato", // nome da tabela no banco.
         joinColumns = @JoinColumn(name = "cliente_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
-    @MapKeyColumn(name = "tipo")
-    @Column(name = "descricao")
+    @MapKeyColumn(name = "tipo") // Especifica o mapeamento para a coluna chave do mapa cuja chave é um tipo básico.
+    @Column(name = "descricao") // Nome da coluna que vai armazenar cada valor do mapa
     private Map<String, String> contatos;
 
 

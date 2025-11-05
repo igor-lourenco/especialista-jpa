@@ -20,7 +20,7 @@ public class _5_mapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_MapsId ex
         NotaFiscal notaFiscal = new NotaFiscal();
         notaFiscal.setPedido(pedido);
         notaFiscal.setDataEmissao(new Date());
-        notaFiscal.setXml("<xml/>");
+        notaFiscal.setXml("<xml/>".getBytes());
 
 
         System.out.println("\n>>> 3. Iniciando uma transação...");

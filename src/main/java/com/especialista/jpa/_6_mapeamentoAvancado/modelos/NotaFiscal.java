@@ -20,7 +20,9 @@ public class NotaFiscal {
     @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
     private Integer id;
 
-    private String xml;
+
+    @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
+    private byte[] xml;
 
     @Column(name = "data_emissao")
     private Date dataEmissao;

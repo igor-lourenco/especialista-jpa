@@ -17,7 +17,7 @@ public class _10_MapeandoRelacionamentosCom_OneToOne_e_JoinTable extends EntityM
 
         System.out.println("\n>>> 2. Instanciando NotaFiscal...");
         NotaFiscal notaFiscal = new NotaFiscal();
-        notaFiscal.setXml("TESTE");
+        notaFiscal.setXml("TESTE".getBytes());
         notaFiscal.setDataEmissao(new Date());
         notaFiscal.setPedido(pedido);
 
