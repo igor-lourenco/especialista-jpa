@@ -6,11 +6,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
 // Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
 @EntityListeners({GenericoListener.class})
+
+// mapeia uma única entidade para duas (ou mais) tabelas no banco de dados, nesse caso cria uma tabela secundária "tb_cliente_detalhe" com relacionamento OneToOne
+@SecondaryTable(name = "tb_cliente_detalhe", pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"))
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -25,8 +30,6 @@ public class Cliente {
 
     private String nome;
 
-    @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
-    private SexoCliente sexo;
 
 //  por padrão usa o Fetch.LAZY
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY) // um cliente tem muitos pedidos (não owner)
@@ -40,6 +43,15 @@ public class Cliente {
     @MapKeyColumn(name = "tipo") // Especifica o mapeamento para a coluna chave do mapa cuja chave é um tipo básico.
     @Column(name = "descricao") // Nome da coluna que vai armazenar cada valor do mapa
     private Map<String, String> contatos;
+
+
+    @Column(table = "tb_cliente_detalhe") // Salva essa coluna na tabela secundária "tb_cliente_detalhe"
+    @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
+    private SexoCliente sexo;
+
+
+    @Column(name = "data_nascimento", table = "tb_cliente_detalhe") // Salva esa coluna na tabela secundária "tb_cliente_detalhe"
+    private LocalDate dataNascimento;
 
 
     @Transient // JPA ignora essa propriedade e não será persistida
