@@ -61,4 +61,6 @@ public class Produto {
         joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
     private List<Atributo> atributos;
 
+    @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
+    private byte[] foto;
 }
