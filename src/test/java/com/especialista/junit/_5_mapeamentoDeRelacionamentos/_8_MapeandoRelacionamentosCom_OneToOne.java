@@ -16,7 +16,7 @@ public class _8_MapeandoRelacionamentosCom_OneToOne extends EntityManagerTest {
 
         System.out.println("\n>>> 2. Instanciando pagamentoCartao...");
         PagamentoCartao pagamentoCartao = new PagamentoCartao();
-        pagamentoCartao.setNumero("1234");
+        pagamentoCartao.setNumeroCartao("1234");
         pagamentoCartao.setStatus(StatusPagamento.PROCESSANDO);
 
         System.out.println("\n>>> 3. Fazendo o relacionamento entre pagamentoCartao(owner) e pedido(não owner)...");

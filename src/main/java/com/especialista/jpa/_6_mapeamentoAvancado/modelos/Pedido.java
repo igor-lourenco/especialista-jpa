@@ -53,7 +53,7 @@ public class Pedido extends EntidadeBaseInteger {
 
 
     @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem um pamento cartão (não owner)
-    private PagamentoCartao pagamento;
+    private Pagamento pagamento;
 
 
     @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem uma nota fiscal (não owner)

@@ -17,7 +17,7 @@ public class _6_exercicioMapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_
 
         System.out.println("\n>>> 2. Instânciando novo PagamentoCartao...");
         PagamentoCartao pagamentoCartao = new PagamentoCartao();
-        pagamentoCartao.setNumero("1234");
+        pagamentoCartao.setNumeroCartao("1234");
         pagamentoCartao.setStatus(StatusPagamento.PROCESSANDO);
         pagamentoCartao.setPedido(pedido);
 
@@ -66,7 +66,7 @@ public class _6_exercicioMapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_
 
         System.out.println("\n>>> 7. Instânciando novo PagamentoCartao...");
         PagamentoCartao pagamentoCartao = new PagamentoCartao();
-        pagamentoCartao.setNumero("1234");
+        pagamentoCartao.setNumeroCartao("1234");
         pagamentoCartao.setStatus(StatusPagamento.PROCESSANDO);
         pagamentoCartao.setPedido(pedido);
 
