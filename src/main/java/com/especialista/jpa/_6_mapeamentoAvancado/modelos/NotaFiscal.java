@@ -1,6 +1,5 @@
 package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,16 +8,16 @@ import java.util.Date;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
 @Table(name = "tb_nota_fiscal", schema = "especialistajpadb")
-public class NotaFiscal {
+public class NotaFiscal extends EntidadeBaseInteger {
 
-    @Id
-    @EqualsAndHashCode.Include
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
-    @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
-    private Integer id;
+//    @Id // foi movido para a superclasse
+//    @EqualsAndHashCode.Include
+////    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+//    @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
+//    private Integer id;
 
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados

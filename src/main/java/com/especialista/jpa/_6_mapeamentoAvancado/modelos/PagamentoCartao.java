@@ -1,6 +1,5 @@
 package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,16 +7,16 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
 @Table(name = "tb_pagamento_cartao", schema = "especialistajpadb")
-public class PagamentoCartao {
+public class PagamentoCartao extends EntidadeBaseInteger {
 
-    @Id
-    @EqualsAndHashCode.Include
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
-    @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
-    private Integer id;
+//    @Id // foi movido para a superclasse
+//    @EqualsAndHashCode.Include
+////    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+//    @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
+//    private Integer id;
 
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private StatusPagamento status;

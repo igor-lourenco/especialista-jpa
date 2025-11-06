@@ -1,7 +1,6 @@
 package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
 import com.especialista.jpa.listeners.GenericoListener;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,15 +17,15 @@ import java.util.Map;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
 @Table(name = "tb_cliente", schema = "especialistajpadb")
-public class Cliente {
+public class Cliente extends EntidadeBaseInteger {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
-    private Integer id;
+//    @Id // Foi movido para a superclasse
+//    @EqualsAndHashCode.Include
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+//    private Integer id;
 
     private String nome;
 

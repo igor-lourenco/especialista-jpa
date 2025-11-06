@@ -1,6 +1,5 @@
 package com.especialista.jpa._6_mapeamentoAvancado.modelos;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,15 +10,15 @@ import java.util.List;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
 @Table(name = "tb_produto", schema = "especialistajpadb")
-public class Produto {
+public class Produto extends EntidadeBaseInteger {
 
-    @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
-    private Integer id;
+//    @Id // foi movido para a superclasse
+//    @EqualsAndHashCode.Include
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+//    private Integer id;
 
     private String nome;
 
