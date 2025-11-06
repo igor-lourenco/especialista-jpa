@@ -10,11 +10,13 @@ import javax.persistence.*;
 *  - Pode fazer relacionamento com a entidade abstrata
 *  - Altera a estrutura das tabelas, não ficando muito intuitivo.
 * */
+@DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) // Cria uma coluna especial na tabela (chamada tipo_pagamento) que indica qual tipo de classe foi persistido.
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'.
+@Table(name = "tb_pagamento", schema = "especialistajpadb")
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Getter
 @Setter
-//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
-@Table(name = "tb_pagamento", schema = "especialistajpadb")
 public abstract class Pagamento extends EntidadeBaseInteger {
 
 //    @Id // foi movido para a superclasse
