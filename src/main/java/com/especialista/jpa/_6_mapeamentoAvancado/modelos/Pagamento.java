@@ -11,8 +11,8 @@ import javax.persistence.*;
 *  - Altera a estrutura das tabelas, não ficando muito intuitivo.
 * */
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) //  Significa que cada classe concreta da hierarquia é mapeada para sua própria tabela
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'
-@Inheritance(strategy = InheritanceType.JOINED) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'
+//@Inheritance(strategy = InheritanceType.JOINED) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'
 @DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) // Cria uma coluna especial na tabela (chamada tipo_pagamento) que indica qual tipo de classe foi persistido, apenas para herança com SINGLE_TABLE e JOINED
 @Table(name = "tb_pagamento") // herança com TABLE_PER_CLASS ignora essa anotação e não cria a tabela
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
