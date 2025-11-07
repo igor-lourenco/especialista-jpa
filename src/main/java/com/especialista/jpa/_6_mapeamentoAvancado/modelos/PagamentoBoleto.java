@@ -5,9 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Table(name = "tb_pagamento_boleto", schema = "especialistajpadb")  // herança com single table ignora essa anotação e não cria as tabelas
+@Table(name = "tb_pagamento_boleto")  // herança com single table ignora essa anotação e não cria as tabelas
+@DiscriminatorValue("PagamentoBoleto") // Especifica o valor da coluna discriminadora para essa entidade, apenas para herança com SINGLE_TABLE ou JOINED
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
-//@DiscriminatorValue("PagamentoBoleto") // Especifica o valor da coluna discriminadora para essa entidade, apenas para herança com SINGLE_TABLE
 @Getter
 @Setter
 @Entity
