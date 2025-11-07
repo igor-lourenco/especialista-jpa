@@ -10,22 +10,20 @@ import javax.persistence.*;
 *  - Pode fazer relacionamento com a entidade abstrata
 *  - Altera a estrutura das tabelas, não ficando muito intuitivo.
 * */
-@DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) // Cria uma coluna especial na tabela (chamada tipo_pagamento) que indica qual tipo de classe foi persistido.
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'.
-@Table(name = "tb_pagamento", schema = "especialistajpadb")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) //  Significa que cada classe concreta da hierarquia é mapeada para sua própria tabela
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //  Significa que todas as classes da hierarquia serão armazenadas na mesma tabela 'tb_pagamento'
+//@Table(name = "tb_pagamento", schema = "especialistajpadb") // herança com TABLE_PER_CLASS ignora essa anotação e não cria a tabela
+//@DiscriminatorColumn(name = "tipo_pagamento", discriminatorType = DiscriminatorType.STRING) // Cria uma coluna especial na tabela (chamada tipo_pagamento) que indica qual tipo de classe foi persistido, apenas para herança com SINGLE_TABLE
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Getter
 @Setter
 @Entity
 public abstract class Pagamento extends EntidadeBaseInteger {
 
-//    @Id // foi movido para a superclasse
+//    @Id // O Id da entidade foi movido para a coluna que está usando o @MapsId abaixo
 //    @EqualsAndHashCode.Include
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
-
-    @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
-    private StatusPagamento status;
 
 
 //  O nome do atributo dentro da chave composta ao qual o atributo de relacionamento corresponde. Se não for fornecido, o relacionamento mapeia a chave primária da entidade.
@@ -33,4 +31,8 @@ public abstract class Pagamento extends EntidadeBaseInteger {
     @OneToOne(fetch = FetchType.EAGER, optional = false) // um pagamentoCartao tem um pedido, por padrão usa o Fetch.EAGER
     @JoinColumn(name = "pedido_id") // Especifica uma coluna para unir as associações. (owner)
     private Pedido pedido;
+
+
+    @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
+    private StatusPagamento status;
 }

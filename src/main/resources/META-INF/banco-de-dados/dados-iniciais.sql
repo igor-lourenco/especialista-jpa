@@ -22,7 +22,10 @@ insert into tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade) va
 insert into tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (2, 1, 499.0, 1);
 
 
-insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (2, 'PROCESSANDO', '123', 'PagamentoCartao')
+-- herança com SINGLE_TABLE
+--insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (2, 'PROCESSANDO', '123', 'PagamentoCartao')
 
+-- herança com TABLE_PER_CLASS
+insert into tb_pagamento_cartao(pedido_id, status, numero_cartao) values (2, 'PROCESSANDO', '123')
 
 insert into tb_categoria(id, nome) values (1, "Eletrônicos");
