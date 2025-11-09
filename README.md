@@ -52,3 +52,8 @@ Uma entidade pode assumir alguns estados com relação ao EntityManager. Os esta
 - O estado **Removed** é alcançado quando chamamos o método remove().
 - O estado **Detached** quando é passada para o método detach().
 - Importante notar que entidades **Detached** podem voltar a ser gerenciadas com a chamada do método merge().
+
+
+## Relacionamento das Entidades da aplicação
+
+![Entidade.png](imagens%2FEntidades.png)
