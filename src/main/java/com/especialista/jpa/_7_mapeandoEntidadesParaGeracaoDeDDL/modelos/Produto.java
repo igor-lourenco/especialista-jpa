@@ -12,7 +12,12 @@ import java.util.List;
 @Setter
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
-@Table(name = "tb_produto", schema = "especialistajpadb")
+@Table(
+    name = "tb_produto",
+//    schema = "especialistajpadb",
+    uniqueConstraints = {@UniqueConstraint(name = "unq_nome", columnNames = {"nome"})}, // coluna no banco de dados que não pode se repetir
+    indexes = {@Index(name = "idx_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela)
+)
 public class Produto extends EntidadeBaseInteger {
 
 //    @Id // foi movido para a superclasse
