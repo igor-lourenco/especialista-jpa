@@ -1,4 +1,4 @@
-package com.especialista.jpa._6_mapeamentoAvancado.modelos;
+package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 import com.especialista.jpa.listeners.GenericoListener;
 import lombok.Getter;
@@ -19,7 +19,13 @@ import java.util.Map;
 @Setter
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
-@Table(name = "tb_cliente", schema = "especialistajpadb")
+@Table(
+    name = "tb_cliente",
+//    schema = "especialistajpadb", // Representa o esquema dentro do banco
+//    catalog = "especialistajpadb", // Representa o catálogo, que geralmente é o próprio banco de dados ou um agrupamento de esquemas.
+    uniqueConstraints = {@UniqueConstraint(name = "unq_cpf", columnNames = {"cpf"})}, // coluna no banco de dados que não pode se repetir
+    indexes = {@Index(name = "idx_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela
+)
 public class Cliente extends EntidadeBaseInteger {
 
 //    @Id // Foi movido para a superclasse
@@ -28,6 +34,8 @@ public class Cliente extends EntidadeBaseInteger {
 //    private Integer id;
 
     private String nome;
+
+    private String cpf;
 
 
 //  por padrão usa o Fetch.LAZY

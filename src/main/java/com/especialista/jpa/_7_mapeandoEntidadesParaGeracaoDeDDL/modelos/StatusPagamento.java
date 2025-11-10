@@ -1,4 +1,4 @@
-package com.especialista.jpa._6_mapeamentoAvancado.modelos;
+package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 public enum StatusPagamento {
 

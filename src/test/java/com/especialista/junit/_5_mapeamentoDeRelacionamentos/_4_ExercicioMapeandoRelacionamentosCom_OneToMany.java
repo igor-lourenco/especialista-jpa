@@ -1,6 +1,6 @@
 package com.especialista.junit._5_mapeamentoDeRelacionamentos;
 
-import com.especialista.jpa._6_mapeamentoAvancado.modelos.*;
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.*;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;

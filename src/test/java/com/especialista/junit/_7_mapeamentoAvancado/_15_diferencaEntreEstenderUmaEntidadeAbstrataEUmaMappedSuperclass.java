@@ -1,6 +1,6 @@
 package com.especialista.junit._7_mapeamentoAvancado;
 
-import com.especialista.jpa._6_mapeamentoAvancado.modelos.*;
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.*;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class _15_diferencaEntreEstenderUmaEntidadeAbstrataEUmaMappedSuperclass e
 
 
     @Test
-    public void salvarCliente(){
+    public void salvarCliente() {
         System.out.println("\n>>> 1. Instânciando novo Cliente...");
         Cliente cliente = new Cliente();
         cliente.setNome("Carlos Finotti");
@@ -41,7 +41,7 @@ public class _15_diferencaEntreEstenderUmaEntidadeAbstrataEUmaMappedSuperclass e
     }
 
     @Test
-    public void buscarPagamentos(){
+    public void buscarPagamentos() {
         System.out.println("\n>>> 1. Buscando lista de Pagamentos...");
         List<Pagamento> pagamentos = entityManager.createQuery("SELECT p FROM Pagamento p").getResultList();
 
@@ -52,7 +52,7 @@ public class _15_diferencaEntreEstenderUmaEntidadeAbstrataEUmaMappedSuperclass e
 
 
     @Test
-    public void incluirPagamentoPedido(){
+    public void incluirPagamentoPedido() {
         System.out.println("\n>>> 1. Buscando Pedido no banco de dados...");
         Pedido pedido = entityManager.find(Pedido.class, 1);
 

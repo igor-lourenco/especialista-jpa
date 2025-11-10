@@ -1,7 +1,7 @@
 package com.especialista.junit._7_mapeamentoAvancado;
 
-import com.especialista.jpa._6_mapeamentoAvancado.modelos.NotaFiscal;
-import com.especialista.jpa._6_mapeamentoAvancado.modelos.Pedido;
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.NotaFiscal;
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.especialista.jpa._6_mapeamentoAvancado.modelos;
+package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
-@Table(name = "tb_categoria", schema = "especialistajpadb")
+@Table(name = "tb_categoria", catalog = "especialistajpadb")
 public class Categoria extends EntidadeBaseInteger {
 
 //    @Id // foi movido para a superclasse
