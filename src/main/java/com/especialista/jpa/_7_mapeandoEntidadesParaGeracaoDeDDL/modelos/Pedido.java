@@ -12,9 +12,10 @@ import java.util.List;
 
 // Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
 @EntityListeners({GerarNotaFiscalListener.class, GenericoListener.class})
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
+
 @Getter
 @Setter
-//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
 @Table(name = "tb_pedido", schema = "especialistajpadb")
 public class Pedido extends EntidadeBaseInteger {
@@ -34,9 +35,11 @@ public class Pedido extends EntidadeBaseInteger {
     private LocalDateTime dataConclusao;
 
 
+    @Column(precision = 19, scale = 2, nullable = false) // total decimal(19, 2) not null
     private BigDecimal total;
 
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
+    @Column(length = 30, nullable = false) // status varchar(30) not null
     private StatusPedido status;
 
     @Embedded // Indica que a classe marcada com @Embeddable deve ser incorporada a essa entidade

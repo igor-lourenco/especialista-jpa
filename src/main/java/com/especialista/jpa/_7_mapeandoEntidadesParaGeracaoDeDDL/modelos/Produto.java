@@ -25,10 +25,13 @@ public class Produto extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
+    @Column(name = "nome", length = 100, nullable = false) // nome varchar(100) not null
     private String nome;
 
+    @Column(columnDefinition = "varchar(275) not null default 'descricao'") // descricao varchar(275) not null
     private String descricao;
 
+    @Column(precision = 10, scale = 2) // preco decimal(10, 2)
     private BigDecimal preco;
 
     @Column(name = "data_criacao", updatable = false) // para não atualizar no banco de dados após criado
