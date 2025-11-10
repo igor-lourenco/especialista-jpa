@@ -17,9 +17,10 @@ public class ItemPedido {
     @EmbeddedId // chave primária composta como um objeto de valor embutido dentro dessa entidade.
     private ItemPedidoId id;
 
-    @Column(name = "preco_produto")
+    @Column(name = "preco_produto", precision = 19, scale = 2, nullable = false)
     private BigDecimal precoProduto;
 
+    @Column(name = "quantidade", nullable = false)
     private Integer quantidade;
 
 //  O nome do atributo dentro da chave composta ao qual o atributo de relacionamento corresponde. Se não for fornecido, o relacionamento mapeia a chave primária da entidade.

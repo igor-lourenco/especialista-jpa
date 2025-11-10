@@ -21,9 +21,10 @@ public class NotaFiscal extends EntidadeBaseInteger {
 
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
+    @Column(nullable = false)
     private byte[] xml;
 
-    @Column(name = "data_emissao")
+    @Column(name = "data_emissao", length = 6, nullable = false)
     private Date dataEmissao;
 
 

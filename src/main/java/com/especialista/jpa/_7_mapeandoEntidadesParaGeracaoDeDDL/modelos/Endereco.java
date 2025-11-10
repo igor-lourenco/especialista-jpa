@@ -13,25 +13,25 @@ import javax.persistence.Embeddable;
 @Setter
 public class Endereco {
 
-    @Column(name = "cep")
+    @Column(name = "cep", length = 9)
     private String cep;
 
-    @Column(name = "logradouro")
+    @Column(name = "logradouro", length = 100)
     private String logradouro;
 
-    @Column(name = "numero")
+    @Column(name = "numero", length = 10)
     private String numero;
 
-    @Column(name = "complemento")
+    @Column(name = "complemento", length = 50)
     private String complemento;
 
-    @Column(name = "bairro")
+    @Column(name = "bairro", length = 50)
     private String bairro;
 
-    @Column(name = "cidade")
+    @Column(name = "cidade", length = 50)
     private String cidade;
 
-    @Column(name = "estado")
+    @Column(name = "estado", length = 2)
     private String estado;
 
 }

@@ -33,8 +33,10 @@ public class Cliente extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
+    @Column(length = 100, nullable = false)
     private String nome;
 
+    @Column(length = 14, nullable = false)
     private String cpf;
 
 
@@ -52,7 +54,7 @@ public class Cliente extends EntidadeBaseInteger {
     private Map<String, String> contatos;
 
 
-    @Column(table = "tb_cliente_detalhe") // Salva essa coluna na tabela secundária "tb_cliente_detalhe"
+    @Column(table = "tb_cliente_detalhe", length = 30, nullable = false) // Salva essa coluna na tabela secundária "tb_cliente_detalhe"
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private SexoCliente sexo;
 

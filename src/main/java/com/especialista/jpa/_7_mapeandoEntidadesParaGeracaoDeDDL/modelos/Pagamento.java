@@ -34,6 +34,7 @@ public abstract class Pagamento extends EntidadeBaseInteger {
     private Pedido pedido;
 
 
+    @Column(name = "status", length = 30, nullable = false)
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     private StatusPagamento status;
 }

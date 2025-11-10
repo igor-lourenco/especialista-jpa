@@ -25,7 +25,7 @@ public class Pedido extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
-    @Column(name = "data_criacao", updatable = false) // para não atualizar no banco de dados após criado
+    @Column(name = "data_criacao", length = 6, nullable = false, updatable = false) // para não atualizar no banco de dados após criado
     private LocalDateTime dataCriacao;
 
     @Column(name = "data_ultima_atualizacao", insertable = false) // para não ser criado no banco de dados, ou seja, salvar como null
@@ -71,8 +71,8 @@ public class Pedido extends EntidadeBaseInteger {
 //  ====================  USANDO CALLBACK DO JPA  ====================
 //  Obs: Só pode marcar o método com essas anotações apenas em um, não pode ter mais de um método usando a mesma anotação.
 
-//    @PrePersist
-//    @PreUpdate
+//  @PrePersist
+//  @PreUpdate
     public void calcularValorTotal(){
         System.out.println(">>> Calculando valor total...");
         if(this.itensPedido != null){

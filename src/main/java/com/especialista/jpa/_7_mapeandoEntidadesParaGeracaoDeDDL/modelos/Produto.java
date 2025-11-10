@@ -28,14 +28,18 @@ public class Produto extends EntidadeBaseInteger {
     @Column(name = "nome", length = 100, nullable = false) // nome varchar(100) not null
     private String nome;
 
+
     @Column(columnDefinition = "varchar(275) not null default 'descricao'") // descricao varchar(275) not null
     private String descricao;
+
 
     @Column(precision = 10, scale = 2) // preco decimal(10, 2)
     private BigDecimal preco;
 
-    @Column(name = "data_criacao", updatable = false) // para não atualizar no banco de dados após criado
+
+    @Column(name = "data_criacao", length = 6, nullable = false, updatable = false) // para não atualizar no banco de dados após criado
     private LocalDateTime dataCriacao;
+
 
     @Column(name = "data_ultima_atualizacao", insertable = false) // para não ser criado no banco de dados, ou seja, salvar como null
     private LocalDateTime dataUltimaAtualizacao;
@@ -58,7 +62,7 @@ public class Produto extends EntidadeBaseInteger {
     @CollectionTable(
         name = "tb_produto_tag", // nome da tabela no banco.
         joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
-    @Column(name = "tag") // Nome da coluna que vai armazenar cada valor da lista
+    @Column(name = "tag", length = 50, nullable = false) // Nome da coluna que vai armazenar cada valor da lista
     private List<String> tags;
 
 
@@ -67,6 +71,7 @@ public class Produto extends EntidadeBaseInteger {
         name = "tb_produto_atributo", // nome da tabela no banco.
         joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
     private List<Atributo> atributos;
+
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
     private byte[] foto;
