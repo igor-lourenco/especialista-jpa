@@ -5,6 +5,7 @@ import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class _5_contextoDePersistencia extends EntityManagerTest {
 
@@ -25,6 +26,7 @@ public class _5_contextoDePersistencia extends EntityManagerTest {
         entityManager.getTransaction().begin();// Início da transação
 
         Produto produtoNovo1 = new Produto();
+        produtoNovo1.setDataCriacao(LocalDateTime.now());
         produtoNovo1.setNome("Caneca para Café");
         produtoNovo1.setPreco(new BigDecimal("10.0"));
         produtoNovo1.setDescricao("Produto para café");
@@ -33,9 +35,10 @@ public class _5_contextoDePersistencia extends EntityManagerTest {
 
 
         Produto produtoNovo2 = new Produto();
-        produtoNovo2.setNome("Caneca para Café");
+        produtoNovo2.setNome("Caneca para Chá");
+        produtoNovo2.setDataCriacao(LocalDateTime.now());
         produtoNovo2.setPreco(new BigDecimal("10.0"));
-        produtoNovo1.setDescricao("Produto para chá");
+        produtoNovo2.setDescricao("Produto para chá");
         System.out.println("\n>>> 6. Colocando uma nova entidade no contexto de persistência usando o merge()...");
         produtoNovo2 = entityManager.merge(produtoNovo2);
 

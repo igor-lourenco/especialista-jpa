@@ -5,6 +5,7 @@ import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class _4_mapeandoChaveCompostaCom_EmbeddedId extends EntityManagerTest {
@@ -23,6 +24,7 @@ public class _4_mapeandoChaveCompostaCom_EmbeddedId extends EntityManagerTest {
         pedido.setCliente(cliente);
         pedido.setDataCriacao(LocalDateTime.now());
         pedido.setStatus(StatusPedido.AGUARDANDO);
+        pedido.setTotal(BigDecimal.TEN);
 
 
         System.out.println("\n>>> 4. Iniciando uma transação...");

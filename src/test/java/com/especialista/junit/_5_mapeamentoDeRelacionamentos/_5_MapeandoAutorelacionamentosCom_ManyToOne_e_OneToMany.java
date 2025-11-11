@@ -11,7 +11,7 @@ public class _5_MapeandoAutorelacionamentosCom_ManyToOne_e_OneToMany extends Ent
     public void verificarRelacionamento_ManyToOne() {
         System.out.println("\n>>> 1. Instanciando categoria pai...");
         Categoria categoriaPai = new Categoria();
-        categoriaPai.setNome("Eletrônicos");
+        categoriaPai.setNome("Natação");
 
         System.out.println("\n>>> 2. Instanciando categoria filha...");
         Categoria categoriaFilha = new Categoria();

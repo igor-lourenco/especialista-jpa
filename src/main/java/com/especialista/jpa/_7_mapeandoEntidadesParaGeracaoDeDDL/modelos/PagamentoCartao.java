@@ -32,6 +32,6 @@ public class PagamentoCartao extends Pagamento {
 //    private Pedido pedido;
 
 
-    @Column(name = "numero_cartao", length = 50, nullable = false)
+    @Column(name = "numero_cartao", length = 50)
     private String numeroCartao;
 }

@@ -19,6 +19,7 @@ public class _15_diferencaEntreEstenderUmaEntidadeAbstrataEUmaMappedSuperclass e
         cliente.setNome("Carlos Finotti");
         cliente.setSexo(SexoCliente.MASCULINO);
         cliente.setDataNascimento(LocalDate.of(1990, Month.JANUARY, 1));
+        cliente.setCpf("14735708945");
 
         System.out.println("\n>>> 2. Iniciando uma transação...");
         entityManager.getTransaction().begin();// Início da transação

@@ -7,6 +7,9 @@ import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class _7_usandoListeners extends EntityManagerTest {
 
 
@@ -18,6 +21,8 @@ public class _7_usandoListeners extends EntityManagerTest {
 
         System.out.println("\n>>> 1. Instânciando novo pedido...");
         Pedido pedido = new Pedido();
+        pedido.setDataCriacao(LocalDateTime.now());
+        pedido.setTotal(BigDecimal.TEN);
         pedido.setCliente(cliente);
         pedido.setStatus(StatusPedido.AGUARDANDO);
 

@@ -14,7 +14,7 @@ public class _1_estadosECicloDeVida extends EntityManagerTest {
 //      Estado -> Transient
         System.out.println("\n>>> 1. Estado Transient...");
         Categoria categoriaNovo = new Categoria();
-
+        categoriaNovo.setNome("Eletrônicos");
 
 //      Estado -> Managed
         System.out.println("\n>>> 2. Estado Managed...");

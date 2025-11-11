@@ -12,7 +12,7 @@ public class _3_EstrategiasParaChavePrimariaCom_generatedValue extends EntityMan
         System.out.println("\n>>> 1. Instanciando a categoria...");
 
         Categoria categoria = new Categoria();
-        categoria.setNome("Eletrônicos");
+        categoria.setNome("Futebol");
 
         System.out.println("\n>>> 2. Buscando na tabela 'hibernate_sequence' o valor do id ...");
         entityManager.getTransaction().begin(); // Início da transação

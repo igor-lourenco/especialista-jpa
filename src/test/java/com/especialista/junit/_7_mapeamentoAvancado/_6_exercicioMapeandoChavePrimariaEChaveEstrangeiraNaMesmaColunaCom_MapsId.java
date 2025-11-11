@@ -5,6 +5,7 @@ import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class _6_exercicioMapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_MapsId extends EntityManagerTest {
@@ -54,6 +55,8 @@ public class _6_exercicioMapeandoChavePrimariaEChaveEstrangeiraNaMesmaColunaCom_
         pedido.setCliente(cliente);
         pedido.setDataCriacao(LocalDateTime.now());
         pedido.setStatus(StatusPedido.AGUARDANDO);
+        pedido.setTotal(BigDecimal.TEN);
+
 
         System.out.println("\n>>> 4. Iniciando uma transação...");
         entityManager.getTransaction().begin();// Início da transação

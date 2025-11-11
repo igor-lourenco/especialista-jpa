@@ -34,7 +34,7 @@ public class _4_ExercicioMapeandoRelacionamentosCom_OneToMany extends EntityMana
         System.out.println("\n>>> 7. Associando itemPedido(owner) a produto(não owner) e pedido(não owner) ...");
         itemPedido.setPedido(pedido);
         itemPedido.setProduto(produto);
-
+        itemPedido.setId(new ItemPedidoId());
 
         entityManager.getTransaction().begin(); // Início da transação
 

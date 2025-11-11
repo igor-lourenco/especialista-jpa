@@ -7,6 +7,9 @@ import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class _6_usandoCallbacks extends EntityManagerTest {
 
 
@@ -18,8 +21,10 @@ public class _6_usandoCallbacks extends EntityManagerTest {
 
         System.out.println("\n>>> 1. Instânciando novo pedido...");
         Pedido pedido = new Pedido();
+        pedido.setDataCriacao(LocalDateTime.now());
         pedido.setCliente(cliente);
         pedido.setStatus(StatusPedido.AGUARDANDO);
+        pedido.setTotal(BigDecimal.TEN);
 
         entityManager.getTransaction().begin();// Início da transação
 

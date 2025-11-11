@@ -19,6 +19,7 @@ public class _16_herancaCom_SingleTable extends EntityManagerTest {
         cliente.setNome("Carlos Finotti");
         cliente.setSexo(SexoCliente.MASCULINO);
         cliente.setDataNascimento(LocalDate.of(1990, Month.JANUARY, 1));
+        cliente.setCpf("99988877766");
 
         System.out.println("\n>>> 2. Iniciando uma transação...");
         entityManager.getTransaction().begin();// Início da transação
