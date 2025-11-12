@@ -8,7 +8,7 @@ public class _2_configurandoColunasCom_Column extends EntityManagerTest {
     @Test
     public void gerarDDL(){
 
-    /*
+    /***************** @Column *****************
     * name:
     *    - Define o nome da coluna no banco, se não informado, usa o nome do atributo
     *

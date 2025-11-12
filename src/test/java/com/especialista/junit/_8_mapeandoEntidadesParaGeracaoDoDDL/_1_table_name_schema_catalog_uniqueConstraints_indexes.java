@@ -8,7 +8,7 @@ public class _1_table_name_schema_catalog_uniqueConstraints_indexes extends Enti
     @Test
     public void gerarDDL(){
 
-    /*
+    /****************** @Table *****************
     * schema:
     *    - Representa o esquema dentro do banco
     *    - É muito usado em bancos como PostgreSQL, Oracle, SQL Server, onde você pode ter vários esquemas dentro do mesmo banco

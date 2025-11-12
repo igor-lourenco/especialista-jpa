@@ -29,7 +29,7 @@ public class Produto extends EntidadeBaseInteger {
     private String nome;
 
 
-    @Column(columnDefinition = "varchar(275) not null default 'descricao'") // descricao varchar(275) not null
+    @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
     private String descricao;
 
 
