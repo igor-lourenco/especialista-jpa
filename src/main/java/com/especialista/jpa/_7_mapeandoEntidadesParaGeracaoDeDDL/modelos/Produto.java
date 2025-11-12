@@ -13,8 +13,7 @@ import java.util.List;
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
 @Table(
-    name = "tb_produto",
-//    schema = "especialistajpadb",
+    name = "tb_produto", /* catalog = "especialistajpadb", */
     uniqueConstraints = {@UniqueConstraint(name = "unq_nome", columnNames = {"nome"})}, // coluna no banco de dados que não pode se repetir
     indexes = {@Index(name = "idx_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela)
 )
@@ -52,8 +51,12 @@ public class Produto extends EntidadeBaseInteger {
 
     @ManyToMany(fetch = FetchType.LAZY) // por padrão usa o Fetch.LAZY
     @JoinTable(name = "tb_produto_categoria",
-        joinColumns = @JoinColumn(name = "produto_id"), // coluna que referencia o id dessa entidade Produto (owner)
-        inverseJoinColumns = @JoinColumn(name = "categoria_id") // coluna que referencia o id da entidade Categoria (não owner)
+        joinColumns = @JoinColumn(name = "produto_id", // coluna que referencia o id dessa entidade Produto (owner)
+            foreignKey = @ForeignKey(name = "fk_produto_produto_categoria") // nome da constraint de chave estrangeira
+        ),
+        inverseJoinColumns = @JoinColumn(name = "categoria_id", // coluna que referencia o id da entidade Categoria (não owner)
+            foreignKey = @ForeignKey(name = "fk_categoria_produto_categoria") // nome da constraint de chave estrangeira
+        )
     )
     private List<Categoria> categorias;
 
@@ -61,7 +64,9 @@ public class Produto extends EntidadeBaseInteger {
     @ElementCollection // Indica que é uma coleção de elementos básicos ou objetos embutidos, JPA cria uma tabela separada para armazenar esses valores
     @CollectionTable(
         name = "tb_produto_tag", // nome da tabela no banco.
-        joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+        joinColumns = @JoinColumn(name = "produto_id"), // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+        foreignKey = @ForeignKey(name = "fk_tag_produto") // nome da constraint de chave estrangeira
+    )
     @Column(name = "tag", length = 50, nullable = false) // Nome da coluna que vai armazenar cada valor da lista
     private List<String> tags;
 
@@ -69,7 +74,9 @@ public class Produto extends EntidadeBaseInteger {
     @ElementCollection // Indica que é uma coleção de elementos básicos ou objetos embutidos, JPA cria uma tabela separada para armazenar esses valores
     @CollectionTable(
         name = "tb_produto_atributo", // nome da tabela no banco.
-        joinColumns = @JoinColumn(name = "produto_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+        joinColumns = @JoinColumn(name = "produto_id"), // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+        foreignKey = @ForeignKey(name = "fk_atributo_produto") // nome da constraint de chave estrangeira
+    )
     private List<Atributo> atributos;
 
 

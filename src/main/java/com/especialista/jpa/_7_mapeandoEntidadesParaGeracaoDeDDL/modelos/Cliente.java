@@ -13,7 +13,9 @@ import java.util.Map;
 @EntityListeners({GenericoListener.class})
 
 // mapeia uma única entidade para duas (ou mais) tabelas no banco de dados, nesse caso cria uma tabela secundária "tb_cliente_detalhe" com relacionamento OneToOne
-@SecondaryTable(name = "tb_cliente_detalhe", pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"))
+@SecondaryTable(name = "tb_cliente_detalhe", pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"),
+    foreignKey = @ForeignKey(name = "fk_detalhe_cliente") // nome da constraint de chave estrangeira
+)
 
 @Getter
 @Setter
@@ -36,6 +38,7 @@ public class Cliente extends EntidadeBaseInteger {
     @Column(length = 100, nullable = false)
     private String nome;
 
+
     @Column(length = 14, nullable = false)
     private String cpf;
 
@@ -48,7 +51,10 @@ public class Cliente extends EntidadeBaseInteger {
     @ElementCollection // Indica que é uma coleção de elementos básicos ou objetos embutidos, JPA cria uma tabela separada para armazenar esses valores
     @CollectionTable(
         name = "tb_cliente_contato", // nome da tabela no banco.
-        joinColumns = @JoinColumn(name = "cliente_id")) // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
+        joinColumns = @JoinColumn(
+            name = "cliente_id"), // Coluna que faz a ligação com a entidade Cliente, usando sua chave primária.
+            foreignKey = @ForeignKey(name = "fk_contato_cliente") // nome da constraint de chave estrangeira
+    )
     @MapKeyColumn(name = "tipo") // Especifica o mapeamento para a coluna chave do mapa cuja chave é um tipo básico.
     @Column(name = "descricao") // Nome da coluna que vai armazenar cada valor do mapa
     private Map<String, String> contatos;

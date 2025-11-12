@@ -41,7 +41,7 @@ public class ItemPedido {
     @JoinColumn(name = "produto_id", // especifica uma coluna para unir as associações. (owner)
         insertable = false, updatable = false, // controla se a coluna será incluída em inserts e updates
         nullable = false, // define se a coluna pode ser nula no banco
-        foreignKey = @ForeignKey(name = "fk_item_pedido_cliente") // nome da constraint de chave estrangeira
+        foreignKey = @ForeignKey(name = "fk_item_pedido_produto") // nome da constraint de chave estrangeira
     )
     private Produto produto;
 

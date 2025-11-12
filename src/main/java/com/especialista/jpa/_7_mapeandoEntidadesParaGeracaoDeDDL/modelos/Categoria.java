@@ -24,7 +24,9 @@ public class Categoria extends EntidadeBaseInteger {
     private String nome;
 
     @ManyToOne(fetch = FetchType.EAGER) // muitas categorias filha tem uma categoria pai, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "categoria_pai_id")  // especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "categoria_pai_id", // especifica uma coluna para unir as associações. (owner)
+        foreignKey = @ForeignKey(name = "fk_categoria_pai_categoria") // nome da constraint de chave estrangeira
+    )
     private Categoria categoriaPai;
 
 
