@@ -42,6 +42,4 @@ Classe utilitária fornecida pelo JPA que serve para criar a fábrica de gerenci
 
 Relação entre eles:
 
-Persistence → cria EntityManagerFactory.
-EntityManagerFactory → cria EntityManager.
-EntityManager → faz as operações no banco.
+![Relacionamento_entre_EntityManager_EntityManagerFactory_Persistence](imagens%2FRelacionamento_entre_EntityManager_EntityManagerFactory_Persistence.png)
