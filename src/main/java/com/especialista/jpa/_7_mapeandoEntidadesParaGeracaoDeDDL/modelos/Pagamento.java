@@ -30,7 +30,9 @@ public abstract class Pagamento extends EntidadeBaseInteger {
 //  O nome do atributo dentro da chave composta ao qual o atributo de relacionamento corresponde. Se não for fornecido, o relacionamento mapeia a chave primária da entidade.
     @MapsId // Especifica ao JPA que um ou mais campos da PK vêm do identificador de uma associação (@ManyToOne ou @OneToOne), evitando duplicidade de colunas e mantendo tudo sincronizado.
     @OneToOne(fetch = FetchType.EAGER, optional = false) // um pagamentoCartao tem um pedido, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "pedido_id") // Especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "pedido_id", // Especifica uma coluna para unir as associações. (owner)
+        nullable = false, // define se a coluna pode ser nula no banco
+        foreignKey = @ForeignKey(name = "fk_pagamento_pedido")) //  nome da constraint de chave estrangeira
     private Pedido pedido;
 
 

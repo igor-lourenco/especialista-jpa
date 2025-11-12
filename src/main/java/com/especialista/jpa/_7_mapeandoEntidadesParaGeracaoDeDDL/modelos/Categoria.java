@@ -10,9 +10,7 @@ import java.util.List;
 @Setter
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
-@Table(
-    name = "tb_categoria",
-//    catalog = "especialistajpadb",
+@Table(name = "tb_categoria", /*catalog = "especialistajpadb", */
     uniqueConstraints = {@UniqueConstraint(name = "unq_nome", columnNames = {"nome"})} // coluna no banco de dados que não pode se repetir
 )
 public class Categoria extends EntidadeBaseInteger {

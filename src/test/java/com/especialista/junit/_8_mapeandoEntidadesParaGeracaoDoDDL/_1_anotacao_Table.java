@@ -3,7 +3,7 @@ package com.especialista.junit._8_mapeandoEntidadesParaGeracaoDoDDL;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Test;
 
-public class _1_table_name_schema_catalog_uniqueConstraints_indexes extends EntityManagerTest {
+public class _1_anotacao_Table extends EntityManagerTest {
 
     @Test
     public void gerarDDL(){

@@ -6,11 +6,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Getter
 @Setter
-//@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 @Entity
-@Table(name = "tb_nota_fiscal", schema = "especialistajpadb")
+@Table(name = "tb_nota_fiscal" /*,catalog = "especialistajpadb" */ )
 public class NotaFiscal extends EntidadeBaseInteger {
 
 //    @Id // foi movido para a superclasse
@@ -21,16 +21,21 @@ public class NotaFiscal extends EntidadeBaseInteger {
 
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
-    @Column(nullable = false)
+    @Column(nullable = false) // define se a coluna pode ser nula no banco
     private byte[] xml;
 
-    @Column(name = "data_emissao", length = 6, nullable = false)
+    @Column(name = "data_emissao", length = 6,
+        nullable = false // define se a coluna pode ser nula no banco
+    )
     private Date dataEmissao;
 
 
     @MapsId // Especifica ao JPA que um ou mais campos da PK vêm do identificador de uma associação (@ManyToOne ou @OneToOne), evitando duplicidade de colunas e mantendo tudo sincronizado.
     @OneToOne(fetch = FetchType.EAGER, optional = false) // uma notaFiscal tem um pedido, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "pedido_id") // Especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "pedido_id", // Especifica uma coluna para unir as associações. (owner)
+        nullable = false, // define se a coluna pode ser nula no banco
+        foreignKey = @ForeignKey(name = "fk_nota_fiscal_pedido") // nome da constraint de chave estrangeira
+    )
     private Pedido pedido;
 
 /*  Exemplo usando JoinTable com relacionamento OneToOne com notaFiscal e pedido

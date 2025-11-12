@@ -13,11 +13,10 @@ import java.util.List;
 // Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
 @EntityListeners({GerarNotaFiscalListener.class, GenericoListener.class})
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
-
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_pedido", schema = "especialistajpadb")
+@Table(name = "tb_pedido" /*,catalog = "especialistajpadb" */)
 public class Pedido extends EntidadeBaseInteger {
 
 //    @Id // foi movido para a superclasse
@@ -25,11 +24,18 @@ public class Pedido extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
-    @Column(name = "data_criacao", length = 6, nullable = false, updatable = false) // para não atualizar no banco de dados após criado
+    @Column(name = "data_criacao", length = 6,
+        nullable = false, // define se a coluna pode ser nula no banco
+        updatable = false // para não atualizar no banco de dados após criado
+    )
     private LocalDateTime dataCriacao;
 
-    @Column(name = "data_ultima_atualizacao", insertable = false) // para não ser criado no banco de dados, ou seja, salvar como null
+
+    @Column(name = "data_ultima_atualizacao",
+        insertable = false // para não ser criado no banco de dados, ou seja, salvar como null
+    )
     private LocalDateTime dataUltimaAtualizacao;
+
 
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
@@ -38,16 +44,21 @@ public class Pedido extends EntidadeBaseInteger {
     @Column(precision = 19, scale = 2, nullable = false) // total decimal(19, 2) not null
     private BigDecimal total;
 
+
     @Enumerated(EnumType.STRING) // Salva a String do enum no banco de dados
     @Column(length = 30, nullable = false) // status varchar(30) not null
     private StatusPedido status;
+
 
     @Embedded // Indica que a classe marcada com @Embeddable deve ser incorporada a essa entidade
     private Endereco enderecoEntrega;
 
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false) // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
-    @JoinColumn(name = "cliente_id") // especifica uma coluna para unir as associações. (owner)
+    @JoinColumn(name = "cliente_id", // especifica uma coluna para unir as associações. (owner)
+        nullable = false, // define se a coluna pode ser nula no banco
+        foreignKey = @ForeignKey(name = "fk_pedido_cliente") // nome da constraint de chave estrangeira
+    )
     private Cliente cliente;
 
 

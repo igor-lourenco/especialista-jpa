@@ -3,7 +3,7 @@ package com.especialista.junit._8_mapeandoEntidadesParaGeracaoDoDDL;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Test;
 
-public class _2_configurandoColunasCom_Column extends EntityManagerTest {
+public class _2_anotacao_Column extends EntityManagerTest {
 
     @Test
     public void gerarDDL(){
