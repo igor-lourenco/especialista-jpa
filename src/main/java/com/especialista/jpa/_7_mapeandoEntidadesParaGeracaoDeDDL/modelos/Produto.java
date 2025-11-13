@@ -51,11 +51,16 @@ public class Produto extends EntidadeBaseInteger {
 
     @ManyToMany(fetch = FetchType.LAZY) // por padrão usa o Fetch.LAZY
     @JoinTable(name = "tb_produto_categoria",
+//        foreignKey = @ForeignKey(name = "fk_produto_categoria_produto"), // exemplo de configurar o nome da contraint diretamente no @JoinTable em vez do @JoinColumn
+//        inverseForeignKey = @ForeignKey(name = "fk_produto_categoria_categoria") // exemplo de configurar o nome da contraint diretamente no @JoinTable em vez do @JoinColumn
+
         joinColumns = @JoinColumn(name = "produto_id", // coluna que referencia o id dessa entidade Produto (owner)
-            foreignKey = @ForeignKey(name = "fk_produto_produto_categoria") // nome da constraint de chave estrangeira
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_produto_categoria_produto") // nome da constraint de chave estrangeira
         ),
         inverseJoinColumns = @JoinColumn(name = "categoria_id", // coluna que referencia o id da entidade Categoria (não owner)
-            foreignKey = @ForeignKey(name = "fk_categoria_produto_categoria") // nome da constraint de chave estrangeira
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_produto_categoria_categoria") // nome da constraint de chave estrangeira
         )
     )
     private List<Categoria> categorias;
