@@ -10,8 +10,25 @@
             <property name="javax.persistence.jdbc.password" value="L@ur&amp;nco@Mysql135" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
-            <!-- Deleta o database e cria novamente toda vez que a aplicacao iniciar   -->
+
+<!--        ========================================================================================================================    -->
+<!--        =================== ESTRATEGIAS DE GERACAO DAS TABELAS (ACAO DE GERACAO DO SCHEMA - DDL) ===============================    -->
+
+<!--        Essa acao eh executada no momento que a unidade de persistencia eh inicializada, ou seja:
+            entityManagerFactory = Persistence.createEntityManagerFactory("EspecialistaJPADB-PU");                                      -->
+
+<!--        >>>> Deleta o bando de dados e cria novamente toda vez que a aplicacao iniciar   -->
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+<!--        >>>> Desabilita a geracao do database (como se nao existisse essa propriedade) e os scripts nao serao executados   -->
+<!--            <property name="javax.persistence.schema-generation.database.action" value="none"/>-->
+<!--        >>>> Apenas envia os comando de delecao no banco de dados, e os scrips nao serao executados -->
+<!--            <property name="javax.persistence.schema-generation.database.action" value="drop"/>-->
+<!--        >>>> Apenas envia os comando de criacao no banco de dados-->
+<!--            <property name="javax.persistence.schema-generation.database.action" value="create"/>-->
+
+<!--        ========================================================================================================================    -->
+
+
 
             <!-- Inclui alguns dados iniciais no momento da criacao do database  -->
             <property name="javax.persistence.sql-load-script-source" value="META-INF/banco-de-dados/dados-iniciais.sql"/>
