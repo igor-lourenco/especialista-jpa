@@ -13,10 +13,10 @@ import java.util.Map;
 @EntityListeners({GenericoListener.class})
 
 // mapeia uma única entidade para duas (ou mais) tabelas no banco de dados, nesse caso cria uma tabela secundária "tb_cliente_detalhe" com relacionamento OneToOne
-@SecondaryTable(name = "tb_cliente_detalhe", pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"),
-    foreignKey = @ForeignKey(name = "fk_detalhe_cliente") // nome da constraint de chave estrangeira
+@SecondaryTable(name = "tb_cliente_detalhe",
+    pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"), // coluna será uma chave estrangeira na tabela secundária, apontando para a chave primária da tabela principal.
+    foreignKey = @ForeignKey(name = "fk_cliente_detalhe_cliente") // nome da constraint de chave estrangeira
 )
-
 @Getter
 @Setter
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
