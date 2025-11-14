@@ -13,24 +13,65 @@
 
 <!--        ========================================================================================================================    -->
 <!--        =================== ESTRATEGIAS DE GERACAO DAS TABELAS (ACAO DE GERACAO DO SCHEMA - DDL) ===============================    -->
+<!--        ========================================================================================================================    -->
 
-<!--        Essa acao eh executada no momento que a unidade de persistencia eh inicializada, ou seja:
-            entityManagerFactory = Persistence.createEntityManagerFactory("EspecialistaJPADB-PU");                                      -->
-
+<!--        >>>>>>>>>>>>>>>>>>>> Essa acao eh executada no momento que a unidade de persistencia eh inicializada, ou seja: <<<<<<<<<<<<
+            >>>>>>>>>>>>>>>>>>>> entityManagerFactory = Persistence.createEntityManagerFactory("EspecialistaJPADB-PU");    <<<<<<<<<<<< -->
+<!--        ___________________________________________________________________________________________________________________________ -->
 <!--        >>>> Deleta o bando de dados e cria novamente toda vez que a aplicacao iniciar   -->
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+
 <!--        >>>> Desabilita a geracao do database (como se nao existisse essa propriedade) e os scripts nao serao executados   -->
 <!--            <property name="javax.persistence.schema-generation.database.action" value="none"/>-->
+
 <!--        >>>> Apenas envia os comando de delecao no banco de dados, e os scrips nao serao executados -->
 <!--            <property name="javax.persistence.schema-generation.database.action" value="drop"/>-->
+
 <!--        >>>> Apenas envia os comando de criacao no banco de dados-->
 <!--            <property name="javax.persistence.schema-generation.database.action" value="create"/>-->
 
 <!--        ========================================================================================================================    -->
+<!--        =================== GERANDO O SCHEMA DO BANCO DE DADOS COM METADADOS E SCRIPTS==========================================    -->
+<!--        ========================================================================================================================    -->
+
+<!--        >>>>>>>>>>>>>>>>>>>> Define de onde o provedor JPA vai obter os comandos para criar o esquema do banco <<<<<<<<<<<<<<<<<<<<<-->
+<!--        ___________________________________________________________________________________________________________________________ -->
+<!--        _______ Indicando a fonte usada para gerar o esquema (tabelas, constraints, etc.) quando o JPA cria o banco _______________ -->
+
+<!--        >>>> Usa apenas as anotações das entidades para gerar esquema  -->
+<!--            <property name="javax.persistence.schema-generation.create-source" value="metadata"/>-->
+
+<!--        >>>>  Usa apenas o script SQL fornecido para gerar esquema-->
+<!--            <property name="javax.persistence.schema-generation.create-source" value="script"/>-->
+
+<!--        >>>>  Usa primeiro metadata, depois script para gerar esquema -->
+            <property name="javax.persistence.schema-generation.create-source" value="metadata-then-script"/>
+
+<!--        >>>>  Usa primeiro script, depois metadata para gerar esquema -->
+<!--            <property name="javax.persistence.schema-generation.create-source" value="script-then-metadata"/>-->
+
+<!--        ___________________________________________________________________________________________________________________________-->
+<!--        _______ Indicando a fonte usada para gerar os comandos de DROP (exclusão de tabelas, constraints, etc.). _________________ -->
+
+<!--        >>>> Usa apenas as anotações das entidades para gerar os comandos de DROP (exclusão de tabelas, constraints, etc.).  -->
+<!--            <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>-->
+
+<!--        >>>> Usa apenas o script SQL fornecido para gerar os comandos de DROP (exclusão de tabelas, constraints, etc.).  -->
+<!--            <property name="javax.persistence.schema-generation.drop-source" value="script"/>-->
+
+<!--        >>>> Usa primeiro metadata, depois script para gerar os comandos de DROP (exclusão de tabelas, constraints, etc.).  -->
+            <property name="javax.persistence.schema-generation.drop-source" value="metadata-then-script"/>
+
+<!--        >>>> Usa primeiro script, depois metadata para gerar os comandos de DROP (exclusão de tabelas, constraints, etc.).  -->
+<!--            <property name="javax.persistence.schema-generation.drop-source" value="script-then-metadata"/>-->
+
+<!--        ========================================================================================================================    -->
 <!--        =================== CRIANDO AS TABELAS COM SCRIPT SQL  =================================================================    -->
+<!--        ========================================================================================================================    -->
 
 <!--        >>>> caminho do arquivo SQL que contém os comandos para criação do schema (tabelas, índices, constraints).-->
             <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/banco-de-dados/script-criacao.sql"/>
+
 <!--        >>>> caminho do arquivo SQL que contém os comandos para remoção do schema (drop de tabelas, remoção de constraints).-->
             <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/banco-de-dados/script-remocao.sql"/>
 
