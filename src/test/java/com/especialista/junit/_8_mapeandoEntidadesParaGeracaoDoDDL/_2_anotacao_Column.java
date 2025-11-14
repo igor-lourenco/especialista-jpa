@@ -39,14 +39,15 @@ public class _2_anotacao_Column extends EntityManagerTest {
     * scale:
     *    - Define a escala (quantidade de casas decimais), usado junto com precision
     *
+    *  ******************************************************
+    *  ************ Resumo de todos os atributos ************
     *
-    *
-    * Nome e tamanho: name, length
-    * Validação: nullable, unique
-    * Controle de persistência: insertable, updatable
-    * Tipo customizado: columnDefinition
-    * Localização: table
-    * Números decimais: precision, scale
+    *  Nome e tamanho → name, length
+    *  Validação → nullable, unique
+    *  Controle de persistência → insertable, updatable
+    *  Tipo customizado → columnDefinition
+    *  Localização → table
+    *  Números decimais → precision, scale
     *  */
 
     }

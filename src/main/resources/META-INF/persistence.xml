@@ -27,10 +27,16 @@
 <!--            <property name="javax.persistence.schema-generation.database.action" value="create"/>-->
 
 <!--        ========================================================================================================================    -->
+<!--        =================== CRIANDO AS TABELAS COM SCRIPT SQL  =================================================================    -->
 
+<!--        >>>> caminho do arquivo SQL que contém os comandos para criação do schema (tabelas, índices, constraints).-->
+            <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/banco-de-dados/script-criacao.sql"/>
+<!--        >>>> caminho do arquivo SQL que contém os comandos para remoção do schema (drop de tabelas, remoção de constraints).-->
+            <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/banco-de-dados/script-remocao.sql"/>
 
+<!--        ========================================================================================================================    -->
 
-            <!-- Inclui alguns dados iniciais no momento da criacao do database  -->
+<!--        >>>> inclui alguns dados iniciais no momento da criacao do database  -->
             <property name="javax.persistence.sql-load-script-source" value="META-INF/banco-de-dados/dados-iniciais.sql"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />

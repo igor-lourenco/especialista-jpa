@@ -29,6 +29,23 @@ public class _4_anotacao_JoinColumn extends EntityManagerTest {
          *
          * foreignKey:
          *    - Permite configurar a restrição de chave estrangeira
+         *
+         * columnDefinition:
+         *    - Permite especificar a definição SQL da coluna (tipo, tamanho, etc.)
+         *
+         *  ******************************************************
+         *  ************ Resumo  de todos os atributos ************
+         *
+         *  name → Nome da coluna de junção na tabela atual
+         *  referencedColumnName → Nome da coluna na tabela referenciada
+         *  nullable → Permite valores nulos
+         *  unique → Define se a coluna é única
+         *  insertable → Inclui no INSERT
+         *  updatable → Inclui no UPDATE
+         *  table → Nome da tabela onde está a coluna
+         *  foreignKey → Define a chave estrangeira explicitamente
+         *  columnDefinition → Definição SQL personalizada
+         *
          */
 
     }

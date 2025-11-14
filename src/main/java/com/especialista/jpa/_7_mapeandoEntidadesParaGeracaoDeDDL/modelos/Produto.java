@@ -70,7 +70,7 @@ public class Produto extends EntidadeBaseInteger {
     @CollectionTable(
         name = "tb_produto_tag", // nome da tabela no banco.
         joinColumns = @JoinColumn(name = "produto_id"), // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
-        foreignKey = @ForeignKey(name = "fk_tag_produto") // nome da constraint de chave estrangeira
+        foreignKey = @ForeignKey(name = "fk_produto_tag_produto") // nome da constraint de chave estrangeira
     )
     @Column(name = "tag", length = 50, nullable = false) // Nome da coluna que vai armazenar cada valor da lista
     private List<String> tags;
@@ -80,7 +80,7 @@ public class Produto extends EntidadeBaseInteger {
     @CollectionTable(
         name = "tb_produto_atributo", // nome da tabela no banco.
         joinColumns = @JoinColumn(name = "produto_id"), // Coluna que faz a ligação com a entidade Produto, usando sua chave primária.
-        foreignKey = @ForeignKey(name = "fk_atributo_produto") // nome da constraint de chave estrangeira
+        foreignKey = @ForeignKey(name = "fk_produto_atributo_produto") // nome da constraint de chave estrangeira
     )
     private List<Atributo> atributos;
 

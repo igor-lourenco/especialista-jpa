@@ -26,8 +26,17 @@ public class _1_anotacao_Table extends EntityManagerTest {
     *    - Cria índices no banco de dados quando o JPA gera o DDL
     *    - Ajuda a melhorar a performance de consultas, especialmente em colunas que são frequentemente usadas em filtros (WHERE),
     *   ordenações (ORDER BY) ou junções (JOIN).
-     *   - Índice serve para acelerar a busca e recuperação de dados em uma tabela. Ele funciona de forma semelhante ao
-     *   índice de um livro: em vez de percorrer todas as páginas (linhas da tabela), você consulta o índice para ir direto ao ponto.
+    *    - Índice serve para acelerar a busca e recuperação de dados em uma tabela. Ele funciona de forma semelhante ao
+    *   índice de um livro: em vez de percorrer todas as páginas (linhas da tabela), você consulta o índice para ir direto ao ponto.
+    *
+    *  ******************************************************
+    *  ************ Resumo de todos os atributos ************
+    *
+    *  name → Nome da tabela pricipal.
+    *  catalog → Catálogo da tabela.
+    *  schema → Esquema da tabela.
+    *  indexes → Define índices na tabela secundária.
+    *  uniqueConstraints → Define restrições de unicidade.
     * */
 
     }

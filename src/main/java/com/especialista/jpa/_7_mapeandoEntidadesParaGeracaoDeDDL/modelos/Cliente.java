@@ -53,7 +53,7 @@ public class Cliente extends EntidadeBaseInteger {
         name = "tb_cliente_contato", // nome da tabela no banco.
         joinColumns = @JoinColumn(
             name = "cliente_id"), // Coluna que faz a ligação com a entidade Cliente, usando sua chave primária.
-            foreignKey = @ForeignKey(name = "fk_contato_cliente") // nome da constraint de chave estrangeira
+            foreignKey = @ForeignKey(name = "fk_cliente_contato_cliente") // nome da constraint de chave estrangeira
     )
     @MapKeyColumn(name = "tipo") // Especifica o mapeamento para a coluna chave do mapa cuja chave é um tipo básico.
     @Column(name = "descricao") // Nome da coluna que vai armazenar cada valor do mapa
