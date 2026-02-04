@@ -49,7 +49,8 @@ public class Produto extends EntidadeBaseInteger {
     private Estoque estoque;
 
 
-    @ManyToMany(fetch = FetchType.LAZY) // por padrão usa o Fetch.LAZY
+    @ManyToMany(fetch = FetchType.LAZY, // por padrão usa o Fetch.LAZY
+        cascade = CascadeType.PERSIST) // ao persistir produto, também irá salvar as categorias em cascata
     @JoinTable(name = "tb_produto_categoria",
 //        foreignKey = @ForeignKey(name = "fk_produto_categoria_produto"), // exemplo de configurar o nome da contraint diretamente no @JoinTable em vez do @JoinColumn
 //        inverseForeignKey = @ForeignKey(name = "fk_produto_categoria_categoria") // exemplo de configurar o nome da contraint diretamente no @JoinTable em vez do @JoinColumn
