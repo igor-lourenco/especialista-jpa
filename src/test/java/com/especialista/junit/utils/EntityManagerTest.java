@@ -1,15 +1,21 @@
 package com.especialista.junit.utils;
 
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class EntityManagerTest {
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     protected static EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
+
 
     @BeforeClass
     public static void setUpBeforeClass() { // executa primeiro

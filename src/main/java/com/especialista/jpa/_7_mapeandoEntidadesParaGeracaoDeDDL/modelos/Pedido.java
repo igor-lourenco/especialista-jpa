@@ -54,7 +54,9 @@ public class Pedido extends EntidadeBaseInteger {
     private Endereco enderecoEntrega;
 
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false) // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
+    @ManyToOne(fetch = FetchType.EAGER, optional = false  // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
+        //cascade = CascadeType.PERSIST // ao persistir pedido, também irá salvar o cliente em cascata, comentao porque está usando o persist do entityManager
+    )
     @JoinColumn(name = "cliente_id", // especifica uma coluna para unir as associações. (owner)
         nullable = false, // define se a coluna pode ser nula no banco
         foreignKey = @ForeignKey(name = "fk_pedido_cliente") // nome da constraint de chave estrangeira
@@ -62,7 +64,8 @@ public class Pedido extends EntidadeBaseInteger {
     private Cliente cliente;
 
 
-    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY) // um pedido tem em muitos itens de pedido (não owner), por padrão usa o Fetch.LAZY
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY, // um pedido tem em muitos itens de pedido (não owner), por padrão usa o Fetch.LAZY
+        cascade = CascadeType.PERSIST) // ao persistir pedido, também irá salvar o temPedido em cascata
     private List<ItemPedido> itensPedido;
 
 
@@ -97,6 +100,7 @@ public class Pedido extends EntidadeBaseInteger {
     public void aoPersistir(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback ANTES de persistir no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         this.dataCriacao = LocalDateTime.now();
 
         calcularValorTotal();
@@ -106,12 +110,14 @@ public class Pedido extends EntidadeBaseInteger {
     public void aposPersistir(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback DEPOIS de persistir no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
 
     }
     @PreUpdate
     public void aoAtualizar(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback ANTES de atualizar no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         this.dataUltimaAtualizacao = LocalDateTime.now();
 
         calcularValorTotal();
@@ -121,23 +127,27 @@ public class Pedido extends EntidadeBaseInteger {
     public void aposAtualizar(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback DEPOIS de atualizar no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
     }
 
     @PreRemove
     public void aoRemover(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback ANTES de remover no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
     }
 
     @PostRemove
     public void aposRemover(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback DEPOIS de remover no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
     }
 
     @PostLoad
     public void aoCarregar(){
         System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
         System.out.println(">>> Executando callback APÓS carregar pedido no banco de dados...");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
     }
 }
