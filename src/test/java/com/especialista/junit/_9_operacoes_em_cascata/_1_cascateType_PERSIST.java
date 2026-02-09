@@ -12,7 +12,7 @@ import java.time.Month;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class _1_cascateType_Persist extends EntityManagerTest {
+public class _1_cascateType_PERSIST extends EntityManagerTest {
 
     @Test
     public void persistirPedidoComItemPedido(){

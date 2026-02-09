@@ -55,7 +55,7 @@ public class Pedido extends EntidadeBaseInteger {
 
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false  // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
-        //cascade = CascadeType.PERSIST // ao persistir pedido, também irá salvar o cliente em cascata, comentao porque está usando o persist do entityManager
+        //,cascade = CascadeType.PERSIST // ao persistir pedido, também irá salvar o cliente em cascata, comentado porque está usando o persist do entityManager
     )
     @JoinColumn(name = "cliente_id", // especifica uma coluna para unir as associações. (owner)
         nullable = false, // define se a coluna pode ser nula no banco
@@ -64,8 +64,10 @@ public class Pedido extends EntidadeBaseInteger {
     private Cliente cliente;
 
 
-    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY, // um pedido tem em muitos itens de pedido (não owner), por padrão usa o Fetch.LAZY
-        cascade = CascadeType.PERSIST) // ao persistir pedido, também irá salvar o temPedido em cascata
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY // um pedido tem em muitos itens de pedido (não owner), por padrão usa o Fetch.LAZY
+        , cascade = { CascadeType.PERSIST // ao persistir pedido, também irá salvar o temPedido em cascata
+        , CascadeType.MERGE } // ao persistir pedido, também irá salvar o itemPedido em cascata
+    )
     private List<ItemPedido> itensPedido;
 
 
@@ -91,8 +93,10 @@ public class Pedido extends EntidadeBaseInteger {
         System.out.println(">>> Calculando valor total...");
         if(this.itensPedido != null){
             this.total = itensPedido.stream()
-                .map(ItemPedido::getPrecoProduto)
+                .map(i -> new BigDecimal(i.getQuantidade()).multiply(i.getPrecoProduto())) // multiplica o valor do produto pela quantidade
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        }else {
+            this.total = BigDecimal.ZERO;
         }
     }
 

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public class _2_ManyToMany_com_cascateType_Persist extends EntityManagerTest {
+public class _2_manyToMany_com_cascateType_PERSIST extends EntityManagerTest {
 
     @Test
     public void persistirPedidoComItemPedido(){
