@@ -42,7 +42,7 @@ public class _3_cascateType_MERGE extends EntityManagerTest {
         logger.info(">>> Iniciando uma transação...");
         entityManager.getTransaction().begin();
 
-        logger.info("Fazendo a busca do produto no banco de dados e no retorno cria uma cópia do objeto" +
+        logger.info("Fazendo a busca do pedido no banco de dados e no retorno cria uma cópia do objeto" +
             " e coloca na memória para ser gerenciada pelo EntityManager...");
         entityManager.merge(pedido);
 //      entityManager.persist(itemPedido); Não necessário porque está salvando em cascata

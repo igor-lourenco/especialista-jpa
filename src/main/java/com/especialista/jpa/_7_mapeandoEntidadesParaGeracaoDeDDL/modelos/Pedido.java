@@ -66,7 +66,7 @@ public class Pedido extends EntidadeBaseInteger {
 
     @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY // um pedido tem em muitos itens de pedido (não owner), por padrão usa o Fetch.LAZY
         , cascade = { CascadeType.PERSIST // ao persistir pedido, também irá salvar o temPedido em cascata
-        , CascadeType.MERGE } // ao persistir pedido, também irá salvar o itemPedido em cascata
+        , CascadeType.MERGE } // ao atualizar pedido, também irá salvar o itemPedido em cascata
     )
     private List<ItemPedido> itensPedido;
 

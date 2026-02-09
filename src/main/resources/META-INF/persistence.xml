@@ -83,7 +83,7 @@
 <!--        ========================================================================================================================    -->
 
 <!--        >>>>  Não gera nem executa scripts                                                                                          -->
-<!--            <property name="javax.persistence.schema-generation.scripts.action" value="none"/>-->
+            <property name="javax.persistence.schema-generation.scripts.action" value="none"/>
 
 <!--        >>>>  Gera e executa apenas scripts de criação                                                                              -->
 <!--            <property name="javax.persistence.schema-generation.scripts.action" value="create"/>-->
@@ -92,7 +92,7 @@
 <!--            <property name="javax.persistence.schema-generation.scripts.action" value="drop"/>-->
 
 <!--        >>>> Gera e executa scripts para remover e depois criar o esquema                                                           -->
-            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+<!--            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>-->
 
 <!--        >>>> Define o caminho do arquivo onde o JPA vai exportar o script de criacao do banco de dados                              -->
 <!--        >>>> Esse arquivo é gerado, não executado automaticamente (a execução depende da propriedade scripts.action)               -->
