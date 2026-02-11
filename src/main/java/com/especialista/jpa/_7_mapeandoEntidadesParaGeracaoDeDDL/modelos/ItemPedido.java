@@ -27,8 +27,9 @@ public class ItemPedido {
     @MapsId("pedidoId") // Especifica ao JPA que um ou mais campos da PK vêm do identificador de uma associação (@ManyToOne ou @OneToOne), evitando duplicidade de colunas e mantendo tudo sincronizado.
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false // muitos itemPedido tem em um pedido, por padrão usa o Fetch.EAGER
-        , cascade = {CascadeType.MERGE //  // ao persistir itemPedido, também irá salvar o pedido em cascata
-        , CascadeType.REMOVE } // ao remover itemPedido, também irá remover o pedido em cascata
+//        , cascade = {CascadeType.MERGE //  // ao persistir itemPedido, também irá salvar o pedido em cascata
+//        , CascadeType.REMOVE  // ao remover itemPedido, também irá remover o pedido em cascata
+//        }
     )
     @JoinColumn(name = "pedido_id", // especifica uma coluna para unir as associações. (owner)
         insertable = false, updatable = false, // controla se a coluna será incluída em inserts e updates
