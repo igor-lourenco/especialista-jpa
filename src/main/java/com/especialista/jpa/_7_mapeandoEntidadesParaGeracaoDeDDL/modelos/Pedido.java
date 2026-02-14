@@ -74,7 +74,7 @@ public class Pedido extends EntidadeBaseInteger {
     private List<ItemPedido> itensPedido;
 
 
-    @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem um pamento cartão (não owner)
+    @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem um pagamento cartão (não owner)
     private Pagamento pagamento;
 
 

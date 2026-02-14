@@ -23,8 +23,8 @@ public class _6_crud_usando_cascateType extends EntityManagerTest {
         logger.info(">>> Criando novo Produto");
         Produto produto2 = new Produto();
         produto2.setId(2);
-        produto2.setNome("Produto 1");
-        produto2.setDescricao("Descrição do Produto 1");
+        produto2.setNome("Monitor");
+        produto2.setDescricao("Monitor com a melhor tela");
         produto2.setPreco(new BigDecimal("4000"));
 
         logger.info(">>> Instanciando novo Pedido");
