@@ -13,7 +13,10 @@ import java.util.List;
 public class _6_Fazendo_inner_join_entre_as_entidades extends EntityManagerTest {
 
 /*      - JOIN = INNER JOIN
-        - Só vai trazer os Pedidos que tiverem Pagamentos associados
+
+        - Só vai trazer os Pedidos que tiverem Pagamentos associados, ou seja, retorna apenas as entidades do
+      lado esquerdo com correspondência no relacionamento do join
+
         - JOIN com projeção é recomendado projetar campos e não entidades, assim faz um JOIN simples e o
       Hibernate traz tudo em uma única consulta, sem precisar de IDs ou selects extras.
 */

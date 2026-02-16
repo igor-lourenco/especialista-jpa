@@ -2,6 +2,7 @@ package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -19,6 +20,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@ToString
 public abstract class Pagamento extends EntidadeBaseInteger {
 
 //    @Id // O Id da entidade foi movido para a coluna que está usando o @MapsId abaixo

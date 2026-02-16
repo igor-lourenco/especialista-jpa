@@ -2,6 +2,7 @@ package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@ToString
 public class PagamentoBoleto extends Pagamento {
 
 //    >>> foi movido para a superclasse
