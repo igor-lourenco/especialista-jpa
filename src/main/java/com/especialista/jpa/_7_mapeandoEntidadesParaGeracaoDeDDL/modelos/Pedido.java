@@ -157,4 +157,21 @@ public class Pedido extends EntidadeBaseInteger {
         System.out.println(">>> Executando callback APÓS carregar pedido no banco de dados...");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Pedido{");
+        sb.append("dataCriacao=").append(dataCriacao);
+        sb.append(", dataUltimaAtualizacao=").append(dataUltimaAtualizacao);
+        sb.append(", dataConclusao=").append(dataConclusao);
+        sb.append(", total=").append(total);
+        sb.append(", status=").append(status);
+        sb.append(", enderecoEntrega=").append(enderecoEntrega);
+        sb.append(", clienteId=").append(cliente.getId());
+        sb.append(", itensPedido=").append(itensPedido == null ? "null": itensPedido.size());
+        sb.append(", pagamentoId=").append(pagamento == null ? "null" : pagamento.getId());
+        sb.append(", notaFiscalId=").append(notaFiscal == null ? "null" : notaFiscal.getId());
+        sb.append('}');
+        return sb.toString();
+    }
 }
