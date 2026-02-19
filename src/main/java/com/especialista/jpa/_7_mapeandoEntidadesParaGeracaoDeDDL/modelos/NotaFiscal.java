@@ -24,6 +24,10 @@ public class NotaFiscal extends EntidadeBaseInteger {
     @Column(nullable = false) // define se a coluna pode ser nula no banco
     private byte[] xml;
 
+
+//    @Temporal(TemporalType.DATE) // yyyy-MM-dd
+    @Temporal(TemporalType.TIMESTAMP) // yyyy-MM-dd HH:mm:ss
+//    @Temporal(TemporalType.TIME) // HH:mm:ss
     @Column(name = "data_emissao", length = 6,
         nullable = false // define se a coluna pode ser nula no banco
     )

@@ -36,3 +36,6 @@ insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) value
 --insert into tb_pagamento_cartao(pedido_id, numero_cartao) values (2, '123')
 
 insert into tb_categoria(id, nome) values (1, "Eletrodomésticos");
+
+-- esta usando o timezone UTC
+insert into tb_nota_fiscal (pedido_id, xml, data_emissao) values (2, '<xml />', sysdate());

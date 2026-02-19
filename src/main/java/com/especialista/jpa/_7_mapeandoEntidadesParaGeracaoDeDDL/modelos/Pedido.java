@@ -36,7 +36,9 @@ public class Pedido extends EntidadeBaseInteger {
     )
     private LocalDateTime dataUltimaAtualizacao;
 
-
+//  @Temporal(TemporalType.DATE) // yyyy-MM-dd
+//  @Temporal(TemporalType.TIMESTAMP) // yyyy-MM-dd HH:mm:ss
+//  @Temporal(TemporalType.TIME) // HH:mm:ss
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
 
