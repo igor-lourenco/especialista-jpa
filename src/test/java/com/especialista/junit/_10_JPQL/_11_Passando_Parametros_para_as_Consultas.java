@@ -24,8 +24,6 @@ public class _11_Passando_Parametros_para_as_Consultas extends EntityManagerTest
 
         Pedido pedido = typedQuery1.getSingleResult();
 
-
-        logger.info("Buscando ItemPedido...");
         Assert.assertFalse(pedido.getItensPedido().isEmpty());
 
         logger.info("Pedido retornado...");
