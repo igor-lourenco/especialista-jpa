@@ -13,17 +13,18 @@ import java.time.ZonedDateTime;
 import java.util.Comparator;
 import java.util.List;
 
-public class _15_Usando_Expressao_Condicional_MAIOR_e_MENOR_com_Data extends EntityManagerTest {
+public class _16_Usando_Expressao_Condicional_BETWEEN extends EntityManagerTest {
 
 
     @Test
-    public void usandoExpressaoCondicional_MAIOR_ou_IGUAL_E_MENOR_ou_IGUAL() { // Busca Pedido entre 04/02/2026 14:25:00 e 09/02/2026 18:45:00
+    public void usandoExpressaoCondicional_BETWEEN() { // Busca Pedido entre 04/02/2026 14:25:00 e 09/02/2026 18:45:00
 
         fusoHorario();
 
         String jpql = "SELECT p FROM Pedido p "
-            + " WHERE p.dataCriacao >= :dataCriacaoInicial "
-            + " AND p.dataCriacao <= :dataCriacaoFinal";
+//          + " WHERE p.dataCriacao >= :dataCriacaoInicial AND p.dataCriacao <= :dataCriacaoFinal";
+            + " WHERE p.dataCriacao BETWEEN :dataCriacaoInicial AND :dataCriacaoFinal"; // Mesma coisa que acima usando o >= e <=, porém os sinais são mais flexíveis
+
 
 //      2026-02-04T14:25:00Z → especifica que esse horário está no UTC, para ser exatamente esse horário que vai fazer a busca no banco de dados que está no UTC
         LocalDateTime dataCriacaoInicial = LocalDateTime.ofInstant(
@@ -51,8 +52,8 @@ public class _15_Usando_Expressao_Condicional_MAIOR_e_MENOR_com_Data extends Ent
         lista
             .stream().sorted(Comparator.comparing(Pedido::getDataCriacao))
             .forEach(p -> {
-            logger.info("Id: " + p.getId() + ", dataCriacao: " + p.getDataCriacao());
-        });
+                logger.info("Id: " + p.getId() + ", dataCriacao: " + p.getDataCriacao());
+            });
 
 
         logger.info("======================================================================================");
@@ -66,10 +67,7 @@ public class _15_Usando_Expressao_Condicional_MAIOR_e_MENOR_com_Data extends Ent
                 LocalDateTime dateTime = LocalDateTime.ofInstant(instant, ZoneId.of("UTC"));
 
                 logger.info("Id: " + p.getId() + ", dataCriacao: " + dateTime);
-        });
+            });
     }
-
-
-
 
 }
