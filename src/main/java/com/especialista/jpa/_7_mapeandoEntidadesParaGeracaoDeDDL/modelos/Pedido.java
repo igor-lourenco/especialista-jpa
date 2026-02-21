@@ -24,6 +24,7 @@ public class Pedido extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
+
     @Column(name = "data_criacao", length = 6,
         nullable = false, // define se a coluna pode ser nula no banco
         updatable = false // para não atualizar no banco de dados após criado
@@ -36,9 +37,7 @@ public class Pedido extends EntidadeBaseInteger {
     )
     private LocalDateTime dataUltimaAtualizacao;
 
-//  @Temporal(TemporalType.DATE) // yyyy-MM-dd
-//  @Temporal(TemporalType.TIMESTAMP) // yyyy-MM-dd HH:mm:ss
-//  @Temporal(TemporalType.TIME) // HH:mm:ss
+
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
 
