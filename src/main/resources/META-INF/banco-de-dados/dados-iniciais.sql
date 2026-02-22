@@ -39,3 +39,13 @@ insert into tb_categoria(id, nome) values (1, "Eletrodomésticos");
 
 -- esta usando o timezone UTC
 insert into tb_nota_fiscal (pedido_id, xml, data_emissao) values (2, '<xml />', sysdate());
+
+insert into tb_categoria (nome) values ('Eletrodomésticos');
+insert into tb_categoria (nome) values ('Livros');
+insert into tb_categoria (nome) values ('Esportes');
+insert into tb_categoria (nome) values ('Futebol');
+insert into tb_categoria (nome) values ('Natação');
+insert into tb_categoria (nome) values ('Notebooks');
+insert into tb_categoria (nome) values ('Smartphones');
+insert into tb_categoria (nome) values ('Eletroeletrônico');
+insert into tb_categoria (nome) values ('Cama, mesa e banho');
