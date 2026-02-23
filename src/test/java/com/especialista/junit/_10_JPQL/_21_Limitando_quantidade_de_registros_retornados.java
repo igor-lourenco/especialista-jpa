@@ -20,12 +20,12 @@ public class _21_Limitando_quantidade_de_registros_retornados extends EntityMana
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class)
             .setMaxResults(10);
 
-        List<Pedido> clientes = typedQuery.getResultList();
+        List<Pedido> pedidos = typedQuery.getResultList();
 
-        Assert.assertFalse(clientes.isEmpty());
+        Assert.assertFalse(pedidos.isEmpty());
 
         logger.info("Pedido paginados, com limte máximo de 10");
-        clientes.forEach(p -> logger.info("Nome" + " - " + p.getId()));
+        pedidos.forEach(p -> logger.info("Nome" + " - " + p.getId()));
     }
 
 }

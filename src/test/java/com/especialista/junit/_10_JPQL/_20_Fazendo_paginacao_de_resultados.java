@@ -26,12 +26,12 @@ public class _20_Fazendo_paginacao_de_resultados extends EntityManagerTest {
             .setFirstResult(firstResults)
             .setMaxResults(maxResults);
 
-        List<Pedido> clientes = typedQuery.getResultList();
+        List<Pedido> pedidos = typedQuery.getResultList();
 
-        Assert.assertFalse(clientes.isEmpty());
+        Assert.assertFalse(pedidos.isEmpty());
 
         logger.info("Pedido paginados, PÁGINA: " + pagina);
-        clientes.forEach(p -> logger.info("Nome" + " - " + p.getId()));
+        pedidos.forEach(p -> logger.info("Nome" + " - " + p.getId()));
     }
 
 }
