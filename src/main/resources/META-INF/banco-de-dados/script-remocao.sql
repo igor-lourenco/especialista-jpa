@@ -33,3 +33,5 @@ drop table if exists testando;
 --drop table if exists tb_produto_atributo;
 --drop table if exists tb_produto_categoria;
 --drop table if exists tb_produto_tag;
+
+-- drop function if exists acima_media_faturamento;

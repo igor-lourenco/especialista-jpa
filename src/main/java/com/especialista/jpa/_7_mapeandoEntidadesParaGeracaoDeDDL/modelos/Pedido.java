@@ -162,7 +162,8 @@ public class Pedido extends EntidadeBaseInteger {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Pedido{");
-        sb.append("dataCriacao=").append(dataCriacao);
+        sb.append("id=").append(getId());
+        sb.append(", dataCriacao=").append(dataCriacao);
         sb.append(", dataUltimaAtualizacao=").append(dataUltimaAtualizacao);
         sb.append(", dataConclusao=").append(dataConclusao);
         sb.append(", total=").append(total);
