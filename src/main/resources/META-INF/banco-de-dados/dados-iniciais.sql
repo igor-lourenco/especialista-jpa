@@ -26,7 +26,12 @@ insert into tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade) va
 
 
 -- herança com SINGLE_TABLE
-insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (2, 'PROCESSANDO', '123', 'PagamentoCartao')
+insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (2, 'PROCESSANDO', '123', 'PagamentoCartao');
+insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (3, 'PROCESSANDO', '123', 'PagamentoCartao');
+insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (4, 'RECEBIDO', '78912345', 'PagamentoBoleto');
+insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (5, 'PROCESSANDO', '78954321', 'PagamentoBoleto');
+insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (6, 'RECEBIDO', '123', 'PagamentoCartao');
+insert into tb_pagamento(pedido_id, status, numero_cartao, tipo_pagamento) values (7, 'CANCELADO', '123', 'PagamentoCartao');
 
 -- herança com TABLE_PER_CLASS
 --insert into tb_pagamento_cartao(pedido_id, status, numero_cartao) values (2, 'PROCESSANDO', '123')
