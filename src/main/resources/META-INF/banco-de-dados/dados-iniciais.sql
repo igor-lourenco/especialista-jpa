@@ -199,3 +199,112 @@ INSERT INTO tb_produto_categoria (produto_id, categoria_id) VALUES
 ((SELECT id FROM tb_produto WHERE nome='Travesseiro Viscoelástico'), (SELECT id FROM tb_categoria WHERE nome='Cama, mesa e banho')),
 ((SELECT id FROM tb_produto WHERE nome='Edredom Queen Dupla Face'), (SELECT id FROM tb_categoria WHERE nome='Cama, mesa e banho')),
 ((SELECT id FROM tb_produto WHERE nome='Jogo de Toalhas 5 Peças'), (SELECT id FROM tb_categoria WHERE nome='Cama, mesa e banho'));
+
+
+
+-- ========= 1) Pedido: Livro Domain-Driven Design (id_produto = 10) - cliente 3 =========
+INSERT INTO tb_pedido (data_conclusao, data_criacao, data_ultima_atualizacao, bairro, cep, cidade, complemento, estado, logradouro, numero, status, total, cliente_id) VALUES (
+  NULL, '2026-03-01 10:05:00', NULL, 'Centro', '06401-000', 'Barueri', 'Apto 12', 'SP', 'Avenida 26 de Março', '100','AGUARDANDO', 249.90, 3);
+
+INSERT INTO tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade)
+SELECT p.id, 10, 249.90, 1
+FROM tb_pedido p
+WHERE p.data_criacao = '2026-03-01 10:05:00'
+  AND p.cliente_id = 3
+  AND p.total = 249.90
+  AND p.status = 'AGUARDANDO'
+  AND p.bairro = 'Centro'
+  AND p.cep = '06401-000'
+  AND p.cidade = 'Barueri'
+  AND p.complemento = 'Apto 12'
+  AND p.estado = 'SP'
+  AND p.logradouro = 'Avenida 26 de Março'
+  AND p.numero = '100'
+ORDER BY p.id DESC
+LIMIT 1;
+
+-- ========= 2) Pedido: Caneleira Profissional (id_produto = 22) - cliente 2 =========
+INSERT INTO tb_pedido (data_conclusao, data_criacao, data_ultima_atualizacao, bairro, cep, cidade, complemento, estado, logradouro, numero, status, total, cliente_id) VALUES (
+  NULL, '2026-03-01 10:10:00', NULL,'Vila Olímpia', '04538-132', 'São Paulo', 'Conj. 503', 'SP', 'Rua Olimpíadas', '350','AGUARDANDO', 89.90, 2);
+
+INSERT INTO tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade)
+SELECT p.id, 22, 89.90, 1
+FROM tb_pedido p
+WHERE p.data_criacao = '2026-03-01 10:10:00'
+  AND p.cliente_id = 2
+  AND p.total = 89.90
+  AND p.status = 'AGUARDANDO'
+  AND p.bairro = 'Vila Olímpia'
+  AND p.cep = '04538-132'
+  AND p.cidade = 'São Paulo'
+  AND p.complemento = 'Conj. 503'
+  AND p.estado = 'SP'
+  AND p.logradouro = 'Rua Olimpíadas'
+  AND p.numero = '350'
+ORDER BY p.id DESC
+LIMIT 1;
+
+-- ========= 3) Pedido: Toalha de Banho Gigante (id_produto = 45) - cliente 5 =========
+INSERT INTO tb_pedido (data_conclusao, data_criacao, data_ultima_atualizacao, bairro, cep, cidade, complemento, estado, logradouro, numero, status, total, cliente_id) VALUES (
+  NULL, '2026-03-01 10:15:00', NULL,'Centro', '06020-010', 'Osasco', 'Sala 201', 'SP', 'Avenida dos Autonomistas', '1450', 'AGUARDANDO', 89.90, 5);
+
+INSERT INTO tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade)
+SELECT p.id, 45, 89.90, 1
+FROM tb_pedido p
+WHERE p.data_criacao = '2026-03-01 10:15:00'
+  AND p.cliente_id = 5
+  AND p.total = 89.90
+  AND p.status = 'AGUARDANDO'
+  AND p.bairro = 'Centro'
+  AND p.cep = '06020-010'
+  AND p.cidade = 'Osasco'
+  AND p.complemento = 'Sala 201'
+  AND p.estado = 'SP'
+  AND p.logradouro = 'Avenida dos Autonomistas'
+  AND p.numero = '1450'
+ORDER BY p.id DESC
+LIMIT 1;
+
+
+-- ========= 4) Pedido: Notebook 2 em 1 13 Touch (id_produto = 32) - cliente 1 =========
+INSERT INTO tb_pedido (data_conclusao, data_criacao, data_ultima_atualizacao, bairro, cep, cidade, complemento, estado, logradouro, numero, status, total, cliente_id) VALUES (
+  NULL, '2026-03-01 10:20:00', NULL,'Bela Vista', '01310-000', 'São Paulo', 'Apto 84', 'SP', 'Avenida Paulista', '1578', 'AGUARDANDO', 5499.90, 1);
+
+INSERT INTO tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade)
+SELECT p.id, 32, 5499.90, 1
+FROM tb_pedido p
+WHERE p.data_criacao = '2026-03-01 10:20:00'
+  AND p.cliente_id = 1
+  AND p.total = 5499.90
+  AND p.status = 'AGUARDANDO'
+  AND p.bairro = 'Bela Vista'
+  AND p.cep = '01310-000'
+  AND p.cidade = 'São Paulo'
+  AND p.complemento = 'Apto 84'
+  AND p.estado = 'SP'
+  AND p.logradouro = 'Avenida Paulista'
+  AND p.numero = '1578'
+ORDER BY p.id DESC
+LIMIT 1;
+
+
+-- ========= 5) Pedido: Micro-ondas 32L (id_produto = 6) - cliente 6 =========
+INSERT INTO tb_pedido (data_conclusao, data_criacao, data_ultima_atualizacao,bairro, cep, cidade, complemento, estado, logradouro, numero,status, total, cliente_id) VALUES (
+  NULL, '2026-03-01 10:25:00', NULL, 'Moema', '04094-050', 'São Paulo', 'Casa 2', 'SP', 'Alameda Jauaperi', '220','AGUARDANDO', 699.90, 6);
+
+INSERT INTO tb_item_pedido (pedido_id, produto_id, preco_produto, quantidade)
+SELECT p.id, 6, 699.90, 1
+FROM tb_pedido p
+WHERE p.data_criacao = '2026-03-01 10:25:00'
+  AND p.cliente_id = 6
+  AND p.total = 699.90
+  AND p.status = 'AGUARDANDO'
+  AND p.bairro = 'Moema'
+  AND p.cep = '04094-050'
+  AND p.cidade = 'São Paulo'
+  AND p.complemento = 'Casa 2'
+  AND p.estado = 'SP'
+  AND p.logradouro = 'Alameda Jauaperi'
+  AND p.numero = '220'
+ORDER BY p.id DESC
+LIMIT 1;
