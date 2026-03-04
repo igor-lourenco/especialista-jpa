@@ -4,6 +4,12 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="EspecialistaJPADB-PU">
+
+        <mapping-file>META-INF/consultas/pedido.xml</mapping-file>
+        <mapping-file>META-INF/consultas/produto.xml</mapping-file>
+
+
+
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.54:3307/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
             <property name="javax.persistence.jdbc.user" value="appuser" />
