@@ -8,6 +8,12 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@NamedQueries({
+    @NamedQuery(name = "Produto.listar", query = "SELECT p FROM Produto p"), // usando em: _46_Configurando_uma_named_query
+    @NamedQuery(name = "Produto.listarPorCategoria", query =
+        "SELECT p FROM Produto p "
+            + " WHERE EXISTS (SELECT 1 FROM Categoria c2 JOIN c2.produtos p2 WHERE p2 = p AND c2.id = :categoriaId)")
+})
 @Getter
 @Setter
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
