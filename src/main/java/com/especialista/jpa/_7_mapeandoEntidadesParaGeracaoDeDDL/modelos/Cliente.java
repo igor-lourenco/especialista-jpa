@@ -84,4 +84,18 @@ public class Cliente extends EntidadeBaseInteger {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Cliente{");
+        sb.append("nome='").append(nome).append('\'');
+        sb.append(", cpf='").append(cpf).append('\'');
+        sb.append(", pedidos=").append(pedidos == null ? 0 : pedidos.size());
+        sb.append(", contatos=").append(contatos == null ? 0 : contatos.size());
+        sb.append(", sexo=").append(sexo);
+        sb.append(", dataNascimento=").append(dataNascimento);
+        sb.append(", primeiroNome='").append(primeiroNome).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
