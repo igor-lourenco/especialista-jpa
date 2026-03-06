@@ -28,7 +28,7 @@ public class _5_Usando_Tuple_para_projecoes extends EntityManagerTest {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT p.id, p.nome
 
-        Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Pedido p
+        Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 
 //        criteriaQuery.multiselect(root.get("id"), root.get("nome")); // atributos p.id, p.nome
         criteriaQuery.select(criteriaBuilder.tuple(root.get("id").alias("id"), // O mesmo que acima mas usando o Tuple
@@ -55,7 +55,7 @@ public class _5_Usando_Tuple_para_projecoes extends EntityManagerTest {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT p.id, p.nome
 
-        Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Pedido p
+        Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 
 //        criteriaQuery.multiselect(root.get("id"), root.get("nome")); // atributos p.id, p.nome
         criteriaQuery.select(criteriaBuilder.tuple(root.get("id"), root.get("nome"))); // O mesmo que acima mas usando o Tuple
