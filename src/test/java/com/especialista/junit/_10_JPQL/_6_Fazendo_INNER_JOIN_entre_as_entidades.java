@@ -10,7 +10,7 @@ import org.junit.Test;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class _6_Fazendo_inner_join_entre_as_entidades extends EntityManagerTest {
+public class _6_Fazendo_INNER_JOIN_entre_as_entidades extends EntityManagerTest {
 
 /*      - JOIN = INNER JOIN
 
@@ -19,10 +19,12 @@ public class _6_Fazendo_inner_join_entre_as_entidades extends EntityManagerTest 
 
         - JOIN com projeção é recomendado projetar campos e não entidades, assim faz um JOIN simples e o
       Hibernate traz tudo em uma única consulta, sem precisar de IDs ou selects extras.
+
+        - O JOIN nunca retorna registros cujo lado associado é nulo. Só retorna linhas onde a relação existe dos dois lados.
 */
 
     @Test
-    public void fazerjoin() {
+    public void fazendo_JOIN() {
         String jpql1 = "SELECT p FROM Pedido p JOIN p.pagamento pag";
 
         logger.info("Buscando uma lista de Pedido com Pagamento...");
@@ -37,7 +39,7 @@ public class _6_Fazendo_inner_join_entre_as_entidades extends EntityManagerTest 
     }
 
     @Test
-    public void fazerJoinComWhere() {
+    public void fazendo_JOIN_Com_WHERE() {
         String jpql = "SELECT p FROM Pedido p JOIN p.itensPedido item WHERE item.precoProduto >= 500";
 
         logger.info("Buscando uma Lista de Pedido com ItemPedido...");
@@ -59,7 +61,7 @@ public class _6_Fazendo_inner_join_entre_as_entidades extends EntityManagerTest 
     }
 
     @Test
-    public void fazerJoinComWhereEProjecao() {
+    public void fazendo_JOIN_com_WHERE_e_Projecao() {
         String jpql = "SELECT new com.especialista.jpa.DTOs.PedidoComItensPedidoDTO(p, item) FROM Pedido p JOIN p.itensPedido item WHERE item.precoProduto >= 500";
 
         logger.info("Buscando uma Lista de Pedido com ItemPedido...");
