@@ -15,6 +15,13 @@ import java.util.List;
 
 public class _8_JOIN_com_a_clausula_ON extends EntityManagerTest {
 
+/*      - Diferença entre WHERE e ON:
+            - ON → a condição é aplicada no momento do join, limitando quais linhas do lado direito podem casar com a linha do lado esquerdo.
+          Preserva todas as linhas do lado esquerdo, mesmo quando não houver match (o lado direito vira NULL).
+
+            - WHERE → a condição é aplicada depois do join. Se você filtra por uma coluna do lado direito (ex.: p.status = 'CANCELADO'),
+          as linhas onde o lado direito é NULL serão removidas, o que na prática transforma o LEFT JOIN em INNER JOIN.
+ */
 
     @Test
     public void fazendo_JOIN_com_ON(){
