@@ -36,8 +36,8 @@ public class _16_Usando_Expressao_Condicional_MAIOR_e_MENOR extends EntityManage
 
 
         criteriaQuery.where(criteriaBuilder.and(
-            criteriaBuilder.greaterThanOrEqualTo(root.get(Produto_.PRECO), new BigDecimal("1.00")), //  WHERE p.preco >= :precoInicial
-            criteriaBuilder.lessThanOrEqualTo(root.get(Produto_.PRECO), new BigDecimal("50.00")) // AND p.preco <= :precoFinal
+            criteriaBuilder.greaterThanOrEqualTo(root.get(Produto_.preco), new BigDecimal("1.00")), //  WHERE p.preco >= :precoInicial
+            criteriaBuilder.lessThanOrEqualTo(root.get(Produto_.preco), new BigDecimal("50.00")) // AND p.preco <= :precoFinal
         ));
 
 

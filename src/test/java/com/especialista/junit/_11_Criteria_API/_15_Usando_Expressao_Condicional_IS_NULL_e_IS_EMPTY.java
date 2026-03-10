@@ -45,7 +45,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
-        criteriaQuery.where(root.get(Produto_.DATA_ULTIMA_ATUALIZACAO).isNull()); // WHERE p.dataUltimaAtualizacao IS NULL
+        criteriaQuery.where(root.get(Produto_.dataUltimaAtualizacao).isNull()); // WHERE p.dataUltimaAtualizacao IS NULL
 //        criteriaQuery.where(criteriaBuilder.isNull(root.get(Produto_.DATA_ULTIMA_ATUALIZACAO))); // o mesmo que o acima de uma forma diferente
 
 
@@ -78,7 +78,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
-        criteriaQuery.where(root.get(Produto_.DATA_ULTIMA_ATUALIZACAO).isNotNull()); // WHERE p.dataUltimaAtualizacao IS NOT NULL
+        criteriaQuery.where(root.get(Produto_.dataUltimaAtualizacao).isNotNull()); // WHERE p.dataUltimaAtualizacao IS NOT NULL
 //        criteriaQuery.where(criteriaBuilder.isNotNull(root.get(Produto_.DATA_ULTIMA_ATUALIZACAO))); // o mesmo que o acima de uma forma diferente
 
 
@@ -117,7 +117,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
-        criteriaQuery.where(criteriaBuilder.isEmpty((root.get(Produto_.CATEGORIAS)))); // WHERE p.categorias IS EMPTY
+        criteriaQuery.where(criteriaBuilder.isEmpty((root.get(Produto_.categorias)))); // WHERE p.categorias IS EMPTY
 
 
         TypedQuery<Produto> typedQuery =
@@ -156,7 +156,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
-        criteriaQuery.where(criteriaBuilder.isNotEmpty((root.get(Produto_.CATEGORIAS)))); // WHERE p.categorias IS NOT EMPTY
+        criteriaQuery.where(criteriaBuilder.isNotEmpty((root.get(Produto_.categorias)))); // WHERE p.categorias IS NOT EMPTY
 
 
         TypedQuery<Produto> typedQuery =
