@@ -22,9 +22,9 @@ public class _21_Ordenando_resultado_com_ORDER_BY extends EntityManagerTest {
 //          + " ORDER BY c.nome DESC";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT p
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT c
 
-        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente p
+        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
@@ -51,9 +51,9 @@ public class _21_Ordenando_resultado_com_ORDER_BY extends EntityManagerTest {
 //          + " ORDER BY c.nome ASC";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT p
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT c
 
-        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente p
+        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 

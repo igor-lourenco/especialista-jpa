@@ -23,14 +23,14 @@ public class _19_Usando_Expressao_Condicional_DIFERENTE extends EntityManagerTes
 //          + " WHERE c.nome <> :nome"; // O diferente é representado pelo sinal <>
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT p
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT c
 
-        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente p
+        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
         criteriaQuery.where(criteriaBuilder.notEqual(
-            root.get(Cliente_.nome), "Marcos Mariano" //  WHERE p.preco BETWEEN :precoInicial AND :precoFinal
+            root.get(Cliente_.nome), "Marcos Mariano" //   WHERE c.nome <> :nome
         ));
 
         TypedQuery<Cliente> typedQuery =
