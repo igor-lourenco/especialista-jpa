@@ -34,10 +34,10 @@ public class _20_Usando_Usando_Operador_Logico_AND_e_OR extends EntityManagerTes
         criteriaQuery.where(
             criteriaBuilder.greaterThan(root.get(Pedido_.total), new BigDecimal("400.00")), //  WHERE p.total > :total
             criteriaBuilder.or(
-                criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.AGUARDANDO), // AND p.status = :status
-                criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.PAGO) // AND p.status = :status
+                criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.AGUARDANDO), // AND p.status = :status1
+                criteriaBuilder.equal(root.get(Pedido_.status), StatusPedido.PAGO) // OR p.status = :status2
             ),
-            criteriaBuilder.notEqual(root.get(Pedido_.cliente).get(Cliente_.id), 1)
+            criteriaBuilder.notEqual(root.get(Pedido_.cliente).get(Cliente_.id), 1) // AND p.cliente.id <> :clienteId
         );
 
         TypedQuery<Pedido> typedQuery =
