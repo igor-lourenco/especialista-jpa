@@ -10,12 +10,12 @@ import javax.persistence.TypedQuery;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class _18_Usand_Operador_Logico_AND_e_OR extends EntityManagerTest {
+public class _18_Usando_Operador_Logico_AND_e_OR extends EntityManagerTest {
 
     @Test // Todos parâmetros criados no JPQL tem que ser especificado senão JPA solta EXCEPTION
     public void usandoExpressaoCondicional_AND_e_OR() {
 
-        // "Buscando todos os Pedidos com total MAIOR que 400.00 E (status=AGUARDANDO OU status=PAGO) E DIFERENTE de clienteId 1
+        // Busca todos os Pedidos com total MAIOR que 400.00 E (status=AGUARDANDO OU status=PAGO) E DIFERENTE de clienteId 1
         String jpql = "SELECT p FROM Pedido p "
             + " WHERE p.total > :total "
             + " AND (p.status = :status1 OR p.status = :status2) "
@@ -26,7 +26,7 @@ public class _18_Usand_Operador_Logico_AND_e_OR extends EntityManagerTest {
         StatusPedido status2 = StatusPedido.PAGO;
         Integer clienteId = 1;
 
-        logger.info("Buscando Cliente ...");
+        logger.info("Buscando Pedido ...");
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class)
             .setParameter("total", total)
             .setParameter("status1", status1)
@@ -57,7 +57,7 @@ public class _18_Usand_Operador_Logico_AND_e_OR extends EntityManagerTest {
         StatusPedido status = StatusPedido.AGUARDANDO;
         Integer clienteId = 2;
 
-        logger.info("Buscando Cliente ...");
+        logger.info("Buscando Pedido ...");
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class)
             .setParameter("total", total)
             .setParameter("status", status)
@@ -69,9 +69,9 @@ public class _18_Usand_Operador_Logico_AND_e_OR extends EntityManagerTest {
 
         logger.info("Buscando todos os Pedidos com total MAIOR que " + total + " E status=" + status + " E clienteId= " + clienteId);
         pedidos.forEach(p -> logger.info("Id:" + p.getId()
-                + ", total: " + p.getTotal()
-                + ", status: " + p.getStatus()
-                + ", clienteId: " + p.getCliente().getId()));
+            + ", total: " + p.getTotal()
+            + ", status: " + p.getStatus()
+            + ", clienteId: " + p.getCliente().getId()));
     }
 
     @Test // Todos parâmetros criados no JPQL tem que ser especificado senão JPA solta EXCEPTION
@@ -87,7 +87,7 @@ public class _18_Usand_Operador_Logico_AND_e_OR extends EntityManagerTest {
         StatusPedido status1 = StatusPedido.AGUARDANDO;
         StatusPedido status2 = StatusPedido.PAGO;
 
-        logger.info("Buscando Cliente ...");
+        logger.info("Buscando Pedido ...");
         TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class)
             .setParameter("total", total)
             .setParameter("status1", status1)
@@ -97,11 +97,13 @@ public class _18_Usand_Operador_Logico_AND_e_OR extends EntityManagerTest {
 
         Assert.assertFalse(pedidos.isEmpty());
 
-        logger.info("Buscando todos os Pedidos com total MAIOR que " + total + " E status=" + status1 + "OU status= " + status2);
+        logger.info("Buscando todos os Pedidos com total MAIOR que " + total + " E status=" + status1 + " OU status= " + status2);
         pedidos.forEach(p -> logger.info("Id:" + p.getId()
-                + ", total: " + p.getTotal()
-                + ", status: " + p.getStatus()
-                + ", clienteId: " + p.getCliente().getId()));
+            + ", total: " + p.getTotal()
+            + ", status: " + p.getStatus()
+            + ", clienteId: " + p.getCliente().getId()));
     }
 
 }
+
+

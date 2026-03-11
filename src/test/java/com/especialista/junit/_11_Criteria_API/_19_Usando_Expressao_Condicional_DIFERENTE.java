@@ -25,7 +25,7 @@ public class _19_Usando_Expressao_Condicional_DIFERENTE extends EntityManagerTes
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT p
 
-        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Pedido p
+        Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente p
 
         criteriaQuery.select(root); // quando o tipo de retorno do CriteriaQuery é o mesmo que o tipo do Root, não é obrigado a chamar select(root).
 
