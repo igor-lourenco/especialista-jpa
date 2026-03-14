@@ -29,7 +29,7 @@ public class _23_Funcoes_para_Datas extends EntityManagerTest {
 
         Assert.assertFalse(categorias.isEmpty());
 
-        categorias.forEach(c -> logger.info("Data atual (UTC): " + c[0]
+        categorias.forEach(c -> logger.info("Data atual (America/Sao_Paulo): " + c[0]
             + ", como o sistema está no fuso horário de America_Sao_Paulo, e a data não tem as horas, O Java tira as 3 horas e por isso fica como um dia a menos "));
 
         categorias.forEach(c -> logger.info("Hora atual:  " + c[1]));
