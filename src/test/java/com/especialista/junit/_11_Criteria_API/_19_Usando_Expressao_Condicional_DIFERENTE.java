@@ -23,7 +23,7 @@ public class _19_Usando_Expressao_Condicional_DIFERENTE extends EntityManagerTes
 //          + " WHERE c.nome <> :nome"; // O diferente é representado pelo sinal <>
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT c
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // Query vai retornar Cliente
 
         Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 

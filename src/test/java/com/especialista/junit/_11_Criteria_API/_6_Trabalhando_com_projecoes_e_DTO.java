@@ -27,7 +27,7 @@ public class _6_Trabalhando_com_projecoes_e_DTO extends EntityManagerTest {
 //      String jpql = "SELECT new com.especialista.jpa.DTOs.ProdutoDTO(id, nome) FROM Produto p";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<ProdutoDTO> criteriaQuery = criteriaBuilder.createQuery(ProdutoDTO.class); // SELECT new com.especialista.jpa.DTOs.ProdutoDTO(id, nome)
+        CriteriaQuery<ProdutoDTO> criteriaQuery = criteriaBuilder.createQuery(ProdutoDTO.class);// Query vai retornar ProdutoDTO
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 

@@ -22,7 +22,7 @@ public class _14_Usando_Expressao_Condicional_LIKE extends EntityManagerTest {
 //          + " WHERE p.nome LIKE CONCAT('%', :nome, '%')";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 

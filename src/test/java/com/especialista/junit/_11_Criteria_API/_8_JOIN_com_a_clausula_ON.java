@@ -30,7 +30,7 @@ public class _8_JOIN_com_a_clausula_ON extends EntityManagerTest {
 //      String jpql = "SELECT p, pag FROM Pedido p LEFT JOIN p.pagamento pag ON pag.status = 'PROCESSANDO'";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT p, pag
+        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery();// Query vai retornar Tuple
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -65,7 +65,7 @@ public class _8_JOIN_com_a_clausula_ON extends EntityManagerTest {
 //      String jpql = "SELECT p, pag FROM Pedido p JOIN p.pagamento pag ON pag.status = 'PROCESSANDO'";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT p, pag
+        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // Query vai retornar Tuple
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

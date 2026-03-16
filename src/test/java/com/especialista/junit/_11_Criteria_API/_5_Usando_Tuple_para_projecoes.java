@@ -26,7 +26,7 @@ public class _5_Usando_Tuple_para_projecoes extends EntityManagerTest {
 //      String jpql = "SELECT p.id, p.nome FROM Produto p";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT p.id, p.nome
+        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // Query vai retornar Tuple
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 
@@ -53,7 +53,7 @@ public class _5_Usando_Tuple_para_projecoes extends EntityManagerTest {
 //      String jpql = "SELECT p.id, p.nome FROM Produto p";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT p.id, p.nome
+        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // Query vai retornar Tuple
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 

@@ -26,7 +26,7 @@ public class _16_Usando_Expressao_Condicional_MAIOR_e_MENOR extends EntityManage
 //            + " AND p.preco <= :precoFinal";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 

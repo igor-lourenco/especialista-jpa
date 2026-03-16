@@ -42,7 +42,7 @@ public class _18_Usando_Expressao_Condicional_BETWEEN extends EntityManagerTest 
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);// Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -98,7 +98,7 @@ public class _18_Usando_Expressao_Condicional_BETWEEN extends EntityManagerTest 
 //            + " WHERE p.preco BETWEEN :precoInicial AND :precoFinal"
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);// Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Pedido p
 

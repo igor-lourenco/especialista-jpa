@@ -39,7 +39,7 @@ public class _17_Usando_Expressao_Condicional_MAIOR_e_MENOR_com_Data extends Ent
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);// Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

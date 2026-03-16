@@ -25,7 +25,7 @@ public class _12_Passando_parametros_para_consulta extends EntityManagerTest {
 //            + " WHERE p.id = ?1"; // O 1 depois do ? não tem relação com a ordem dos parâmetros, e sim para especificar a posição
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -61,7 +61,7 @@ public class _12_Passando_parametros_para_consulta extends EntityManagerTest {
 //            + " WHERE p.id = :pedidoId"; // O 1 depois do ? não tem relação com a ordem dos parâmetros, e sim para especificar a posição
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -99,7 +99,7 @@ public class _12_Passando_parametros_para_consulta extends EntityManagerTest {
         Calendar dataInicial = Calendar.getInstance();
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<NotaFiscal> criteriaQuery = criteriaBuilder.createQuery(NotaFiscal.class); // SELECT nf
+        CriteriaQuery<NotaFiscal> criteriaQuery = criteriaBuilder.createQuery(NotaFiscal.class); // Query vai retornar NotaFiscal
 
         Root<NotaFiscal> root = criteriaQuery.from(NotaFiscal.class); // FROM NotaFiscal nf
 

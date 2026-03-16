@@ -24,7 +24,7 @@ public class _25_Funcoes_para_Numeros extends EntityManagerTest {
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -65,7 +65,7 @@ public class _25_Funcoes_para_Numeros extends EntityManagerTest {
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

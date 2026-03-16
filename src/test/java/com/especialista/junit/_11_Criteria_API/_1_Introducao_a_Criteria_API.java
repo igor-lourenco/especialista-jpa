@@ -20,7 +20,7 @@ public class _1_Introducao_a_Criteria_API extends EntityManagerTest {
 //      String jpql = "SELECT p FROM Pedido p WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

@@ -23,7 +23,7 @@ public class _24_Funcoes_para_Datas extends EntityManagerTest {
 //          + " WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -65,7 +65,7 @@ public class _24_Funcoes_para_Datas extends EntityManagerTest {
 //          + " WHERE p.dataCriacao < CURRENT_TIMESTAMP ";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -111,7 +111,7 @@ public class _24_Funcoes_para_Datas extends EntityManagerTest {
 //          + " WHERE p.dataCriacao < CURRENT_TIMESTAMP ";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -161,7 +161,7 @@ public class _24_Funcoes_para_Datas extends EntityManagerTest {
 //            + " WHERE p.dataCriacao < CURRENT_TIMESTAMP ";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

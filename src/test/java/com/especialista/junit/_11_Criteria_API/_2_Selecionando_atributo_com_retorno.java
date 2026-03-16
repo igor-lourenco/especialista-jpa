@@ -22,7 +22,7 @@ public class _2_Selecionando_atributo_com_retorno extends EntityManagerTest {
 //      String jpql = "SELECT p.cliente FROM Pedido p WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT p.cliente
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // Query vai retornar Cliente
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -50,7 +50,7 @@ public class _2_Selecionando_atributo_com_retorno extends EntityManagerTest {
 //      String jpql = "SELECT p.total FROM Pedido p WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<BigDecimal> criteriaQuery = criteriaBuilder.createQuery(BigDecimal.class); // SELECT p.total
+        CriteriaQuery<BigDecimal> criteriaQuery = criteriaBuilder.createQuery(BigDecimal.class); // Query vai retornar BigDecimal
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

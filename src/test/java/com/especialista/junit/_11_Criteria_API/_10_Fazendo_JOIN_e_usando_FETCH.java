@@ -34,7 +34,7 @@ public class _10_Fazendo_JOIN_e_usando_FETCH extends EntityManagerTest {
 //      String jpql1 = "SELECT p FROM Pedido p WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -71,7 +71,7 @@ public class _10_Fazendo_JOIN_e_usando_FETCH extends EntityManagerTest {
 //      String jpql = "SELECT p FROM Pedido p JOIN FETCH p.itensPedido WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -112,7 +112,7 @@ public class _10_Fazendo_JOIN_e_usando_FETCH extends EntityManagerTest {
 //            + " WHERE p.id = 1";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -153,7 +153,7 @@ public class _10_Fazendo_JOIN_e_usando_FETCH extends EntityManagerTest {
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

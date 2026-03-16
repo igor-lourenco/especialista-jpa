@@ -22,7 +22,7 @@ public class _21_Ordenando_resultado_com_ORDER_BY extends EntityManagerTest {
 //          + " ORDER BY c.nome DESC";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT c
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // Query vai retornar Cliente
 
         Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 
@@ -51,7 +51,7 @@ public class _21_Ordenando_resultado_com_ORDER_BY extends EntityManagerTest {
 //          + " ORDER BY c.nome ASC";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // SELECT c
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class); // Query vai retornar Cliente
 
         Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 

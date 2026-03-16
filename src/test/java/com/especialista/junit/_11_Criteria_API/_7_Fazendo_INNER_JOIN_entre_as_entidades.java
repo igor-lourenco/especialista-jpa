@@ -34,7 +34,7 @@ public class _7_Fazendo_INNER_JOIN_entre_as_entidades extends EntityManagerTest 
 //      String jpql = "SELECT p FROM Pedido p JOIN p.pagamento pag"; // Selecionando Pedido
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -63,7 +63,7 @@ public class _7_Fazendo_INNER_JOIN_entre_as_entidades extends EntityManagerTest 
 //      String jpql = "SELECT p.pagamento FROM Pedido p JOIN p.pagamento pag"; // Selecionando Pagamento através do Pedido
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pagamento> criteriaQuery = criteriaBuilder.createQuery(Pagamento.class); // SELECT p.pagamento
+        CriteriaQuery<Pagamento> criteriaQuery = criteriaBuilder.createQuery(Pagamento.class); // Query vai retornar Pagamento
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -93,7 +93,7 @@ public class _7_Fazendo_INNER_JOIN_entre_as_entidades extends EntityManagerTest 
 //      String jpql = "SELECT p FROM Pedido p JOIN p.itensPedido item WHERE item.precoProduto >= 500";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -124,7 +124,7 @@ public class _7_Fazendo_INNER_JOIN_entre_as_entidades extends EntityManagerTest 
 //      String jpql = "SELECT new com.especialista.jpa.DTOs.PedidoComItensPedidoDTO(p, item) FROM Pedido p JOIN p.itensPedido item WHERE item.precoProduto >= 500";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<PedidoComItensPedidoDTO> criteriaQuery = criteriaBuilder.createQuery(PedidoComItensPedidoDTO.class); // SELECT new com.especialista.jpa.DTOs.PedidoComItensPedidoDTO(p, item)
+        CriteriaQuery<PedidoComItensPedidoDTO> criteriaQuery = criteriaBuilder.createQuery(PedidoComItensPedidoDTO.class); // Query vai retornar PedidoComItensPedidoDTO
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

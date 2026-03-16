@@ -38,7 +38,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 //          + " WHERE p.dataUltimaAtualizacao IS NULL ";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 
@@ -71,7 +71,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 //          + " WHERE p.dataUltimaAtualizacao IS NOT NULL ";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 
@@ -107,7 +107,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 
@@ -146,7 +146,7 @@ public class _15_Usando_Expressao_Condicional_IS_NULL_e_IS_EMPTY extends EntityM
 
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class); // SELECT p
+        CriteriaQuery<Produto> criteriaQuery = criteriaBuilder.createQuery(Produto.class);// Query vai retornar Produto
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
 

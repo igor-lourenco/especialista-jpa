@@ -33,7 +33,7 @@ public class _9_Usando_LEFT_OUUTER_JOIN extends EntityManagerTest {
 //      String jpql = "SELECT p, pag FROM Pedido p LEFT JOIN p.pagamento pag ON pag.status = 'PROCESSANDO'";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p, pag
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);// Query vai retornar Object[]
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 
@@ -70,7 +70,7 @@ public class _9_Usando_LEFT_OUUTER_JOIN extends EntityManagerTest {
 //      String jpql = "SELECT p FROM Pedido p LEFT JOIN p.pagamento pag";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // SELECT p, pag
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
 
         Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
 

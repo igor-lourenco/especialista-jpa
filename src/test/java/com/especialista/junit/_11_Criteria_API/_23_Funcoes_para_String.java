@@ -19,7 +19,7 @@ public class _23_Funcoes_para_String extends EntityManagerTest {
     @Test
     public void aplicando_Funcoes_String_com_WHERE_Usando_Tuple(){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // SELECT c
+        CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createTupleQuery(); // Query vai retornar Tuple
 
         Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 
@@ -71,7 +71,7 @@ public class _23_Funcoes_para_String extends EntityManagerTest {
     @Test
     public void aplicando_Funcoes_String_com_WHERE(){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT c
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // Query vai retornar Object[]
 
         Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 
@@ -119,7 +119,7 @@ public class _23_Funcoes_para_String extends EntityManagerTest {
     @Test
     public void aplicando_Funcoes_String(){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT c
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);// Query vai retornar Object[]
 
         Root<Cliente> root = criteriaQuery.from(Cliente.class); // FROM Cliente c
 

@@ -25,7 +25,7 @@ public class _4_Trabalhando_com_projecoes extends EntityManagerTest {
 //      String jpql = "SELECT p.id, p.nome FROM Produto p";
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class); // SELECT p.id, p.nome
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);// Query vai retornar Object[]
 
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Pedido p
 
