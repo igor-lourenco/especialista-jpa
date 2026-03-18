@@ -28,8 +28,8 @@ public class _32_Expressao_CASE extends EntityManagerTest {
 
         String jpql = "SELECT p.id,  "
             + " CASE p.status "                             // CASO status
-            + "     WHEN 'PAGO' THEN 'Está Pago' "          // QUANDO for 'PAGO' ENTÃO 'Está Pago'
-            + "     WHEN 'CANCELADO' THEN 'Foi cancelado' " // QUANDO for 'CANCELADO' ENTÃO 'Foi cancelado'
+            + "     WHEN 'PAGO' THEN 'Está Pago' "          // QUANDO for 'PAGO' ENTÃO 'Está Pago'           (se passar status 'PAGO' como parâmetro não funciona)
+            + "     WHEN 'CANCELADO' THEN 'Foi cancelado' " // QUANDO for 'CANCELADO' ENTÃO 'Foi cancelado'  (se passar status 'CANCELADO' como parâmetro não funciona)
             + "     ELSE 'Está aguardando' "                // SENÃO 'Está aguardando'
             + "END "                                        // FIM
             + "FROM Pedido p";
