@@ -72,7 +72,7 @@ public class _33_Expressao_IN extends EntityManagerTest {
             + " WHERE p.cliente IN (:clientes) ";
 
         Cliente cliente2 = entityManager.find(Cliente.class, 2);
-        Cliente cliente3 = new Cliente(); // não precisa ter toda a entidade com os dados, apenas o id funciona
+        Cliente cliente3 = new Cliente(); // não precisa ter toda a entidade com os dados, apenas o id funciona também
         cliente3.setId(3);
 
         List<Cliente> parametros = List.of(cliente2,cliente3);
