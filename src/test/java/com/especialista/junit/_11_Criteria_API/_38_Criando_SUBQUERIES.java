@@ -29,12 +29,14 @@ public class _38_Criando_SUBQUERIES extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT p
 
-        Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class);
-        Root<Produto> subRoot = subquery.from(Produto.class);
+        Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class); // SubQuery vai retornar BigDecimal
+        Root<Produto> subRoot = subquery.from(Produto.class);                 //  FROM Produto p2
+
         subquery.select(criteriaBuilder.max(subRoot.get(Produto_.preco))); //  SELECT MAX(preco) FROM Produto p2
 
 
-        criteriaQuery.where(criteriaBuilder.equal(root.get(Produto_.preco), subquery));
+        criteriaQuery.where( // WHERE p.preco = (SubQuery)
+            criteriaBuilder.equal(root.get(Produto_.preco), subquery));
 
 
         TypedQuery<Produto> typedQuery =
@@ -68,12 +70,14 @@ public class _38_Criando_SUBQUERIES extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT p
 
-        Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class);
-        Root<Pedido> subRoot = subquery.from(Pedido.class);
+        Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class); // SubQuery vai retornar BigDecimal
+        Root<Pedido> subRoot = subquery.from(Pedido.class);                  //   //  FROM Pedidos p2
+
         subquery.select(criteriaBuilder.avg(subRoot.get(Pedido_.total)).as(BigDecimal.class)); //  SELECT AVG(total) FROM Pedido p2
 
 
-        criteriaQuery.where(criteriaBuilder.greaterThan(root.get(Pedido_.total), subquery));
+        criteriaQuery.where( // WHERE p.total > (SubQuery)
+            criteriaBuilder.greaterThan(root.get(Pedido_.total), subquery));
 
 
         TypedQuery<Pedido> typedQuery =
@@ -107,16 +111,18 @@ public class _38_Criando_SUBQUERIES extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT p
 
-        Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class);
-        Root<Pedido> subRoot = subquery.from(Pedido.class);
+        Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class); // SubQuery vai retornar BigDecimal
+        Root<Pedido> subRoot = subquery.from(Pedido.class);                  //  FROM Pedidos p
+
         subquery.select(criteriaBuilder.sum(subRoot.get(Pedido_.total)).as(BigDecimal.class)); // SELECT SUM(p.total)
         subquery.where(criteriaBuilder.equal(root, subRoot.get(Pedido_.cliente)));                // FROM c.pedidos p
 
-        criteriaQuery.where(criteriaBuilder.greaterThan( subquery, new BigDecimal("2000")));
+        criteriaQuery.where( // WHERE (SubQuery) > 2000
+            criteriaBuilder.greaterThan( subquery, new BigDecimal("2000")));
 
 
         TypedQuery<Cliente> typedQuery =
-//          entityManager.createQuery(jpql, Pedido.class)
+//          entityManager.createQuery(jpql, Cliente.class)
             entityManager.createQuery(criteriaQuery);
 
 

@@ -14,7 +14,7 @@ public class _36_Criando_SUBQUERIES_com_IN extends EntityManagerTest {
     @Test
     public void usandoExpresao_IN() { //
 
-//        String jpql = "SELECT p"  -> Pode trazer pedido duplicado se tiver mais um item de pedido acima de 100
+//        String jpql = "SELECT p" // ->  Sem usar o IN pode trazer pedido duplicado se tiver mais um item de pedido acima de 100
 //            + " FROM Pedido p "
 //            + " JOIN FETCH p.itensPedido item"
 //            + " JOIN item.produto prod "
