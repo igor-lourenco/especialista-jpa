@@ -41,7 +41,7 @@ public class _41_Exercicio_com_SUBQUERIES extends EntityManagerTest {
         joinProduto.fetch(Produto_.estoque, JoinType.LEFT); // LEFT JOIN FETCH prod1.estoque est1
         joinProduto.fetch(Produto_.categorias);                 // JOIN FETCH prod1.categorias c1
 
-
+//      ---
         Subquery<Integer> subquery = criteriaQuery.subquery(Integer.class);         // SubQuery vai retornar Integer
         Root<Categoria> subRoot = subquery.from(Categoria.class);              // FROM Categoria c2
 
@@ -49,7 +49,7 @@ public class _41_Exercicio_com_SUBQUERIES extends EntityManagerTest {
         subquery.select(subJoinProduto.get(Produto_.id));                      //  SELECT prod2.id
 
         subquery.where(criteriaBuilder.equal( subRoot, 2));              //  WHERE c2.id = 2
-
+//      ---
 
         criteriaQuery.where(// WHERE prod1.id IN (SubQuery)
             joinProduto.get(Produto_.id).in(subquery));
@@ -94,14 +94,14 @@ public class _41_Exercicio_com_SUBQUERIES extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT c
 
-
+//      ---
         Subquery<Integer> subquery = criteriaQuery.subquery(Integer.class);    // SubQuery vai retornar Integer
         Root<Pedido> subRoot = subquery.from(Pedido.class);              // FROM Pedido ped2
 
         subquery.select(criteriaBuilder.count(subRoot.get(Pedido_.cliente)).as(Integer.class)); // SELECT COUNT(ped2.cliente)
 
         subquery.where(criteriaBuilder.equal( subRoot.get(Pedido_.cliente), root));              //  WHERE ped2.cliente = c
-
+//      ---
 
         criteriaQuery.where(// WHERE (SubQuery) >= 2
            criteriaBuilder.greaterThanOrEqualTo(subquery, 2));
@@ -146,7 +146,7 @@ public class _41_Exercicio_com_SUBQUERIES extends EntityManagerTest {
 
         root.fetch(Produto_.estoque, JoinType.LEFT); // LEFT JOIN FETCH prod1.estoque est1
 
-
+//      ---
         Subquery<Integer> subquery = criteriaQuery.subquery(Integer.class);    // SubQuery vai retornar Integer
         Root<ItemPedido> subRoot = subquery.from(ItemPedido.class);       // FROM ItemPedido item
 
@@ -156,7 +156,7 @@ public class _41_Exercicio_com_SUBQUERIES extends EntityManagerTest {
             criteriaBuilder.equal( subRoot.get(ItemPedido_.produto), root),                   // WHERE item.produto = prod1
                 criteriaBuilder.notEqual(subRoot.get(ItemPedido_.precoProduto), root.get(Produto_.preco)) //  AND item.precoProduto <> prod1.preco
             );
-
+//      ---
 
         criteriaQuery.where(// WHERE (SubQuery) >= 2
            criteriaBuilder.exists(subquery)

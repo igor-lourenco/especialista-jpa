@@ -34,7 +34,7 @@ public class _39_Criando_SUBQUERIES_com_IN extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT p
 
-
+//      ---
         Subquery<Integer> subquery = criteriaQuery.subquery(Integer.class);  // SubQuery vai retornar Integer
         Root<ItemPedido> subRoot = subquery.from(ItemPedido.class);     // FROM ItemPedido item
 
@@ -44,7 +44,7 @@ public class _39_Criando_SUBQUERIES_com_IN extends EntityManagerTest {
         Join<ItemPedido, Produto> subJoinProduto = subRoot.join(ItemPedido_.produto);  // JOIN item.produto pro
         subquery.where(criteriaBuilder.greaterThan(                                  // // WHERE pro.preco > 100
             subJoinProduto.get(Produto_.preco), new BigDecimal(100)));
-
+//      ---
 
         criteriaQuery.where(// WHERE ped.id IN (SubQuery)
             root.get(Pedido_.id).in(subquery));

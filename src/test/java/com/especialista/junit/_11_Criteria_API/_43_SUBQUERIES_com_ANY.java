@@ -36,12 +36,13 @@ public class _43_SUBQUERIES_com_ANY extends EntityManagerTest {
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
         criteriaQuery.select(root);                              // SELECT p
 
+//      ---
         Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class);     // SubQuery vai retornar BigDecimal
         Root<ItemPedido> subRoot = subquery.from(ItemPedido.class);              // FROM ItemPedido item
 
         subquery.select(subRoot.get(ItemPedido_.precoProduto));                                //  SELECT item.precoProduto
         subquery.where(criteriaBuilder.equal( subRoot.get(ItemPedido_.produto), root));  // WHERE item.produto = p
-
+//      ---
 
         criteriaQuery.where(//  WHERE p.preco = ANY (SubQuery)
             criteriaBuilder.equal(root.get(Produto_.preco), criteriaBuilder.any(subquery))
@@ -86,11 +87,13 @@ public class _43_SUBQUERIES_com_ANY extends EntityManagerTest {
         Root<Produto> root = criteriaQuery.from(Produto.class); // FROM Produto p
         criteriaQuery.select(root);                              // SELECT p
 
+//      ---
         Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class);     // SubQuery vai retornar BigDecimal
         Root<ItemPedido> subRoot = subquery.from(ItemPedido.class);              // FROM ItemPedido item
 
         subquery.select(subRoot.get(ItemPedido_.precoProduto));                                //  SELECT item.precoProduto
         subquery.where(criteriaBuilder.equal( subRoot.get(ItemPedido_.produto), root));  // WHERE item.produto = p
+//      ---
 
 
         criteriaQuery.where(//  WHERE EXISTS (SubQuery) AND p.preco <> ANY (SubQuery)

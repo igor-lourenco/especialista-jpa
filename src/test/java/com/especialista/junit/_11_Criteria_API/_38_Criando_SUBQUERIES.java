@@ -29,11 +29,13 @@ public class _38_Criando_SUBQUERIES extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT p
 
+
+//      ---
         Subquery<BigDecimal> subquery = criteriaQuery.subquery(BigDecimal.class); // SubQuery vai retornar BigDecimal
         Root<Produto> subRoot = subquery.from(Produto.class);                 //  FROM Produto p2
 
         subquery.select(criteriaBuilder.max(subRoot.get(Produto_.preco))); //  SELECT MAX(preco) FROM Produto p2
-
+//      ---
 
         criteriaQuery.where( // WHERE p.preco = (SubQuery)
             criteriaBuilder.equal(root.get(Produto_.preco), subquery));

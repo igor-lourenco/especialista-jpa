@@ -39,7 +39,7 @@ public class _40_Criando_SUBQUERIES_com_EXISTS extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT pro
 
-
+//      ---
         Subquery<Integer> subquery = criteriaQuery.subquery(Integer.class);  // SubQuery vai retornar Integer
         Root<ItemPedido> subRoot = subquery.from(ItemPedido.class);     // FROM ItemPedido item
 
@@ -47,7 +47,7 @@ public class _40_Criando_SUBQUERIES_com_EXISTS extends EntityManagerTest {
         Join<ItemPedido, Produto> joinProduto = subRoot.join(ItemPedido_.produto); // JOIN item.produto pro2
 
         subquery.where(criteriaBuilder.equal( joinProduto, root));   //  WHERE pro2 = pro
-
+//      ---
 
         criteriaQuery.where(// WHERE EXISTS (SubQuery)
             criteriaBuilder.exists(subquery));
@@ -89,7 +89,7 @@ public class _40_Criando_SUBQUERIES_com_EXISTS extends EntityManagerTest {
 
         criteriaQuery.select(root); // SELECT pro
 
-
+//      ---
         Subquery<Integer> subquery = criteriaQuery.subquery(Integer.class);  // SubQuery vai retornar Integer
         Root<ItemPedido> subRoot = subquery.from(ItemPedido.class);     // FROM ItemPedido item
 
@@ -97,7 +97,7 @@ public class _40_Criando_SUBQUERIES_com_EXISTS extends EntityManagerTest {
         Join<ItemPedido, Produto> joinProduto = subRoot.join(ItemPedido_.produto); // JOIN item.produto pro2
 
         subquery.where(criteriaBuilder.equal( joinProduto, root));   //  WHERE pro2 = pro
-
+//      ---
 
         criteriaQuery.where(criteriaBuilder.not( // WHERE NOT EXISTS (SubQuery)
             criteriaBuilder.exists(subquery)
