@@ -8,7 +8,7 @@ import org.junit.Test;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class _40_SUBQUERIES_com_ANY extends EntityManagerTest {
+public class _40_SUBQUERIES_com_ANY_e_SOME extends EntityManagerTest {
 
 /*
     - ANY e SOME são sinônimos no JPQL (assim como no SQL padrão)
