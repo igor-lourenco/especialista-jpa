@@ -8,8 +8,13 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@SqlResultSetMappings({  // usando em: _12_consultas_nativas._4_Mapeando_resultado_de_queries_com_SqlResultSetMapping
+    @SqlResultSetMapping(name = "tb_produto.Produto" // não existe um padrão para nomear
+        , entities = { @EntityResult(entityClass = Produto.class)}
+    )
+})
 @NamedQueries({
-    @NamedQuery(name = "Produto.listar", query = "SELECT p FROM Produto p"), // usando em: _46_Configurando_uma_named_query
+    @NamedQuery(name = "Produto.listar", query = "SELECT p FROM Produto p"), // usando em: _10_JPQL._46_Configurando_uma_named_query
     @NamedQuery(name = "Produto.listarPorCategoria", query =
         "SELECT p FROM Produto p "
             + " WHERE EXISTS (SELECT 1 FROM Categoria c2 JOIN c2.produtos p2 WHERE p2 = p AND c2.id = :categoriaId)")
