@@ -1,5 +1,6 @@
 package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
+import com.especialista.jpa.DTOs.ProdutoDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,14 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+
+@SqlResultSetMapping(name = "tb_produto.ProdutoDTO" // não existe um padrão para nomear, usando em: _12_consultas_nativas._5_Usando_SqlResultSetMapping_com_ColumnResult_e_retornando_DTO
+    , classes = {
+        @ConstructorResult(targetClass = ProdutoDTO.class, columns = { // tem que ser na ordem do construtor do ProdutoDTO
+            @ColumnResult(name = "id", type = Integer.class),
+            @ColumnResult(name = "nome", type = String.class)
+        })
+})
 
 @SqlResultSetMappings({  // usando em: _12_consultas_nativas._4_Mapeando_resultado_de_queries_com_SqlResultSetMapping
     @SqlResultSetMapping(name = "tb_produto.Produto" // não existe um padrão para nomear
