@@ -9,6 +9,19 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@NamedNativeQueries({ // usando em: _12_consultas_nativas._6_Usando_NamedNativeQuery
+    @NamedNativeQuery(
+        name = "tb_produto.listarTodos",
+        query = "SELECT id, nome, descricao, data_criacao, data_ultima_atualizacao, preco, foto FROM tb_produto ",
+        resultClass = Produto.class
+    ),
+    @NamedNativeQuery(
+        name = "tb_produto.listarTodosDTO",
+        query = "SELECT * FROM tb_produto ",
+        resultSetMapping = "tb_produto.ProdutoDTO" // o nome de uma SqlResultSetMapping para mapear o retorno
+    ),
+})
+
 @SqlResultSetMapping(name = "tb_produto.ProdutoDTO" // não existe um padrão para nomear, usando em: _12_consultas_nativas._5_Usando_SqlResultSetMapping_com_ColumnResult_e_retornando_DTO
     , classes = {
         @ConstructorResult(targetClass = ProdutoDTO.class, columns = { // tem que ser na ordem do construtor do ProdutoDTO
@@ -16,7 +29,6 @@ import java.util.List;
             @ColumnResult(name = "nome", type = String.class)
         })
 })
-
 @SqlResultSetMappings({  // usando em: _12_consultas_nativas._4_Mapeando_resultado_de_queries_com_SqlResultSetMapping
     @SqlResultSetMapping(name = "tb_produto.Produto" // não existe um padrão para nomear
         , entities = { @EntityResult(entityClass = Produto.class)}
