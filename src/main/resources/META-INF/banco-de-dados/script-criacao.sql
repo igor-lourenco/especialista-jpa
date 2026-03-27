@@ -50,3 +50,25 @@ create table testando (id integer not null auto_increment, primary key (id)) eng
 --		FROM tb_produto
 --		WHERE id = produto_id;
 --	END
+
+--CREATE PROCEDURE compraram_acima_media(
+--	IN ano integer
+--) BEGIN
+--	SELECT cli.*, clid.*
+--	FROM tb_cliente cli
+--		JOIN tb_cliente_detalhe clid ON clid.cliente_id = cli.id
+--		JOIN tb_pedido ped ON ped.cliente_id = cli.id
+--	WHERE ped.status = 'PAGO'
+--		AND YEAR(ped.data_criacao) = ano
+--	GROUP BY ped.cliente_id
+--	having SUM(ped.total) >= (
+--		SELECT AVG(total_por_cliente.sum_total)
+--		FROM (
+--			SELECT SUM(ped2.total) sum_total
+--			FROM tb_pedido ped2
+--			WHERE ped2.status = 'PAGO'
+--				AND YEAR(ped2.data_criacao) = ano
+--			GROUP BY ped2.cliente_id
+--		) AS total_por_cliente
+--	);
+--END
