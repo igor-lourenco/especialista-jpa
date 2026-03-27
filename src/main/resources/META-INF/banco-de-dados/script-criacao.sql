@@ -41,3 +41,12 @@ create table testando (id integer not null auto_increment, primary key (id)) eng
 --alter table tb_produto_tag add constraint fk_produto_tag_produto foreign key (produto_id) references tb_produto (id);
 
 -- create function acima_media_faturamento(valor double) returns boolean reads sql data return valor > (select avg(total) from tb_pedido);
+
+-- CREATE PROCEDURE buscar_nome_produto(
+--	IN produto_id int, -- IN = parametro de entrada
+--	OUT produto_nome varchar(255) -- OUT = retorno
+--) BEGIN
+--		SELECT nome INTO produto_nome
+--		FROM tb_produto
+--		WHERE id = produto_id;
+--	END

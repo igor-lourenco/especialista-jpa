@@ -35,3 +35,5 @@ drop table if exists testando;
 --drop table if exists tb_produto_tag;
 
 -- drop function if exists acima_media_faturamento;
+
+-- drop procedure if exists buscar_nome_produto;
