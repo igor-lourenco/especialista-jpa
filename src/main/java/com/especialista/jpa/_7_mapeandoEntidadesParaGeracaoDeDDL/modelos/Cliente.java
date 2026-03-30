@@ -9,6 +9,19 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+@NamedStoredProcedureQuery(  // usando em: _12_consultas_nativas._12_Configurando_procedure_com_anotacao_NamedStoredProcedureQuery
+    name = "procedure_compraram_acima_media", // nome de referencia
+    procedureName = "compraram_acima_media", // nome da procedure no banco
+    parameters = {
+        @StoredProcedureParameter( // registrando parâmetro de entrada da procedure
+            name = "ano",
+            type = Integer.class,
+            mode = ParameterMode.IN
+        )
+    },
+    resultClasses = Cliente.class // tipo de retorno da procedure
+)
+
 // Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
 @EntityListeners({GenericoListener.class})
 
