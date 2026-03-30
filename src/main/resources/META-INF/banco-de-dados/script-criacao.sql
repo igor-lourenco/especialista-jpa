@@ -72,3 +72,16 @@ create table testando (id integer not null auto_increment, primary key (id)) eng
 --		) AS total_por_cliente
 --	);
 --END
+
+--CREATE PROCEDURE ajustar_preco_produto(
+--	 IN produto_id int,                -- Identifica qual produto será ajustado.
+--	 IN percentual_ajuste double,      -- Percentual aplicado ao preço atual.
+--	 OUT preco_ajustado double         -- Valor final do produto após o ajuste (retornado pela procedure).
+--) BEGIN DECLARE produto_preco double; -- Declara uma variável local
+--	 SELECT preco INTO produto_preco   --  Lê o preço atual do produto com o ID informado e guarda na variável produto_preco.
+--	     FROM produto_iniciando_com_jpa
+--	     WHERE id = produto_id;
+--	 SET preco_ajustado = produto_preco + (produto_preco * percentual_ajuste); -- Calcula o novo preco, novo prec​o = prec​o atual + (prec​o atual x percentual)
+--         UPDATE produto_iniciando_com_jpa SET preco = preco_ajustado -- Atualiza o novo preco calculado na tabela produto.
+--	     WHERE id = produto_id;
+--END

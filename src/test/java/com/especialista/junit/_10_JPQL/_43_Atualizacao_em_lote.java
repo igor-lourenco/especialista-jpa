@@ -18,13 +18,13 @@ public class _43_Atualizacao_em_lote extends EntityManagerTest {
             + " AND p1.id BETWEEN 100 AND 110";
 
 
-        entityManager.getTransaction().begin();
+        entityManager.getTransaction().begin(); // Iniciando uma transação...
 
         Query query = entityManager.createQuery(jpql);
         query.executeUpdate();
 
 
-        entityManager.getTransaction().commit();
+        entityManager.getTransaction().commit(); // JPA confirmando a transação, salvando as alterações no banco de dados...
 
     }
 }

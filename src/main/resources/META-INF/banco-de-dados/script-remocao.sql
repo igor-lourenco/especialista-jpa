@@ -38,3 +38,4 @@ drop table if exists testando;
 
 -- drop procedure if exists buscar_nome_produto;
 -- drop procedure if exists compraram_acima_media;
+-- drop procedure if exists ajustar_preco_produto;

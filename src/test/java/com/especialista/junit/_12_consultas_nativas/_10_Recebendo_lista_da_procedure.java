@@ -21,7 +21,7 @@ public class _10_Recebendo_lista_da_procedure extends EntityManagerTest {
         - Segurança (expor operações sem acesso direto as tabelas)
  */
 
-    @Test // usando o arquivo consultas/categoria.xml criado em META-INF e especificado no persistence.xml na tag <mapping-file>
+    @Test
     public void usandoParametros_IN_e_OUT(){
 
         StoredProcedureQuery procedureQuery = entityManager
