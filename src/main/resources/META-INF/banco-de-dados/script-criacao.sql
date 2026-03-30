@@ -85,3 +85,24 @@ create table testando (id integer not null auto_increment, primary key (id)) eng
 --         UPDATE produto_iniciando_com_jpa SET preco = preco_ajustado -- Atualiza o novo preco calculado na tabela produto.
 --	     WHERE id = produto_id;
 --END
+
+--CREATE VIEW view_clientes_acima_media AS
+--	SELECT cli.*, clid.*
+--	FROM tb_cliente cli
+--	JOIN tb_cliente_detalhe clid
+--		ON clid.cliente_id = cli.id
+--	JOIN tb_pedido ped
+--		ON ped.cliente_id = cli.id
+--	WHERE ped.status = 'PAGO'
+--	AND year(ped.data_criacao) = year(current_date)
+--	GROUP BY ped.cliente_id
+--	HAVING SUM(ped.total) >= (
+--		SELECT avg(total_por_cliente.sum_total)
+--		FROM (
+--			SELECT sum(ped2.total) sum_total
+--			FROM tb_pedido ped2
+--			WHERE ped2.status = 'PAGO'
+--			AND year(ped2.data_criacao) = year(current_date)
+--			GROUP BY ped2.cliente_id)
+--		AS total_por_cliente
+--);
