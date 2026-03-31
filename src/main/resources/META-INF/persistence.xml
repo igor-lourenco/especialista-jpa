@@ -9,6 +9,7 @@
         <mapping-file>META-INF/consultas/produto.xml</mapping-file>
         <mapping-file>META-INF/consultas/categoria.xml</mapping-file>
 
+        <validation-mode>CALLBACK</validation-mode> <!-- Obriga que tenha alguma implementacao do Bean Validation no pom.xml  -->
 
 
         <properties>

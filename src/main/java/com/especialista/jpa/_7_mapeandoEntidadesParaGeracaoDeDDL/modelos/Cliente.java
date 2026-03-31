@@ -52,6 +52,7 @@ public class Cliente extends EntidadeBaseInteger {
     private String nome;
 
 
+    @javax.validation.constraints.NotBlank(message = "CPF não pode ser vazio.")
     @Column(length = 14, nullable = false)
     private String cpf;
 
