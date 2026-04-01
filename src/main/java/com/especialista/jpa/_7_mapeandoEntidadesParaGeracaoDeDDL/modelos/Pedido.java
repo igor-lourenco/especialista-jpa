@@ -2,8 +2,13 @@ package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 import com.especialista.jpa.listeners.GenericoListener;
 import com.especialista.jpa.listeners.GerarNotaFiscalListener;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+import org.hibernate.engine.spi.PersistentAttributeInterceptable;
+import org.hibernate.engine.spi.PersistentAttributeInterceptor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -17,7 +22,9 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "tb_pedido" /*,catalog = "especialistajpadb" */)
-public class Pedido extends EntidadeBaseInteger {
+public class Pedido extends EntidadeBaseInteger
+    implements PersistentAttributeInterceptable //  essa interface interna do Hibernate serve para marcar essa entidade que pode ter seus atributos interceptados em tempo de execução
+{
 
 //    @Id // foi movido para a superclasse
 //    @EqualsAndHashCode.Include
@@ -79,17 +86,24 @@ public class Pedido extends EntidadeBaseInteger {
     private Pagamento pagamento;
 
 
-    @OneToOne(mappedBy = "pedido", fetch = FetchType.EAGER) // um pedido tem uma nota fiscal (não owner)
+    @LazyToOne(LazyToOneOption.NO_PROXY) // JPA não define bem o lazy para @OneToOne, então essa anotação diz ao Hibernate para
+//  carregar essa associação como LAZY, mas NÃO use um proxy para representar o objeto relacionado
+    @OneToOne(mappedBy = "pedido", fetch = FetchType.LAZY) // um pedido tem uma nota fiscal (não owner)
     private NotaFiscal notaFiscal;
 
+    @Getter(AccessLevel.NONE) // para não gerar o getter
+    @Setter(AccessLevel.NONE) // para não gerar o setter
+    @Transient                // para não ser persistidono banco de dados
+    private PersistentAttributeInterceptor persistentAttributeInterceptor; // criado para interceptar os atributos em tempo de execução
 
     public boolean isPago(){
         return StatusPedido.PAGO.equals(this.status);
     }
 
 
-//  ====================  USANDO CALLBACK DO JPA  ====================
+//  =====================================  USANDO CALLBACK DO JPA  ======================================================
 //  Obs: Só pode marcar o método com essas anotações apenas em um, não pode ter mais de um método usando a mesma anotação.
+//  =====================================================================================================================
 
 //  @PrePersist
 //  @PreUpdate
@@ -175,5 +189,54 @@ public class Pedido extends EntidadeBaseInteger {
         sb.append(", notaFiscalId=").append(notaFiscal == null ? "null" : notaFiscal.getId());
         sb.append('}');
         return sb.toString();
+    }
+
+
+//  ===============================  PROBLEMA DO ONE TO ONE COMO LAZY NO HIBERNATE ======================================
+//  Obs: Como tá usando uma classe do Hibernate, uma opção de resolver esse problema seria analisar e ver se realmente é
+//  necessário ou não ter esse atributo e o mapeamento na entidade, caso não for realmente necessário uma opção melhor seria
+//  remover os atributos e o mapeamento da entidade.
+//  Aí se realmente é necessário ter esse mapeamento na entidade, essa implementação é uma alternativa.
+
+//  Essa implementação foi feita apenas no atributo -> notaFiscal
+//  =====================================================================================================================
+
+
+    public NotaFiscal getNotaFiscal() {
+        if (this.persistentAttributeInterceptor != null) {
+            return (NotaFiscal) persistentAttributeInterceptor.readObject(
+                this,             // a própria entidade
+                "notaFiscal",        // o nome do atributo
+                this.notaFiscal      // a instância
+            );
+        }
+
+        return notaFiscal;
+    }
+
+    public void setNotaFiscal(NotaFiscal notaFiscal) {
+        if (this.persistentAttributeInterceptor != null) {
+            this.notaFiscal = (NotaFiscal) persistentAttributeInterceptor.writeObject(
+                this,             // a própria entidade
+                "notaFiscal",        // o nome do atributo
+                this.notaFiscal,     // a instância
+                notaFiscal           // o parâmetro
+            );
+
+        } else {
+            this.notaFiscal = notaFiscal;
+
+        }
+
+    }
+
+    @Override
+    public PersistentAttributeInterceptor $$_hibernate_getInterceptor() {
+        return this.persistentAttributeInterceptor;
+    }
+
+    @Override
+    public void $$_hibernate_setInterceptor(PersistentAttributeInterceptor persistentAttributeInterceptor) {
+        this.persistentAttributeInterceptor = persistentAttributeInterceptor;
     }
 }
