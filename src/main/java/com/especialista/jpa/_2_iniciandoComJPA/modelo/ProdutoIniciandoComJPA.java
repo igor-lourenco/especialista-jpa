@@ -1,8 +1,9 @@
 package com.especialista.jpa._2_iniciandoComJPA.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.especialista.jpa._2_iniciandoComJPA.converter.BooleanToSimNaoConverter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -15,6 +16,12 @@ public class ProdutoIniciandoComJPA {
     private String nome;
     private String descricao;
     private BigDecimal preco;
+
+//  usando em ._13_Bean_Validation_Pool_de_conexoes_Entity_Graph_e_detalhes_avancados/_3_Conversor/_1_Criando_um_conversor_de_atributo
+    @Convert(converter = BooleanToSimNaoConverter.class)
+    @NotNull
+    @Column(nullable = false, length = 3)
+    private Boolean ativo = Boolean.FALSE;
 
     public ProdutoIniciandoComJPA() {}
 
@@ -57,6 +64,14 @@ public class ProdutoIniciandoComJPA {
         this.preco = preco;
     }
 
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
@@ -72,11 +87,12 @@ public class ProdutoIniciandoComJPA {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Produto{");
+        final StringBuilder sb = new StringBuilder("ProdutoIniciandoComJPA{");
         sb.append("id=").append(id);
         sb.append(", nome='").append(nome).append('\'');
         sb.append(", descricao='").append(descricao).append('\'');
         sb.append(", preco=").append(preco);
+        sb.append(", ativo=").append(ativo);
         sb.append('}');
         return sb.toString();
     }

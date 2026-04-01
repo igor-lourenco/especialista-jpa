@@ -1,100 +1,100 @@
-5,Modelo Atlas Prime. uso profissional e instalacao simples. Recurso: baixo ruido. Garantia 9 meses.,Liquidificador Turbo Atlas Prime,392.40
-6,Modelo Voltta Ultra. portatil e design compacto. Recurso: material respiravel. Garantia 24 meses.,Tenis Corrida Voltta Ultra,1486.40
-7,Modelo Quasar Max. silencioso e resistente. Recurso: exemplos praticos. Garantia 12 meses.,Livro Algoritmos Modernos Quasar Max,121.38
-8,Modelo Orion Edge. design compacto e confiavel. Recurso: material respiravel. Garantia 12 meses.,Halter Ajustavel 24kg Orion Edge,235.40
-9,Modelo Lumen Ultra. instalacao simples e confiavel. Recurso: exercicios. Garantia 9 meses.,Livro Microservices Guia Lumen Ultra,211.88
-10,Modelo Nimbus Max. portatil e silencioso. Recurso: wi fi 6. Garantia 6 meses.,Teclado Mecanico RGB Nimbus Max,7341.52
-11,Modelo Orion Edge. leve e portatil. Recurso: usb c. Garantia 9 meses.,Notebook 15 i5 16GB 512GB Orion Edge,5662.94
-12,Modelo Quasar Ultra. portatil e design compacto. Recurso: exemplos praticos. Garantia 24 meses.,Livro Testes Automatizados Quasar Ultra,196.40
-13,Modelo Orion Prime. leve e alto desempenho. Recurso: som imersivo. Garantia 18 meses.,Soundbar 300W Orion Prime,1098.26
-14,Modelo Aurora Flex. uso profissional e baixo consumo de energia. Recurso: exercicios. Garantia 18 meses.,Livro Algoritmos Modernos Aurora Flex,228.19
-15,Modelo Zenith Air. resistente e leve. Recurso: bluetooth 5.3. Garantia 12 meses.,Roteador WiFi 6 Zenith Air,747.81
-16,Modelo Zenith Edge. leve e uso profissional. Recurso: som imersivo. Garantia 6 meses.,Headset Gamer Zenith Edge,2789.32
-17,Modelo Zenith Edge. portatil e instalacao simples. Recurso: resistente a agua. Garantia 18 meses.,Tapete de Yoga 6mm Zenith Edge,970.13
-18,Modelo Aurora Plus. alto desempenho e leve. Recurso: taxa 144hz. Garantia 18 meses.,Drone Compacto Aurora Plus,2262.20
-19,Modelo Quasar Lite. design compacto e uso profissional. Recurso: bluetooth 5.3. Garantia 9 meses.,Smart TV 50 Quasar Lite,131.68
-20,Modelo Nimbus Pro. uso profissional e baixo consumo de energia. Recurso: linguagem acessivel. Garantia 18 meses.,Livro Clean Architecture Nimbus Pro,94.85
-21,Modelo Nebula Core. leve e design compacto. Recurso: hdr10+. Garantia 9 meses.,Roteador WiFi 6 Nebula Core,3314.53
-22,Modelo Zenith Prime. portatil e uso profissional. Recurso: som imersivo. Garantia 9 meses.,Monitor 27 Zenith Prime,658.39
-23,Modelo Zenith Max. uso profissional e leve. Recurso: resistente a agua. Garantia 9 meses.,Tapete de Yoga 6mm Zenith Max,67.94
-24,Modelo Nebula Flex. confiavel e design compacto. Recurso: exemplos praticos. Garantia 9 meses.,Livro Clean Architecture Nebula Flex,100.14
-25,Modelo Orion Max. uso profissional e uso profissional. Recurso: economico. Garantia 12 meses.,Micro-ondas 28L Orion Max,978.08
-26,Modelo Nimbus Air. baixo consumo de energia e baixo consumo de energia. Recurso: economico. Garantia 12 meses.,Aspirador Ciclone Nimbus Air,474.41
-27,Modelo Quasar Max. instalacao simples e alto desempenho. Recurso: wi fi 6. Garantia 9 meses.,Hub USB C 7em1 Quasar Max,6377.10
-28,Modelo Lumen Ultra. instalacao simples e instalacao simples. Recurso: revestimento antiaderente. Garantia 18 meses.,Air Fryer 5L Lumen Ultra,677.17
-29,Modelo Krono Flex. alto desempenho e baixo consumo de energia. Recurso: taxa 144hz. Garantia 6 meses.,Headset Gamer Krono Flex,879.91
-30,Modelo Zenith Plus. leve e uso profissional. Recurso: hdr10+. Garantia 18 meses.,Caixa de Som Zenith Plus,2479.00
-31,Modelo Nimbus Air. instalacao simples e silencioso. Recurso: leveza. Garantia 24 meses.,Caneleira Pro Nimbus Air,200.69
-32,Modelo Krono Plus. portatil e portatil. Recurso: teclas anti ghosting. Garantia 24 meses.,Mouse Sem Fio Krono Plus,8117.06
-33,Modelo Krono Core. design compacto e design compacto. Recurso: usb c. Garantia 6 meses.,Monitor Curvo 34 Krono Core,1166.90
-34,Modelo Atlas Edge. confiavel e instalacao simples. Recurso: facil limpeza. Garantia 9 meses.,Jogo de Panelas 5pcs Atlas Edge,819.71
-35,Modelo Atlas Max. baixo consumo de energia e silencioso. Recurso: exemplos praticos. Garantia 24 meses.,Livro Microservices Guia Atlas Max,92.39
-36,Modelo Atlas Core. instalacao simples e baixo consumo de energia. Recurso: som imersivo. Garantia 9 meses.,Drone Compacto Atlas Core,3874.59
-37,Modelo Nebula Lite. silencioso e confiavel. Recurso: material respiravel. Garantia 24 meses.,Bicicleta Aro 29 Nebula Lite,1065.54
-38,Modelo Aurora Plus. instalacao simples e instalacao simples. Recurso: wi fi 6. Garantia 18 meses.,Dock Station Aurora Plus,6205.18
-39,Modelo Atlas Core. instalacao simples e alto desempenho. Recurso: resistente a agua. Garantia 24 meses.,Bola Basquete T7 Atlas Core,1472.53
-40,Modelo Nebula Lite. leve e baixo consumo de energia. Recurso: usb c. Garantia 24 meses.,Webcam Full HD Nebula Lite,5215.80
-41,Modelo Nebula Plus. portatil e confiavel. Recurso: taxa 144hz. Garantia 12 meses.,Smart TV 50 Nebula Plus,2746.51
-42,Modelo Nebula Prime. confiavel e silencioso. Recurso: ssd nvme. Garantia 9 meses.,Mouse Sem Fio Nebula Prime,9437.94
-43,Modelo Aurora Lite. baixo consumo de energia e resistente. Recurso: material respiravel. Garantia 9 meses.,Tapete de Yoga 6mm Aurora Lite,145.68
-44,Modelo Aurora Core. confiavel e alto desempenho. Recurso: amortecimento. Garantia 6 meses.,Touca Silicone Aurora Core,1273.59
-45,Modelo Atlas Lite. silencioso e instalacao simples. Recurso: programas automaticos. Garantia 6 meses.,Aspirador Ciclone Atlas Lite,779.79
-46,Modelo Lumen Pro. resistente e confiavel. Recurso: revestimento antiaderente. Garantia 9 meses.,Purificador de Agua Lumen Pro,97.65
-47,Modelo Aurora Lite. alto desempenho e baixo consumo de energia. Recurso: programas automaticos. Garantia 9 meses.,Liquidificador Turbo Aurora Lite,397.51
-48,Modelo Nebula Plus. baixo consumo de energia e instalacao simples. Recurso: conteudo ilustrado. Garantia 24 meses.,Livro Clean Architecture Nebula Plus,143.97
-49,Modelo Nebula Lite. instalacao simples e leve. Recurso: amortecimento. Garantia 12 meses.,Tapete de Yoga 6mm Nebula Lite,1294.48
-50,Modelo Zenith Pro. confiavel e design compacto. Recurso: wi fi 6. Garantia 12 meses.,Hub USB C 7em1 Zenith Pro,8222.85
-51,Modelo Voltta Air. resistente e design compacto. Recurso: usb c. Garantia 24 meses.,Dock Station Voltta Air,4413.56
-52,Modelo Quasar Prime. instalacao simples e instalacao simples. Recurso: economico. Garantia 6 meses.,Liquidificador Turbo Quasar Prime,882.70
-53,Modelo Aurora Edge. design compacto e silencioso. Recurso: exemplos praticos. Garantia 24 meses.,Livro Redes para Devs Aurora Edge,115.18
-54,Modelo Krono Ultra. uso profissional e portatil. Recurso: programas automaticos. Garantia 18 meses.,Aspirador Ciclone Krono Ultra,204.16
-55,Modelo Aurora Lite. portatil e leve. Recurso: linguagem acessivel. Garantia 18 meses.,Livro Testes Automatizados Aurora Lite,259.31
-56,Modelo Atlas Ultra. leve e instalacao simples. Recurso: revestimento antiaderente. Garantia 9 meses.,Liquidificador Turbo Atlas Ultra,72.97
-57,Modelo Lumen Plus. confiavel e portatil. Recurso: material respiravel. Garantia 24 meses.,Bicicleta Aro 29 Lumen Plus,285.88
-58,Modelo Nebula Max. resistente e portatil. Recurso: exercicios. Garantia 12 meses.,Livro Git Avancado Nebula Max,273.10
-59,Modelo Orion Edge. resistente e instalacao simples. Recurso: resistente a agua. Garantia 9 meses.,Touca Silicone Orion Edge,616.61
-60,Modelo Lumen Max. confiavel e silencioso. Recurso: linguagem acessivel. Garantia 9 meses.,Livro Algoritmos Modernos Lumen Max,248.55
-61,Modelo Lumen Core. instalacao simples e baixo consumo de energia. Recurso: conteudo ilustrado. Garantia 12 meses.,Livro Cloud para Devs Lumen Core,156.41
-62,Modelo Nimbus Flex. confiavel e silencioso. Recurso: exercicios. Garantia 6 meses.,Livro Testes Automatizados Nimbus Flex,127.55
-63,Modelo Nebula Pro. resistente e leve. Recurso: economico. Garantia 12 meses.,Liquidificador Turbo Nebula Pro,986.73
-64,Modelo Nebula Lite. uso profissional e alto desempenho. Recurso: taxa 144hz. Garantia 18 meses.,Roteador WiFi 6 Nebula Lite,3507.63
-65,Modelo Quasar Pro. baixo consumo de energia e resistente. Recurso: revestimento antiaderente. Garantia 24 meses.,Jogo de Panelas 5pcs Quasar Pro,448.34
-66,Modelo Krono Prime. leve e instalacao simples. Recurso: programas automaticos. Garantia 12 meses.,Micro-ondas 28L Krono Prime,386.63
-67,Modelo Voltta Flex. silencioso e alto desempenho. Recurso: amortecimento. Garantia 24 meses.,Touca Silicone Voltta Flex,104.18
-68,Modelo Zenith Pro. leve e silencioso. Recurso: facil limpeza. Garantia 24 meses.,Purificador de Agua Zenith Pro,74.94
-69,Modelo Zenith Edge. resistente e baixo consumo de energia. Recurso: cancelamento de ruido. Garantia 6 meses.,Camera de Acao Zenith Edge,2423.02
-70,Modelo Quasar Flex. leve e alto desempenho. Recurso: wi fi 6. Garantia 9 meses.,Ultrabook 14 i7 1TB Quasar Flex,4375.04
-71,Modelo Krono Pro. resistente e design compacto. Recurso: economico. Garantia 24 meses.,Jogo de Panelas 5pcs Krono Pro,643.94
-72,Modelo Nebula Flex. silencioso e alto desempenho. Recurso: hdr10+. Garantia 12 meses.,Drone Compacto Nebula Flex,3374.94
-73,Modelo Zenith Core. instalacao simples e portatil. Recurso: programas automaticos. Garantia 12 meses.,Torradeira Dupla Zenith Core,570.10
-74,Modelo Krono Lite. confiavel e confiavel. Recurso: facil limpeza. Garantia 18 meses.,Ferro a Vapor Krono Lite,215.33
-75,Modelo Lumen Plus. alto desempenho e uso profissional. Recurso: som imersivo. Garantia 18 meses.,Relogio Smart Lumen Plus,1567.05
-76,Modelo Aurora Plus. baixo consumo de energia e leve. Recurso: leveza. Garantia 24 meses.,Bola Basquete T7 Aurora Plus,1000.07
-77,Modelo Aurora Max. baixo consumo de energia e instalacao simples. Recurso: baixo ruido. Garantia 24 meses.,Torradeira Dupla Aurora Max,461.80
-78,Modelo Lumen Pro. alto desempenho e leve. Recurso: taxa 144hz. Garantia 24 meses.,Monitor 27 Lumen Pro,625.37
-79,Modelo Quasar Air. silencioso e baixo consumo de energia. Recurso: wi fi 6. Garantia 6 meses.,Notebook 15 i5 16GB 512GB Quasar Air,2849.21
-80,Modelo Aurora Flex. design compacto e resistente. Recurso: programas automaticos. Garantia 12 meses.,Jogo de Panelas 5pcs Aurora Flex,800.32
-81,Modelo Orion Max. uso profissional e portatil. Recurso: exercicios. Garantia 12 meses.,Livro Testes Automatizados Orion Max,268.33
-82,Modelo Voltta Lite. design compacto e baixo consumo de energia. Recurso: conteudo ilustrado. Garantia 24 meses.,Livro Clean Architecture Voltta Lite,126.53
-83,Modelo Quasar Core. silencioso e leve. Recurso: alta aderencia. Garantia 12 meses.,Luva de Goleiro Quasar Core,1356.91
-84,Modelo Atlas Air. design compacto e portatil. Recurso: cancelamento de ruido. Garantia 6 meses.,Monitor 27 Atlas Air,1182.65
-85,Modelo Voltta Max. silencioso e baixo consumo de energia. Recurso: alta aderencia. Garantia 18 meses.,Tapete de Yoga 6mm Voltta Max,901.66
-86,Modelo Atlas Air. instalacao simples e silencioso. Recurso: baixo ruido. Garantia 24 meses.,Air Fryer 5L Atlas Air,286.77
-87,Modelo Atlas Lite. confiavel e resistente. Recurso: exemplos praticos. Garantia 6 meses.,Livro Microservices Guia Atlas Lite,219.23
-88,Modelo Nimbus Air. instalacao simples e alto desempenho. Recurso: leveza. Garantia 9 meses.,Caneleira Pro Nimbus Air,999.65
-89,Modelo Zenith Pro. instalacao simples e silencioso. Recurso: cancelamento de ruido. Garantia 6 meses.,Camera de Acao Zenith Pro,2564.80
-90,Modelo Atlas Max. instalacao simples e leve. Recurso: baixo ruido. Garantia 18 meses.,Aspirador Ciclone Atlas Max,822.48
-91,Modelo Quasar Core. silencioso e leve. Recurso: linguagem acessivel. Garantia 9 meses.,Livro Domain Driven Design Quasar Core,233.09
-92,Modelo Zenith Ultra. resistente e design compacto. Recurso: baixo ruido. Garantia 12 meses.,Cafeteira Expresso 15 Bar Zenith Ultra,602.91
-93,Modelo Atlas Plus. resistente e silencioso. Recurso: facil limpeza. Garantia 6 meses.,Jogo de Panelas 5pcs Atlas Plus,330.94
-94,Modelo Krono Pro. design compacto e alto desempenho. Recurso: hdr10+. Garantia 6 meses.,Smart TV 50 Krono Pro,3633.76
-95,Modelo Atlas Edge. instalacao simples e alto desempenho. Recurso: wi fi 6. Garantia 24 meses.,Ultrabook 14 i7 1TB Atlas Edge,5554.55
-96,Modelo Lumen Edge. baixo consumo de energia e design compacto. Recurso: casos reais. Garantia 18 meses.,Livro Cloud para Devs Lumen Edge,41.98
-97,Modelo Voltta Pro. design compacto e confiavel. Recurso: baixo ruido. Garantia 18 meses.,Jogo de Panelas 5pcs Voltta Pro,179.86
-98,Modelo Nebula Max. uso profissional e uso profissional. Recurso: revestimento antiaderente. Garantia 18 meses.,Aspirador Ciclone Nebula Max,652.48
-99,Modelo Nimbus Edge. alto desempenho e silencioso. Recurso: linguagem acessivel. Garantia 9 meses.,Livro Testes Automatizados Nimbus Edge,222.51
-100,Modelo Krono Flex. uso profissional e resistente. Recurso: teclas anti ghosting. Garantia 12 meses.,Memoria RAM 16GB Krono Flex,7815.72
-101,Modelo Nebula Ultra. portatil e uso profissional. Recurso: baixo ruido. Garantia 6 meses.,Liquidificador Turbo Nebula Ultra,67.88
-102,Modelo Lumen Lite. alto desempenho e leve. Recurso: exemplos praticos. Garantia 24 meses.,Livro Redes para Devs Lumen Lite,271.88
-103,Modelo Nimbus Prime. resistente e silencioso. Recurso: casos reais. Garantia 24 meses.,Livro Cloud para Devs Nimbus Prime,254.10
-104,Modelo Nebula Air. silencioso e portatil. Recurso: teclas anti ghosting. Garantia 9 meses.,Ultrabook 14 i7 1TB Nebula Air,9907.22
+5,Modelo Atlas Prime. uso profissional e instalacao simples. Recurso: baixo ruido. Garantia 9 meses.,Liquidificador Turbo Atlas Prime,392.40,NAO
+6,Modelo Voltta Ultra. portatil e design compacto. Recurso: material respiravel. Garantia 24 meses.,Tenis Corrida Voltta Ultra,1486.40,NAO
+7,Modelo Quasar Max. silencioso e resistente. Recurso: exemplos praticos. Garantia 12 meses.,Livro Algoritmos Modernos Quasar Max,121.38,NAO
+8,Modelo Orion Edge. design compacto e confiavel. Recurso: material respiravel. Garantia 12 meses.,Halter Ajustavel 24kg Orion Edge,235.40,NAO
+9,Modelo Lumen Ultra. instalacao simples e confiavel. Recurso: exercicios. Garantia 9 meses.,Livro Microservices Guia Lumen Ultra,211.88,NAO
+10,Modelo Nimbus Max. portatil e silencioso. Recurso: wi fi 6. Garantia 6 meses.,Teclado Mecanico RGB Nimbus Max,7341.52,NAO
+11,Modelo Orion Edge. leve e portatil. Recurso: usb c. Garantia 9 meses.,Notebook 15 i5 16GB 512GB Orion Edge,5662.94,NAO
+12,Modelo Quasar Ultra. portatil e design compacto. Recurso: exemplos praticos. Garantia 24 meses.,Livro Testes Automatizados Quasar Ultra,196.40,NAO
+13,Modelo Orion Prime. leve e alto desempenho. Recurso: som imersivo. Garantia 18 meses.,Soundbar 300W Orion Prime,1098.26,NAO
+14,Modelo Aurora Flex. uso profissional e baixo consumo de energia. Recurso: exercicios. Garantia 18 meses.,Livro Algoritmos Modernos Aurora Flex,228.19,NAO
+15,Modelo Zenith Air. resistente e leve. Recurso: bluetooth 5.3. Garantia 12 meses.,Roteador WiFi 6 Zenith Air,747.81,NAO
+16,Modelo Zenith Edge. leve e uso profissional. Recurso: som imersivo. Garantia 6 meses.,Headset Gamer Zenith Edge,2789.32,NAO
+17,Modelo Zenith Edge. portatil e instalacao simples. Recurso: resistente a agua. Garantia 18 meses.,Tapete de Yoga 6mm Zenith Edge,970.13,NAO
+18,Modelo Aurora Plus. alto desempenho e leve. Recurso: taxa 144hz. Garantia 18 meses.,Drone Compacto Aurora Plus,2262.20,NAO
+19,Modelo Quasar Lite. design compacto e uso profissional. Recurso: bluetooth 5.3. Garantia 9 meses.,Smart TV 50 Quasar Lite,131.68,NAO
+20,Modelo Nimbus Pro. uso profissional e baixo consumo de energia. Recurso: linguagem acessivel. Garantia 18 meses.,Livro Clean Architecture Nimbus Pro,94.85,NAO
+21,Modelo Nebula Core. leve e design compacto. Recurso: hdr10+. Garantia 9 meses.,Roteador WiFi 6 Nebula Core,3314.53,NAO
+22,Modelo Zenith Prime. portatil e uso profissional. Recurso: som imersivo. Garantia 9 meses.,Monitor 27 Zenith Prime,658.39,NAO
+23,Modelo Zenith Max. uso profissional e leve. Recurso: resistente a agua. Garantia 9 meses.,Tapete de Yoga 6mm Zenith Max,67.94,NAO
+24,Modelo Nebula Flex. confiavel e design compacto. Recurso: exemplos praticos. Garantia 9 meses.,Livro Clean Architecture Nebula Flex,100.14,NAO
+25,Modelo Orion Max. uso profissional e uso profissional. Recurso: economico. Garantia 12 meses.,Micro-ondas 28L Orion Max,978.08,NAO
+26,Modelo Nimbus Air. baixo consumo de energia e baixo consumo de energia. Recurso: economico. Garantia 12 meses.,Aspirador Ciclone Nimbus Air,474.41,NAO
+27,Modelo Quasar Max. instalacao simples e alto desempenho. Recurso: wi fi 6. Garantia 9 meses.,Hub USB C 7em1 Quasar Max,6377.10,NAO
+28,Modelo Lumen Ultra. instalacao simples e instalacao simples. Recurso: revestimento antiaderente. Garantia 18 meses.,Air Fryer 5L Lumen Ultra,677.17,NAO
+29,Modelo Krono Flex. alto desempenho e baixo consumo de energia. Recurso: taxa 144hz. Garantia 6 meses.,Headset Gamer Krono Flex,879.91,NAO
+30,Modelo Zenith Plus. leve e uso profissional. Recurso: hdr10+. Garantia 18 meses.,Caixa de Som Zenith Plus,2479.00,NAO
+31,Modelo Nimbus Air. instalacao simples e silencioso. Recurso: leveza. Garantia 24 meses.,Caneleira Pro Nimbus Air,200.69,NAO
+32,Modelo Krono Plus. portatil e portatil. Recurso: teclas anti ghosting. Garantia 24 meses.,Mouse Sem Fio Krono Plus,8117.06,NAO
+33,Modelo Krono Core. design compacto e design compacto. Recurso: usb c. Garantia 6 meses.,Monitor Curvo 34 Krono Core,1166.90,NAO
+34,Modelo Atlas Edge. confiavel e instalacao simples. Recurso: facil limpeza. Garantia 9 meses.,Jogo de Panelas 5pcs Atlas Edge,819.71,NAO
+35,Modelo Atlas Max. baixo consumo de energia e silencioso. Recurso: exemplos praticos. Garantia 24 meses.,Livro Microservices Guia Atlas Max,92.39,NAO
+36,Modelo Atlas Core. instalacao simples e baixo consumo de energia. Recurso: som imersivo. Garantia 9 meses.,Drone Compacto Atlas Core,3874.59,NAO
+37,Modelo Nebula Lite. silencioso e confiavel. Recurso: material respiravel. Garantia 24 meses.,Bicicleta Aro 29 Nebula Lite,1065.54,NAO
+38,Modelo Aurora Plus. instalacao simples e instalacao simples. Recurso: wi fi 6. Garantia 18 meses.,Dock Station Aurora Plus,6205.18,NAO
+39,Modelo Atlas Core. instalacao simples e alto desempenho. Recurso: resistente a agua. Garantia 24 meses.,Bola Basquete T7 Atlas Core,1472.53,NAO
+40,Modelo Nebula Lite. leve e baixo consumo de energia. Recurso: usb c. Garantia 24 meses.,Webcam Full HD Nebula Lite,5215.80,NAO
+41,Modelo Nebula Plus. portatil e confiavel. Recurso: taxa 144hz. Garantia 12 meses.,Smart TV 50 Nebula Plus,2746.51,NAO
+42,Modelo Nebula Prime. confiavel e silencioso. Recurso: ssd nvme. Garantia 9 meses.,Mouse Sem Fio Nebula Prime,9437.94,NAO
+43,Modelo Aurora Lite. baixo consumo de energia e resistente. Recurso: material respiravel. Garantia 9 meses.,Tapete de Yoga 6mm Aurora Lite,145.68,NAO
+44,Modelo Aurora Core. confiavel e alto desempenho. Recurso: amortecimento. Garantia 6 meses.,Touca Silicone Aurora Core,1273.59,NAO
+45,Modelo Atlas Lite. silencioso e instalacao simples. Recurso: programas automaticos. Garantia 6 meses.,Aspirador Ciclone Atlas Lite,779.79,NAO
+46,Modelo Lumen Pro. resistente e confiavel. Recurso: revestimento antiaderente. Garantia 9 meses.,Purificador de Agua Lumen Pro,97.65,NAO
+47,Modelo Aurora Lite. alto desempenho e baixo consumo de energia. Recurso: programas automaticos. Garantia 9 meses.,Liquidificador Turbo Aurora Lite,397.51,NAO
+48,Modelo Nebula Plus. baixo consumo de energia e instalacao simples. Recurso: conteudo ilustrado. Garantia 24 meses.,Livro Clean Architecture Nebula Plus,143.97,NAO
+49,Modelo Nebula Lite. instalacao simples e leve. Recurso: amortecimento. Garantia 12 meses.,Tapete de Yoga 6mm Nebula Lite,1294.48,NAO
+50,Modelo Zenith Pro. confiavel e design compacto. Recurso: wi fi 6. Garantia 12 meses.,Hub USB C 7em1 Zenith Pro,8222.85,NAO
+51,Modelo Voltta Air. resistente e design compacto. Recurso: usb c. Garantia 24 meses.,Dock Station Voltta Air,4413.56,NAO
+52,Modelo Quasar Prime. instalacao simples e instalacao simples. Recurso: economico. Garantia 6 meses.,Liquidificador Turbo Quasar Prime,882.70,NAO
+53,Modelo Aurora Edge. design compacto e silencioso. Recurso: exemplos praticos. Garantia 24 meses.,Livro Redes para Devs Aurora Edge,115.18,NAO
+54,Modelo Krono Ultra. uso profissional e portatil. Recurso: programas automaticos. Garantia 18 meses.,Aspirador Ciclone Krono Ultra,204.16,NAO
+55,Modelo Aurora Lite. portatil e leve. Recurso: linguagem acessivel. Garantia 18 meses.,Livro Testes Automatizados Aurora Lite,259.31,NAO
+56,Modelo Atlas Ultra. leve e instalacao simples. Recurso: revestimento antiaderente. Garantia 9 meses.,Liquidificador Turbo Atlas Ultra,72.97,NAO
+57,Modelo Lumen Plus. confiavel e portatil. Recurso: material respiravel. Garantia 24 meses.,Bicicleta Aro 29 Lumen Plus,285.88,NAO
+58,Modelo Nebula Max. resistente e portatil. Recurso: exercicios. Garantia 12 meses.,Livro Git Avancado Nebula Max,273.10,NAO
+59,Modelo Orion Edge. resistente e instalacao simples. Recurso: resistente a agua. Garantia 9 meses.,Touca Silicone Orion Edge,616.61,NAO
+60,Modelo Lumen Max. confiavel e silencioso. Recurso: linguagem acessivel. Garantia 9 meses.,Livro Algoritmos Modernos Lumen Max,248.55,NAO
+61,Modelo Lumen Core. instalacao simples e baixo consumo de energia. Recurso: conteudo ilustrado. Garantia 12 meses.,Livro Cloud para Devs Lumen Core,156.41,NAO
+62,Modelo Nimbus Flex. confiavel e silencioso. Recurso: exercicios. Garantia 6 meses.,Livro Testes Automatizados Nimbus Flex,127.55,NAO
+63,Modelo Nebula Pro. resistente e leve. Recurso: economico. Garantia 12 meses.,Liquidificador Turbo Nebula Pro,986.73,NAO
+64,Modelo Nebula Lite. uso profissional e alto desempenho. Recurso: taxa 144hz. Garantia 18 meses.,Roteador WiFi 6 Nebula Lite,3507.63,NAO
+65,Modelo Quasar Pro. baixo consumo de energia e resistente. Recurso: revestimento antiaderente. Garantia 24 meses.,Jogo de Panelas 5pcs Quasar Pro,448.34,NAO
+66,Modelo Krono Prime. leve e instalacao simples. Recurso: programas automaticos. Garantia 12 meses.,Micro-ondas 28L Krono Prime,386.63,NAO
+67,Modelo Voltta Flex. silencioso e alto desempenho. Recurso: amortecimento. Garantia 24 meses.,Touca Silicone Voltta Flex,104.18,NAO
+68,Modelo Zenith Pro. leve e silencioso. Recurso: facil limpeza. Garantia 24 meses.,Purificador de Agua Zenith Pro,74.94,NAO
+69,Modelo Zenith Edge. resistente e baixo consumo de energia. Recurso: cancelamento de ruido. Garantia 6 meses.,Camera de Acao Zenith Edge,2423.02,NAO
+70,Modelo Quasar Flex. leve e alto desempenho. Recurso: wi fi 6. Garantia 9 meses.,Ultrabook 14 i7 1TB Quasar Flex,4375.04,NAO
+71,Modelo Krono Pro. resistente e design compacto. Recurso: economico. Garantia 24 meses.,Jogo de Panelas 5pcs Krono Pro,643.94,NAO
+72,Modelo Nebula Flex. silencioso e alto desempenho. Recurso: hdr10+. Garantia 12 meses.,Drone Compacto Nebula Flex,3374.94,NAO
+73,Modelo Zenith Core. instalacao simples e portatil. Recurso: programas automaticos. Garantia 12 meses.,Torradeira Dupla Zenith Core,570.10,NAO
+74,Modelo Krono Lite. confiavel e confiavel. Recurso: facil limpeza. Garantia 18 meses.,Ferro a Vapor Krono Lite,215.33,NAO
+75,Modelo Lumen Plus. alto desempenho e uso profissional. Recurso: som imersivo. Garantia 18 meses.,Relogio Smart Lumen Plus,1567.05,NAO
+76,Modelo Aurora Plus. baixo consumo de energia e leve. Recurso: leveza. Garantia 24 meses.,Bola Basquete T7 Aurora Plus,1000.07,NAO
+77,Modelo Aurora Max. baixo consumo de energia e instalacao simples. Recurso: baixo ruido. Garantia 24 meses.,Torradeira Dupla Aurora Max,461.80,NAO
+78,Modelo Lumen Pro. alto desempenho e leve. Recurso: taxa 144hz. Garantia 24 meses.,Monitor 27 Lumen Pro,625.37,NAO
+79,Modelo Quasar Air. silencioso e baixo consumo de energia. Recurso: wi fi 6. Garantia 6 meses.,Notebook 15 i5 16GB 512GB Quasar Air,2849.21,NAO
+80,Modelo Aurora Flex. design compacto e resistente. Recurso: programas automaticos. Garantia 12 meses.,Jogo de Panelas 5pcs Aurora Flex,800.32,NAO
+81,Modelo Orion Max. uso profissional e portatil. Recurso: exercicios. Garantia 12 meses.,Livro Testes Automatizados Orion Max,268.33,NAO
+82,Modelo Voltta Lite. design compacto e baixo consumo de energia. Recurso: conteudo ilustrado. Garantia 24 meses.,Livro Clean Architecture Voltta Lite,126.53,NAO
+83,Modelo Quasar Core. silencioso e leve. Recurso: alta aderencia. Garantia 12 meses.,Luva de Goleiro Quasar Core,1356.91,NAO
+84,Modelo Atlas Air. design compacto e portatil. Recurso: cancelamento de ruido. Garantia 6 meses.,Monitor 27 Atlas Air,1182.65,NAO
+85,Modelo Voltta Max. silencioso e baixo consumo de energia. Recurso: alta aderencia. Garantia 18 meses.,Tapete de Yoga 6mm Voltta Max,901.66,NAO
+86,Modelo Atlas Air. instalacao simples e silencioso. Recurso: baixo ruido. Garantia 24 meses.,Air Fryer 5L Atlas Air,286.77,NAO
+87,Modelo Atlas Lite. confiavel e resistente. Recurso: exemplos praticos. Garantia 6 meses.,Livro Microservices Guia Atlas Lite,219.23,NAO
+88,Modelo Nimbus Air. instalacao simples e alto desempenho. Recurso: leveza. Garantia 9 meses.,Caneleira Pro Nimbus Air,999.65,NAO
+89,Modelo Zenith Pro. instalacao simples e silencioso. Recurso: cancelamento de ruido. Garantia 6 meses.,Camera de Acao Zenith Pro,2564.80,NAO
+90,Modelo Atlas Max. instalacao simples e leve. Recurso: baixo ruido. Garantia 18 meses.,Aspirador Ciclone Atlas Max,822.48,NAO
+91,Modelo Quasar Core. silencioso e leve. Recurso: linguagem acessivel. Garantia 9 meses.,Livro Domain Driven Design Quasar Core,233.09,NAO
+92,Modelo Zenith Ultra. resistente e design compacto. Recurso: baixo ruido. Garantia 12 meses.,Cafeteira Expresso 15 Bar Zenith Ultra,602.91,NAO
+93,Modelo Atlas Plus. resistente e silencioso. Recurso: facil limpeza. Garantia 6 meses.,Jogo de Panelas 5pcs Atlas Plus,330.94,NAO
+94,Modelo Krono Pro. design compacto e alto desempenho. Recurso: hdr10+. Garantia 6 meses.,Smart TV 50 Krono Pro,3633.76,NAO
+95,Modelo Atlas Edge. instalacao simples e alto desempenho. Recurso: wi fi 6. Garantia 24 meses.,Ultrabook 14 i7 1TB Atlas Edge,5554.55,NAO
+96,Modelo Lumen Edge. baixo consumo de energia e design compacto. Recurso: casos reais. Garantia 18 meses.,Livro Cloud para Devs Lumen Edge,41.98,NAO
+97,Modelo Voltta Pro. design compacto e confiavel. Recurso: baixo ruido. Garantia 18 meses.,Jogo de Panelas 5pcs Voltta Pro,179.86,NAO
+98,Modelo Nebula Max. uso profissional e uso profissional. Recurso: revestimento antiaderente. Garantia 18 meses.,Aspirador Ciclone Nebula Max,652.48,NAO
+99,Modelo Nimbus Edge. alto desempenho e silencioso. Recurso: linguagem acessivel. Garantia 9 meses.,Livro Testes Automatizados Nimbus Edge,222.51,NAO
+100,Modelo Krono Flex. uso profissional e resistente. Recurso: teclas anti ghosting. Garantia 12 meses.,Memoria RAM 16GB Krono Flex,7815.72,NAO
+101,Modelo Nebula Ultra. portatil e uso profissional. Recurso: baixo ruido. Garantia 6 meses.,Liquidificador Turbo Nebula Ultra,67.88,NAO
+102,Modelo Lumen Lite. alto desempenho e leve. Recurso: exemplos praticos. Garantia 24 meses.,Livro Redes para Devs Lumen Lite,271.88,NAO
+103,Modelo Nimbus Prime. resistente e silencioso. Recurso: casos reais. Garantia 24 meses.,Livro Cloud para Devs Nimbus Prime,254.10,NAO
+104,Modelo Nebula Air. silencioso e portatil. Recurso: teclas anti ghosting. Garantia 9 meses.,Ultrabook 14 i7 1TB Nebula Air,9907.22,NAO

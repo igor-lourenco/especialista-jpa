@@ -39,6 +39,8 @@ create table testando (id integer not null auto_increment, primary key (id)) eng
 --alter table tb_produto_categoria add constraint fk_produto_categoria_categoria foreign key (categoria_id) references tb_categoria (id);
 --alter table tb_produto_categoria add constraint fk_produto_categoria_produto foreign key (produto_id) references tb_produto (id);
 --alter table tb_produto_tag add constraint fk_produto_tag_produto foreign key (produto_id) references tb_produto (id);
+--ALTER TABLE produto_iniciando_com_jpa ADD COLUMN ativo VARCHAR(3) NOT NULL DEFAULT 'NAO';
+
 
 -- create function acima_media_faturamento(valor double) returns boolean reads sql data return valor > (select avg(total) from tb_pedido);
 
