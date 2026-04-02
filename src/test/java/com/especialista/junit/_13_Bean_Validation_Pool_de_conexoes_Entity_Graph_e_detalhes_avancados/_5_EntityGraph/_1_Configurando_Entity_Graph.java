@@ -1,4 +1,4 @@
-package com.especialista.junit._13_Bean_Validation_Pool_de_conexoes_Entity_Graph_e_detalhes_avancados._5_EntityGraph._4_One_To_One_como_LAZY;
+package com.especialista.junit._13_Bean_Validation_Pool_de_conexoes_Entity_Graph_e_detalhes_avancados._5_EntityGraph;
 
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
 import com.especialista.junit.utils.EntityManagerTest;
