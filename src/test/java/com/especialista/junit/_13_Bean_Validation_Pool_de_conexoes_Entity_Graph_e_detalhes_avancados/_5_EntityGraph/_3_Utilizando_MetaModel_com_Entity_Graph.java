@@ -1,7 +1,9 @@
 package com.especialista.junit._13_Bean_Validation_Pool_de_conexoes_Entity_Graph_e_detalhes_avancados._5_EntityGraph;
 
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Cliente;
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Cliente_;
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido_;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
+public class _3_Utilizando_MetaModel_com_Entity_Graph extends EntityManagerTest {
 
 /*  - Entity Graph
       - Permite controlar dinamicamente quais associações de uma entidade serão
@@ -40,16 +42,16 @@ public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
     public void usando_EntityGraph(){
         EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
         entityGraph.addAttributeNodes( // vai trazer todas os atributos simples (que não seja de mapeamento) mesmo sem especificar
-            "dataCriacao",
-            "status",
-            "total",
-            "pagamento" // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
+            Pedido_.dataCriacao,
+            Pedido_.status,
+            Pedido_.total,
+            Pedido_.pagamento // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
         );
 
-        Subgraph<Cliente> subgraph = entityGraph.addSubgraph("cliente", Cliente.class);
+        Subgraph<Cliente> subgraph = entityGraph.addSubgraph(Pedido_.cliente);
         subgraph.addAttributeNodes(
-            "nome",
-            "cpf"
+            Cliente_.nome,
+            Cliente_.cpf
         );
 
         Map<String, Object> properties = new HashMap<>();
@@ -73,16 +75,16 @@ public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
     public void usando_EntityGraph_com_JPQL(){
         EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
         entityGraph.addAttributeNodes( // vai trazer todas os atributos simples (que não seja de mapeamento) mesmo sem especificar
-            "dataCriacao",
-            "status",
-            "total",
-            "pagamento" // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
+            Pedido_.dataCriacao,
+            Pedido_.status,
+            Pedido_.total,
+            Pedido_.pagamento // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
         );
 
-        Subgraph<Cliente> subgraph = entityGraph.addSubgraph("cliente", Cliente.class);
+        Subgraph<Cliente> subgraph = entityGraph.addSubgraph(Pedido_.cliente);
         subgraph.addAttributeNodes(
-            "nome",
-            "cpf"
+            Cliente_.nome,
+            Cliente_.cpf
         );
 
         logger.info("BUSCANDO LISTA DE PEDIDO:");
@@ -106,16 +108,16 @@ public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
     public void usando_EntityGraph_com_Criteria_API(){
         EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
         entityGraph.addAttributeNodes( // vai trazer todas os atributos simples (que não seja de mapeamento) mesmo sem especificar
-            "dataCriacao",
-            "status",
-            "total",
-            "pagamento" // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
+            Pedido_.dataCriacao,
+            Pedido_.status,
+            Pedido_.total,
+            Pedido_.pagamento // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
         );
 
-        Subgraph<Cliente> subgraph = entityGraph.addSubgraph("cliente", Cliente.class);
+        Subgraph<Cliente> subgraph = entityGraph.addSubgraph(Pedido_.cliente);
         subgraph.addAttributeNodes(
-            "nome",
-            "cpf"
+            Cliente_.nome,
+            Cliente_.cpf
         );
 
         CriteriaQuery<Pedido> criteriaQuery = getCriteriaQuery();
