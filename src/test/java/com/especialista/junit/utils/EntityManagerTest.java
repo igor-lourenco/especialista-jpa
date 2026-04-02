@@ -1,5 +1,6 @@
 package com.especialista.junit.utils;
 
+import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -9,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.time.ZoneId;
 import java.util.TimeZone;
 
@@ -60,5 +64,13 @@ public class EntityManagerTest {
         zoneId = ZoneId.systemDefault();
         logger.info("Alterando o fuso padrão do sistema de volta para America/Sao_Paulo: " + zoneId);
         logger.info("======================================================================================");
+    }
+
+    protected CriteriaQuery<Pedido> getCriteriaQuery() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class); // Query vai retornar Pedido
+        Root<Pedido> root = criteriaQuery.from(Pedido.class); // FROM Pedido p
+        criteriaQuery.select(root); // SELECT p
+        return criteriaQuery;
     }
 }

@@ -62,7 +62,7 @@ public class Pedido extends EntidadeBaseInteger
     private Endereco enderecoEntrega;
 
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false  // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
+    @ManyToOne(fetch = FetchType.LAZY, optional = false  // muitos pedidos tem um cliente, por padrão usa o Fetch.EAGER
         //,cascade = CascadeType.PERSIST // ao persistir pedido, também irá salvar o cliente em cascata, comentado porque está usando o persist do entityManager
     )
     @JoinColumn(name = "cliente_id", // especifica uma coluna para unir as associações. (owner)
