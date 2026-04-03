@@ -1,20 +1,18 @@
 package com.especialista.junit._13_Bean_Validation_Pool_de_conexoes_Entity_Graph_e_detalhes_avancados._5_EntityGraph;
 
-import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Cliente;
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
 import com.especialista.junit.utils.EntityManagerTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 import javax.persistence.EntityGraph;
-import javax.persistence.Subgraph;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
+public class _4_Configurando_Entity_Graph_com_Anotacao extends EntityManagerTest {
 
 /*  - Entity Graph
       - Permite controlar dinamicamente quais associações de uma entidade serão
@@ -37,23 +35,16 @@ public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
 */
 
     @Test
-    public void usando_EntityGraph(){
-        EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
-        entityGraph.addAttributeNodes( // vai trazer todas os atributos simples (que não seja de mapeamento) mesmo sem especificar
-            "dataCriacao",
-            "status",
-            "total",
-            "pagamento" // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
-        );
+    public void usando_EntityGraph_com_anotacao_NamedEntityGraph(){
+        EntityGraph<?> entityGraph = entityManager
+            .createEntityGraph("Pedido.dadosEssenciais"); // EntityGraph configurado na entidade Pedido
 
-        Subgraph<Cliente> subgraph = entityGraph.addSubgraph("cliente", Cliente.class);
-        subgraph.addAttributeNodes(
-            "nome",
-            "cpf"
-        );
+        entityGraph.addSubgraph("pagamento")
+            .addAttributeNodes("status");
 
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistence.fetchgraph", entityGraph);
+
 //        properties.put("javax.persistence.loadgraph", entityGraph);
 
         logger.info("BUSCANDO UM PEDIDO:");
@@ -66,24 +57,17 @@ public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
         logger.info("PEDIDO => " + pedido.toString());
         logger.info("NOME CLIENTE => " + pedido.getCliente().getNome());
         logger.info("CPF CLIENTE => " + pedido.getCliente().getCpf());
+        logger.info("PAGAMENTO => " + pedido.getPagamento().getStatus());
     }
 
 
     @Test
-    public void usando_EntityGraph_com_JPQL(){
-        EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
-        entityGraph.addAttributeNodes( // vai trazer todas os atributos simples (que não seja de mapeamento) mesmo sem especificar
-            "dataCriacao",
-            "status",
-            "total",
-            "pagamento" // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
-        );
+    public void usando_EntityGraph_com_JPQL_com_anotacao_NamedEntityGraph(){
+        EntityGraph<?> entityGraph = entityManager
+            .createEntityGraph("Pedido.dadosEssenciais"); // EntityGraph configurado na entidade Pedido
 
-        Subgraph<Cliente> subgraph = entityGraph.addSubgraph("cliente", Cliente.class);
-        subgraph.addAttributeNodes(
-            "nome",
-            "cpf"
-        );
+        entityGraph.addSubgraph("pagamento")
+            .addAttributeNodes("status");
 
         logger.info("BUSCANDO LISTA DE PEDIDO:");
         logger.info("Dessa forma está fazendo consulta com Pagamento e Cliente, sem ficar fazendo consultas separadas para buscar Pagamento e Cliente");
@@ -99,24 +83,18 @@ public class _2_Adicionando_Sub_Graph extends EntityManagerTest {
         logger.info("PEDIDO => " + lista2.get(0).toString());
         logger.info("NOME CLIENTE => " +  lista2.get(0).getCliente().getNome());
         logger.info("CPF CLIENTE => " +  lista2.get(0).getCliente().getCpf());
+        logger.info("PAGAMENTO => " + lista2.get(0).getPagamento().getStatus());
+
     }
 
 
     @Test
-    public void usando_EntityGraph_com_Criteria_API(){
-        EntityGraph<Pedido> entityGraph = entityManager.createEntityGraph(Pedido.class);
-        entityGraph.addAttributeNodes( // vai trazer todas os atributos simples (que não seja de mapeamento) mesmo sem especificar
-            "dataCriacao",
-            "status",
-            "total",
-            "pagamento" // para não trazer Pagamento tem que configurar o PersistentAttributeInterceptable da mesma forma que foi feita com NotaFiscal
-        );
+    public void usando_EntityGraph_com_Criteria_API_com_anotacao_NamedEntityGraph(){
+        EntityGraph<?> entityGraph = entityManager
+            .createEntityGraph("Pedido.dadosEssenciais"); // EntityGraph configurado na entidade Pedido
 
-        Subgraph<Cliente> subgraph = entityGraph.addSubgraph("cliente", Cliente.class);
-        subgraph.addAttributeNodes(
-            "nome",
-            "cpf"
-        );
+        entityGraph.addSubgraph("pagamento")
+            .addAttributeNodes("status");
 
         CriteriaQuery<Pedido> criteriaQuery = getCriteriaQuery();
 

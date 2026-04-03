@@ -88,7 +88,7 @@ public class _3_Utilizando_MetaModel_com_Entity_Graph extends EntityManagerTest 
         );
 
         logger.info("BUSCANDO LISTA DE PEDIDO:");
-        logger.info("Dessa forma está fazendo consulta com Pagamento e Cliente, sem ficar fazendo consultas separadas para buscar Pagamento e Pedido");
+        logger.info("Dessa forma está fazendo consulta com Pagamento e Cliente, sem ficar fazendo consultas separadas para buscar Pagamento e Cliente");
 
         TypedQuery<Pedido> typedQuery = entityManager // Não está trazendo NotaFiscal porque foi configurado para não retornar usando a interface: PersistentAttributeInterceptable
             .createQuery("SELECT p FROM Pedido p", Pedido.class)
@@ -123,7 +123,7 @@ public class _3_Utilizando_MetaModel_com_Entity_Graph extends EntityManagerTest 
         CriteriaQuery<Pedido> criteriaQuery = getCriteriaQuery();
 
         logger.info("BUSCANDO LISTA DE PEDIDO:");
-        logger.info("Dessa forma está fazendo consulta com Pagamento e Cliente, sem ficar fazendo consultas separadas para buscar Pagamento e Pedido");
+        logger.info("Dessa forma está fazendo consulta com Pagamento e Cliente, sem ficar fazendo consultas separadas para buscar Pagamento e Cliente");
 
         TypedQuery<Pedido> typedQuery = entityManager // Não está trazendo NotaFiscal porque foi configurado para não retornar usando a interface: PersistentAttributeInterceptable
             .createQuery(criteriaQuery)

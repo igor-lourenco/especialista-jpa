@@ -15,9 +15,34 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+@NamedEntityGraphs({ // usando em _13_Bean_Validation_Pool_de_conexoes_Entity_Graph_e_detalhes_avancados/_5_EntityGraph/_4_Configurando_Entity_Graph_com_Anotacao
+    @NamedEntityGraph(
+        name = "Pedido.dadosEssenciais", // nome do EntityGraph para ser referenciado
+        attributeNodes = {
+            @NamedAttributeNode("dataCriacao"),
+            @NamedAttributeNode("status"),
+            @NamedAttributeNode("total"),
+            @NamedAttributeNode(
+                value = "cliente",
+                subgraph = "Cliente.dadosEssenciais"),
+        },
+        subgraphs = {
+            @NamedSubgraph(
+                name = "Cliente.dadosEssenciais", // nome do SubEntityGraph para ser referenciado
+                attributeNodes = {
+                    @NamedAttributeNode("nome"),
+                    @NamedAttributeNode("cpf"),
+                })
+        }
+    )
+})
+
 // Especifica as classes de ouvinte de retorno de chamada a serem usadas para uma entidade ou superclasse mapeada.
 @EntityListeners({GerarNotaFiscalListener.class, GenericoListener.class})
+
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
+
 @Getter
 @Setter
 @Entity
