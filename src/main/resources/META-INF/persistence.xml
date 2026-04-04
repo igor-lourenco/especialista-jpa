@@ -128,6 +128,8 @@
 
 <!--        ========================================================================================================================    -->
 
+<!--        >>>> Controla como o cache de segundo nivel (L2) do JPA eh usado na aplicacao  -->
+<!--        >>>> ALL -> Todas as entidades sao elegiveis para o cache de segundo nivel, por padrao.    -->
             <property name="javax.persistence.sharedCache.mode" value="ALL"/>
 
 

@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class _1_Entendendo_cache_de_segundo_nivel {
+public class _2_Incluindo_as_entidades_no_cache {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
 
@@ -21,10 +21,10 @@ public class _1_Entendendo_cache_de_segundo_nivel {
       - Primeiro tenta encontrar a entidade no cache de 1° nível (Cache por contexto, no mesmo EntityManager)
       - Se não encontrar, tenta encontrar a entidade no cache de 2° nível (Cache da aplicação, entre EntityManagers)
       - Se não encontrar, faz a consulta no banco de dados
-*/
+ */
 
     @Test
-    public void buscarDoCache(){
+    public void adicionarPedidosNoCache(){
 
         EntityManager entityManager1 = entityManagerFactory.createEntityManager();
         EntityManager entityManager2 = entityManagerFactory.createEntityManager();
@@ -32,7 +32,7 @@ public class _1_Entendendo_cache_de_segundo_nivel {
         System.out.println();
 
         logger.info(">>>>> Buscando a partir da instância 1");
-        entityManager1.find(Pedido.class, 1);
+        entityManager1.createQuery("SELECT p FROM Pedido p",Pedido.class).getResultList();
 
         logger.info(">>>>> Buscando a partir da instância 2"); // a entidade já foi carregada e cacheada pelo entityManager1
         entityManager2.find(Pedido.class, 1);
