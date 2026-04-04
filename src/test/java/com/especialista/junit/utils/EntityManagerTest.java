@@ -1,6 +1,7 @@
 package com.especialista.junit.utils;
 
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -43,7 +44,7 @@ public class EntityManagerTest {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-
+    @After
     public void tearDown() { // executa depois de cada teste
         System.out.println(">>> Finalizando o EntityManager...");
         entityManager.close();

@@ -12,11 +12,19 @@
         <validation-mode>CALLBACK</validation-mode> <!-- Obriga que tenha alguma implementacao do Bean Validation no pom.xml  -->
 
 
+
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.54:3307/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
             <property name="javax.persistence.jdbc.user" value="appuser" />
             <property name="javax.persistence.jdbc.password" value="L@ur&amp;nco@Mysql135" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+
+            <!-- Mostra o sql no console -->
+            <property name="hibernate.show_sql" value="true" />
+
+            <!-- Formata o sql no console -->
+            <property name="hibernate.format_sql" value="true" />
 
 <!--        ========================================================================================================================    -->
 <!--        ==========================   HIKARI CP - GERENCIADOR DO POOL DE CONEXOES  ==============================================    -->
@@ -120,13 +128,9 @@
 
 <!--        ========================================================================================================================    -->
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="javax.persistence.sharedCache.mode" value="ALL"/>
 
-            <!-- Mostra o sql no console -->
-            <property name="hibernate.show_sql" value="true" />
 
-            <!-- Formata o sql no console -->
-            <property name="hibernate.format_sql" value="true" />
         </properties>
     </persistence-unit>
 </persistence>
