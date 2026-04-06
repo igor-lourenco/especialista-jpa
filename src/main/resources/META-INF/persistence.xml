@@ -9,16 +9,17 @@
         <mapping-file>META-INF/consultas/produto.xml</mapping-file>
         <mapping-file>META-INF/consultas/categoria.xml</mapping-file>
 
-<!--        ===========================================================================================    -->
-<!--        ==========================   MODOS DE CACHE  ==============================================    -->
+<!--    ===========================================================================================    -->
+<!--    ==========================   MODOS DE CACHE  ==============================================    -->
+<!--    ===========================================================================================    -->
 
-<!--        <shared-cache-mode>UNSPECIFIED</shared-cache-mode> &lt;!&ndash; Comportamento padrao do provider &ndash;&gt;-->
-<!--        <shared-cache-mode>NONE</shared-cache-mode> &lt;!&ndash; Cache de segundo nivel totalmente desativado &ndash;&gt;-->
-<!--        <shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode> &lt;!&ndash; Todas entram no cache, Exceto entidades com @Cacheable(false)  &ndash;&gt;-->
+<!--    <shared-cache-mode>UNSPECIFIED</shared-cache-mode> &lt;!&ndash; Comportamento padrao do provider &ndash;&gt;-->
+<!--    <shared-cache-mode>NONE</shared-cache-mode> &lt;!&ndash; Cache de segundo nivel totalmente desativado &ndash;&gt;-->
+<!--    <shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode> &lt;!&ndash; Todas entram no cache, Exceto entidades com @Cacheable(false)  &ndash;&gt;-->
         <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode> <!-- Somente entidades anotadas com @Cacheable(true) sao cacheadas -->
-<!--        <shared-cache-mode>ALL</shared-cache-mode> &lt;!&ndash; Todas as entidades sao elegiveis para o cache &ndash;&gt;-->
+<!--    <shared-cache-mode>ALL</shared-cache-mode> &lt;!&ndash; Todas as entidades sao elegiveis para o cache &ndash;&gt;-->
 
-<!--        ===========================================================================================    -->
+<!--    ===========================================================================================    -->
 
         <validation-mode>CALLBACK</validation-mode> <!-- Obriga que tenha alguma implementacao do Bean Validation no pom.xml  -->
 
@@ -126,7 +127,7 @@
 <!--            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>-->
 
 <!--        >>>> Define o caminho do arquivo onde o JPA vai exportar o script de criacao do banco de dados                              -->
-<!--        >>>> Esse arquivo é gerado, não executado automaticamente (a execução depende da propriedade scripts.action)               -->
+<!--        >>>> Esse arquivo é gerado, não executado automaticamente (a execução depende da propriedade scripts.action)                -->
             <property name="javax.persistence.schema-generation.scripts.create-target"
                       value="C:/temp/especialista-jpa/especialista-jpa/src/main/resources/META-INF/banco-de-dados/script-criacao-exportado.sql"/>
 
@@ -137,12 +138,28 @@
 
 <!--        ========================================================================================================================    -->
 
-<!--        >>>> Controla como o cache de segundo nivel (L2) do JPA eh usado na aplicacao              -->
-<!--        >>>> ALL -> Todas as entidades sao elegiveis para o cache de segundo nivel, por padrao.    -->
-<!--        Foi comentado pra ser usado o <shared-cache-mode>                                          -->
-<!--        <property name="javax.persistence.sharedCache.mode" value="ALL"/>-->
+<!--        ========================== CONFIGURACAO DO EHCACHE COMO PROVEDOR  =======================================================   -->
+<!--        =========================================================================================================================   -->
 
+<!--        >>>> Controla como o cache de segundo nivel (L2) do JPA eh usado na aplicacao                                               -->
+<!--        >>>> ALL -> Todas as entidades sao elegiveis para o cache de segundo nivel, por padrao.                                     -->
+<!--        Obs: Foi comentado pra ser usado o <shared-cache-mode>                                                                      -->
+<!--        <property name="javax.persistence.sharedCache.mode" value="ALL"/>                                                           -->
 
+<!--        >>>> Define qual mecanismo o Hibernate usa para criar e gerenciar regioes de cache                                          -->
+<!--        >>>> Nesse caso esta usando o: JCache (JSR‑107) como abstrato de cache                                                      -->
+            <property name="hibernate.cache.region.factory_class"
+                      value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+
+<!--        >>>> Indica qual implementacao concreta do JCache será usada.                                                               -->
+<!--        >>>> Nesse caso esta usando o: Ehcache (implementação oficial JSR‑107)                                                      -->
+            <property name="hibernate.javax.cache.provider"
+                      value="org.ehcache.jsr107.EhcacheCachingProvider"/>
+
+<!--        >>>> Define onde está o arquivo de configuração do Ehcache                                                                  -->
+            <property name="hibernate.javax.cache.uri"
+                      value="META-INF/ehcache.xml"/>
+            
         </properties>
     </persistence-unit>
 </persistence>
