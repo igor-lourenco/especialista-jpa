@@ -9,9 +9,18 @@
         <mapping-file>META-INF/consultas/produto.xml</mapping-file>
         <mapping-file>META-INF/consultas/categoria.xml</mapping-file>
 
+<!--        ===========================================================================================    -->
+<!--        ==========================   MODOS DE CACHE  ==============================================    -->
+
+<!--        <shared-cache-mode>UNSPECIFIED</shared-cache-mode> &lt;!&ndash; Comportamento padrao do provider &ndash;&gt;-->
+<!--        <shared-cache-mode>NONE</shared-cache-mode> &lt;!&ndash; Cache de segundo nivel totalmente desativado &ndash;&gt;-->
+<!--        <shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode> &lt;!&ndash; Todas entram no cache, Exceto entidades com @Cacheable(false)  &ndash;&gt;-->
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode> <!-- Somente entidades anotadas com @Cacheable(true) sao cacheadas -->
+<!--        <shared-cache-mode>ALL</shared-cache-mode> &lt;!&ndash; Todas as entidades sao elegiveis para o cache &ndash;&gt;-->
+
+<!--        ===========================================================================================    -->
+
         <validation-mode>CALLBACK</validation-mode> <!-- Obriga que tenha alguma implementacao do Bean Validation no pom.xml  -->
-
-
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.54:3307/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
@@ -128,9 +137,10 @@
 
 <!--        ========================================================================================================================    -->
 
-<!--        >>>> Controla como o cache de segundo nivel (L2) do JPA eh usado na aplicacao  -->
+<!--        >>>> Controla como o cache de segundo nivel (L2) do JPA eh usado na aplicacao              -->
 <!--        >>>> ALL -> Todas as entidades sao elegiveis para o cache de segundo nivel, por padrao.    -->
-            <property name="javax.persistence.sharedCache.mode" value="ALL"/>
+<!--        Foi comentado pra ser usado o <shared-cache-mode>                                          -->
+<!--        <property name="javax.persistence.sharedCache.mode" value="ALL"/>-->
 
 
         </properties>

@@ -2,6 +2,7 @@ package com.especialista.junit._14_Second_Level_Cache_cache_compartilhado;
 
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -12,7 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class _4_Verificar_se_uma_entidade_esta_no_cache {
+public class _5_Modos_de_cache_e_anotacao_Cacheable {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
 
@@ -25,7 +26,7 @@ public class _4_Verificar_se_uma_entidade_esta_no_cache {
  */
 
     @Test
-    public void verificarPedidosNoCache(){
+    public void analisarOpcoesDeCache(){
         Cache cache = entityManagerFactory.getCache();
 
         EntityManager entityManager1 = entityManagerFactory.createEntityManager();
@@ -35,21 +36,10 @@ public class _4_Verificar_se_uma_entidade_esta_no_cache {
         logger.info(">>>>> Buscando a partir da instância 1");
         entityManager1.createQuery("SELECT p FROM Pedido p",Pedido.class).getResultList();
 
+        Assert.assertTrue(cache.contains(Pedido.class, 1));
 
-        logger.info(">>>>> Verificando se o Pedido 1 da instância 2: "
+        logger.info(">>>>> Verificando se o Pedido 1 da instância 1 está no cache: "
             + cache.contains(Pedido.class, 1));
-
-        logger.info(">>>>> Verificando se o Pedido 2 da instância 2: "
-            + cache.contains(Pedido.class, 2));
-
-
-        logger.info(">>>>> Buscando a partir da instância 2"); // a entidade já foi carregada e cacheada pelo entityManager1
-        Pedido pedido1 = entityManager2.find(Pedido.class, 1);
-        Pedido pedido2 = entityManager2.find(Pedido.class, 2);
-
-        logger.info("PEDIDO 1 -> " + pedido1.getId());
-        logger.info("PEDIDO 2 -> " + pedido2.getId());
-
     }
 
 

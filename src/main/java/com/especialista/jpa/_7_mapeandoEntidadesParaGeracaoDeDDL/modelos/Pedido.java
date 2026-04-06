@@ -43,6 +43,9 @@ import java.util.List;
 
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) // foi movido para a superclasse
 
+// Especifica que a entidade deve ser armazenada em cache caso o cache esteja habilitado, quando o valor do elemento de cache do arquivo persistence.xml for ENABLE_SELECTIVE ou DISABLE_SELECTIVE.
+@Cacheable
+
 @Getter
 @Setter
 @Entity
