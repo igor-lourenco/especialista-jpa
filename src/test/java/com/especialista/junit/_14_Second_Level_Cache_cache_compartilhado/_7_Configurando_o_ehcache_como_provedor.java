@@ -51,6 +51,9 @@ public class _7_Configurando_o_ehcache_como_provedor {
             + cache.contains(Pedido.class, 1));
 
         logger.info("Obs: Em ehcache.xml foi configurado para depois de 2 seg se o Pedido não for usado ele é removido");
+
+        entityManager1.close();
+        entityManager2.close();
     }
 
 

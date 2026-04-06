@@ -50,6 +50,8 @@ public class _3_Removendo_as_entidades_no_cache {
         logger.info("PEDIDO 1 -> " + pedido1.getId());
         logger.info("PEDIDO 2 -> " + pedido2.getId());
 
+        entityManager1.close();
+        entityManager2.close();
     }
 
 

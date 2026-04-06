@@ -37,6 +37,8 @@ public class _1_Entendendo_cache_de_segundo_nivel {
         logger.info(">>>>> Buscando a partir da instância 2"); // a entidade já foi carregada e cacheada pelo entityManager1
         entityManager2.find(Pedido.class, 1);
 
+        entityManager1.close();
+        entityManager2.close();
     }
 
 

@@ -40,6 +40,9 @@ public class _5_Modos_de_cache_e_anotacao_Cacheable {
 
         logger.info(">>>>> Verificando se o Pedido 1 da instância 1 está no cache: "
             + cache.contains(Pedido.class, 1));
+
+        entityManager1.close();
+        entityManager2.close();
     }
 
 

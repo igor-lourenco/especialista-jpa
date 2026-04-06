@@ -76,6 +76,9 @@ public class _6_Controle_dinamico_do_cache {
 
         logger.info(">>>>> Verificando se o Pedido 1 da instância 1 está no cache: "
             + cache.contains(Pedido.class, 1));
+
+        entityManager1.close();
+        entityManager2.close();
     }
 
 

@@ -37,6 +37,8 @@ public class _2_Incluindo_as_entidades_no_cache {
         logger.info(">>>>> Buscando a partir da instância 2"); // a entidade já foi carregada e cacheada pelo entityManager1
         entityManager2.find(Pedido.class, 1);
 
+        entityManager1.close();
+        entityManager2.close();
     }
 
 

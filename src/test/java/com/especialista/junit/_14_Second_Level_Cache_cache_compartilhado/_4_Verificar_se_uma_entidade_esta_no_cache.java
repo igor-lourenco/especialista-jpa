@@ -50,6 +50,8 @@ public class _4_Verificar_se_uma_entidade_esta_no_cache {
         logger.info("PEDIDO 1 -> " + pedido1.getId());
         logger.info("PEDIDO 2 -> " + pedido2.getId());
 
+        entityManager1.close();
+        entityManager2.close();
     }
 
 
