@@ -48,6 +48,11 @@ public class Cliente extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
+//    >>> foi movido para a superclasse
+//    Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+//    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+//    private Integer versao;
+
     @Column(length = 100, nullable = false)
     private String nome;
 

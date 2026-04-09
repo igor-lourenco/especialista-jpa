@@ -19,6 +19,11 @@ public class Estoque extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
+//    >>> foi movido para a superclasse
+//    Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+//    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+//    private Integer versao;
+
 //    @MapsId // Especifica ao JPA que um ou mais campos da PK vêm do identificador de uma associação (@ManyToOne ou @OneToOne), evitando duplicidade de colunas e mantendo tudo sincronizado.
     @OneToOne(fetch = FetchType.EAGER, optional = false) // por padrão usa o Fetch.EAGER
     @JoinColumn(name = "produto_id", // um estoque tem um produto (owner)

@@ -60,6 +60,11 @@ public class Pedido extends EntidadeBaseInteger
 //    private Integer id;
 
 
+//    >>> foi movido para a superclasse
+//    Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+//    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+//    private Integer versao;
+
     @Column(name = "data_criacao", length = 6,
         nullable = false, // define se a coluna pode ser nula no banco
         updatable = false // para não atualizar no banco de dados após criado

@@ -19,6 +19,10 @@ public class NotaFiscal extends EntidadeBaseInteger {
 //    @Column(name = "pedido_id") // coluna deve ser o mesmo do atributo mapeado com @MapsId
 //    private Integer id;
 
+//    >>> foi movido para a superclasse
+//    Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+//    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+//    private Integer versao;
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
     @Column(nullable = false) // define se a coluna pode ser nula no banco

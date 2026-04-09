@@ -28,6 +28,10 @@ public abstract class Pagamento extends EntidadeBaseInteger {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
 //    private Integer id;
 
+//    >>> foi movido para a superclasse
+//    Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+//    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+//    private Integer versao;
 
 //  O nome do atributo dentro da chave composta ao qual o atributo de relacionamento corresponde. Se não for fornecido, o relacionamento mapeia a chave primária da entidade.
     @MapsId // Especifica ao JPA que um ou mais campos da PK vêm do identificador de uma associação (@ManyToOne ou @OneToOne), evitando duplicidade de colunas e mantendo tudo sincronizado.

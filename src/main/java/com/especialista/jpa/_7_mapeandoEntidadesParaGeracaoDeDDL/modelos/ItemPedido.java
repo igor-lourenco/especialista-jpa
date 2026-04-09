@@ -23,6 +23,10 @@ public class ItemPedido {
     @EmbeddedId // chave primária composta como um objeto de valor embutido dentro dessa entidade.
     private ItemPedidoId id;
 
+//  Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+    private Integer versao;
+
     @Column(name = "preco_produto", precision = 19, scale = 2, nullable = false)
     private BigDecimal precoProduto;
 

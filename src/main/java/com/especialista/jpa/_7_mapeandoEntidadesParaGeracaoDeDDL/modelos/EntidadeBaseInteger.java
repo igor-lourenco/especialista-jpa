@@ -4,19 +4,23 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@MappedSuperclass // Designa uma classe cujas informações de mapeamento são aplicadas às entidades que herdam dela. Uma superclasse mapeada não possui uma tabela separada definida para ela.
+
+// Serve para compartilhar mapeamentos JPA entre várias entidades, sem virar uma tabela no banco, usado para centralizar campos comuns(por exemplo: id) e evitar código duplicado.
+@MappedSuperclass
 public class EntidadeBaseInteger {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
     private Integer id;
+
+
+//  Usado para guardar a versão da entidade no banco de dados, usada pelo JPA para controle de concorrência otimista, serve
+    @Version  // para evitar que duas transações sobrescrevam dados uma da outra silenciosamente.
+    private Integer versao;
 }
