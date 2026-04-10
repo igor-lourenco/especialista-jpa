@@ -34,7 +34,7 @@
             <property name="hibernate.show_sql" value="true" />
 
             <!-- Formata o sql no console -->
-            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.format_sql" value="false" />
 
 <!--        ========================================================================================================================    -->
 <!--        ==========================   HIKARI CP - GERENCIADOR DO POOL DE CONEXOES  ==============================================    -->
