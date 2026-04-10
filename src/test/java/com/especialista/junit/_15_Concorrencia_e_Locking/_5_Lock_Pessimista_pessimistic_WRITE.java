@@ -13,30 +13,37 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.LockModeType;
 import javax.persistence.Persistence;
 
-public class _4_Lock_Pessimista_pessimistic_read {
-    protected static final Logger logger = LoggerFactory.getLogger(_4_Lock_Pessimista_pessimistic_read.class.getSimpleName());
+public class _5_Lock_Pessimista_pessimistic_WRITE {
+    protected static final Logger logger = LoggerFactory.getLogger(_5_Lock_Pessimista_pessimistic_WRITE.class.getSimpleName());
 
     protected static EntityManagerFactory entityManagerFactory;
 
-/*  — > LockModeType.PESSIMISTIC_READ: usado para garantir que um registro não seja modificado enquanto
-      sua transação está usando os dados para leitura.
-        - Vai ler esse dado garantindo que ninguém vai alterá‑lo enquanto estiver trabalhando nesse dado
+/*  — > LockModeType.PESSIMISTIC_WRITE: usado quando precisa de exclusividade total sobre um registro, garantindo que
+      ninguém mais leia ou altere aquele dado enquanto sua transação estiver ativa
+        - Vai trabalhar nesse dado e ninguém mais pode nem ler, nem modificar até terminar
+        - É um lock exclusivo no banco de dados
 
         Ou seja:
-          - Você pode ler o registro com segurança
-          - Outras transações *NÃO* podem modificá‑lo
-          - Outras transações podem ler (dependendo do banco)
-          - O lock dura até o commit ou rollback
+          - Executa um SELECT com lock exclusivo
+          - O banco:
+            - bloqueia leitura com lock
+            - bloqueia UPDATE
+            - bloqueia DELETE
+          - O lock só é liberado no:
+             - commit
+             - rollback
+          - Só uma transação controla o registro
 
         Observação:
-          - Quando mais de uma transação adquire LockModeType.PESSIMISTIC_READ sobre o mesmo registro e depois tenta ALTERAR o dado,
-          o que acontece é um conflito na hora de promover o lock.
-            - Só uma transação conseguirá alterar o dado.
-            - As outras ficarão bloqueadas, esperarão, ou falharão por timeout/deadlock, dependendo do banco e da configuração
+          - Quando mais de uma transação usa LockModeType.PESSIMISTIC_WRITE sobre o mesmo registro e todas tentam
+          alterar, o comportamento é:
+            - Somente UMA transação por vez pode obter o lock e alterar o dado.
+            - As outras ficam bloqueadas na tentativa de obter o lock (já na leitura)
+            - Se o lock não for liberado a tempo, falham por timeout ou deadlock
 */
 
     @Test
-    public void usando_LockPessimista_LockModeType_Pessimistic_Read() {
+    public void usando_LockPessimista_LockModeType_Pessimistic_WRITE() {
 
         Runnable run0 = () -> {
             EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -50,7 +57,7 @@ public class _4_Lock_Pessimista_pessimistic_read {
             Produto produto = entityManager.find(
                 Produto.class,
                 1,
-                LockModeType.PESSIMISTIC_READ
+                LockModeType.PESSIMISTIC_WRITE
             );
 
             log("RUN 0: vai alterar o Produto...");
@@ -79,11 +86,12 @@ public class _4_Lock_Pessimista_pessimistic_read {
 
             String novaDescricao = "Descrição massa. CTM: " + System.currentTimeMillis();
 
-            log("RUN 1: vai carregar o Produto...");
+            log("RUN 1: vai carregar o Produto...(vai travar aqui até a RUN 0 comitar e liberar o lock)");
             Produto produto = entityManager.find(
                 Produto.class,
-                1,
-                LockModeType.PESSIMISTIC_READ
+                1
+                ,
+                LockModeType.PESSIMISTIC_WRITE
             );
 
             log("RUN 1: vai alterar o Produto...");
@@ -136,6 +144,7 @@ public class _4_Lock_Pessimista_pessimistic_read {
 
         Assert.assertTrue(produto.getDescricao().startsWith("Descrição massa"));
 
+        entityManager.close();
         log("Encerrando método...");
     }
 
