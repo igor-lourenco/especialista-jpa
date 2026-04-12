@@ -2,51 +2,31 @@ package com.especialista.junit.utils;
 
 import com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos.Pedido;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.time.ZoneId;
 import java.util.TimeZone;
 
-public class EntityManagerTest {
+public class EntityManagerTest extends EntityManagerFactoryTest {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    protected static EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
-
-
-    @BeforeClass
-    public static void setUpBeforeClass() { // executa primeiro
-        System.out.println(">>> Iniciando o EntityManagerFactory...");
-        entityManagerFactory = Persistence.createEntityManagerFactory("EspecialistaJPADB-PU");
-
-    }
-
-    @AfterClass
-    public static void tearDownAfterClass() { // executa por ultimo
-        System.out.println(">>> Finalizando o EntityManagerFactory...");
-        entityManagerFactory.close();
-    }
-
 
     @Before
     public void setUp() { // executa antes de cada teste
-        System.out.println(">>> Iniciando o EntityManager...");
+        logger.info(">>> Iniciando o EntityManager...");
         entityManager = entityManagerFactory.createEntityManager();
     }
 
     @After
     public void tearDown() { // executa depois de cada teste
-        System.out.println(">>> Finalizando o EntityManager...");
+        logger.info(">>> Finalizando o EntityManager...");
         entityManager.close();
     }
 
