@@ -15,7 +15,7 @@ public class ColorLevelConverter extends ClassicConverter {
                 color = "\u001B[31m";
                 break;
             case "WARN":
-                color = "\u001B[33m";
+                color = "\u001B[38;5;208m";
                 break;
             case "INFO":
                 color = "\u001B[32m";

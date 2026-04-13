@@ -137,7 +137,6 @@
                       value="C:/temp/especialista-jpa/especialista-jpa/src/main/resources/META-INF/banco-de-dados/script-remocao-exportado.sql"/>
 
 <!--        ========================================================================================================================    -->
-
 <!--        ========================== CONFIGURACAO DO EHCACHE COMO PROVEDOR  =======================================================   -->
 <!--        =========================================================================================================================   -->
 
@@ -159,7 +158,24 @@
 <!--        >>>> Define onde está o arquivo de configuração do Ehcache                                                                  -->
             <property name="hibernate.javax.cache.uri"
                       value="META-INF/ehcache.xml"/>
-            
+
+<!--        ========================================================================================================================     -->
+<!--        ============================ CONFIGURACAO DO MULTITENANCY ==============================================================     -->
+<!--        =========================================================================================================================    -->
+
+<!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo SCHEMA, ou seja, mesmo banco, mas schemas diferentes -->
+            <property name="hibernate.multiTenancy" value="SCHEMA" />
+
+<!--        >>> Define quem diz ao Hibernate qual é o tenant atual, ou seja, especifica qual tenant está ativo nesta requisição/execução -->
+            <property name="hibernate.tenant_identifier_resolver"
+                      value="com.especialista.jpa.multitenancy.EcmCurrentTenantIdentifierResolver"/>
+
+<!--        >>> Define como obter uma Connection JDBC para um tenant específico, ou seja, eh essa classe que vai receber tenantIdentifier
+                e vai retornar uma Connection ja configurada para o schema correto                                                       -->
+            <property name="hibernate.multi_tenant_connection_provider"
+                      value="com.especialista.jpa.multitenancy.EcmSchemaMultiTenantConnectionProvider"/>
+
+
         </properties>
     </persistence-unit>
 </persistence>
