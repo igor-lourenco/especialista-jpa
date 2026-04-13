@@ -18,7 +18,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 public class _8_Usando_Lock_com_JPQL_e_Criteria_API {
-    protected static final Logger logger = LoggerFactory.getLogger(_8_Usando_Lock_com_JPQL_e_Criteria_API.class.getSimpleName());
+    protected static final Logger logger = LoggerFactory.getLogger(_8_Usando_Lock_com_JPQL_e_Criteria_API.class);
 
     protected static EntityManagerFactory entityManagerFactory;
 
@@ -145,14 +145,14 @@ public class _8_Usando_Lock_com_JPQL_e_Criteria_API {
 
     @BeforeClass
     public static void setUpBeforeClass() { // executa primeiro
-        System.out.println(">>> Iniciando o EntityManagerFactory...");
+        logger.debug(">>> Iniciando o EntityManagerFactory...");
         entityManagerFactory = Persistence.createEntityManagerFactory("EspecialistaJPADB-PU");
 
     }
 
     @AfterClass
     public static void tearDownAfterClass() { // executa por ultimo
-        System.out.println(">>> Finalizando o EntityManagerFactory...");
+        logger.debug(">>> Finalizando o EntityManagerFactory...");
         entityManagerFactory.close();
     }
 }

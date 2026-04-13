@@ -9,7 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class EntityManagerFactoryTest {
-    protected static final Logger logger = LoggerFactory.getLogger(EntityManagerFactoryTest.class.getSimpleName());
+    protected static final Logger logger = LoggerFactory.getLogger(EntityManagerFactoryTest.class);
 
     protected static EntityManagerFactory entityManagerFactory;
 
