@@ -1,10 +1,10 @@
-package com.especialista.jpa.multitenancy;
+package com.especialista.jpa.multitenancy.schema;
 
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// Essa classe serve para o funcionamento do multitenancy por SCHEMA no Hibernate, ou seja, é essa classe que especifica
+// Essa classe serve para o funcionamento do multitenancy no Hibernate, ou seja, é essa classe que especifica
 // qual é o tenant (schema) que deve ser usado AGORA, ela faz isso em tempo de execução, usando o ThreadLocal
 public class EcmCurrentTenantIdentifierResolver implements
     CurrentTenantIdentifierResolver //  interface do Hibernate usada exclusivamente para multitenancy

@@ -163,17 +163,31 @@
 <!--        ============================ CONFIGURACAO DO MULTITENANCY ==============================================================     -->
 <!--        =========================================================================================================================    -->
 
-<!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo SCHEMA, ou seja, mesmo banco, mas schemas diferentes -->
-            <property name="hibernate.multiTenancy" value="SCHEMA" />
+<!--        ============================ USANDO MODELO POR SCHEMA ==============================================================     -->
+<!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo por SCHEMA, ou seja, mesmo banco, mas schemas diferentes -->
+<!--            <property name="hibernate.multiTenancy" value="SCHEMA" />-->
+
+<!--        >>> Define quem diz ao Hibernate qual é o tenant atual, ou seja, especifica qual tenant está ativo nesta requisição/execução -->
+<!--            <property name="hibernate.tenant_identifier_resolver"-->
+<!--                      value="com.especialista.jpa.multitenancy.schema.EcmCurrentTenantIdentifierResolver"/>-->
+
+<!--        >>> Define como obter uma Connection JDBC para um tenant específico, ou seja, eh essa classe que vai receber tenantIdentifier
+                e vai retornar uma Connection ja configurada para o schema correto                                                       -->
+<!--            <property name="hibernate.multi_tenant_connection_provider"-->
+<!--                      value="com.especialista.jpa.multitenancy.schema.EcmSchemaMultiTenantConnectionProvider"/>-->
+
+<!--        ============================ USANDO MODELO POR MAQUINA ==============================================================     -->
+<!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo por maquina, ou seja, banco em máquinas diferentes -->
+            <property name="hibernate.multiTenancy" value="DATABASE" />
 
 <!--        >>> Define quem diz ao Hibernate qual é o tenant atual, ou seja, especifica qual tenant está ativo nesta requisição/execução -->
             <property name="hibernate.tenant_identifier_resolver"
-                      value="com.especialista.jpa.multitenancy.EcmCurrentTenantIdentifierResolver"/>
+                      value="com.especialista.jpa.multitenancy.maquina.EcmCurrentTenantIdentifierResolver"/>
 
 <!--        >>> Define como obter uma Connection JDBC para um tenant específico, ou seja, eh essa classe que vai receber tenantIdentifier
                 e vai retornar uma Connection ja configurada para o schema correto                                                       -->
             <property name="hibernate.multi_tenant_connection_provider"
-                      value="com.especialista.jpa.multitenancy.EcmSchemaMultiTenantConnectionProvider"/>
+                      value="com.especialista.jpa.multitenancy.maquina.EcmMaquineMultiTenantConnectionProvider"/>
 
 
         </properties>
