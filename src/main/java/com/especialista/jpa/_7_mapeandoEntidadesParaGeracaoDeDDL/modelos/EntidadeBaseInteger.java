@@ -16,7 +16,9 @@ public class EntidadeBaseInteger {
 
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //  Usa auto-incremento do banco
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) //  Usa auto-incremento do banco,
+    // para o postgresql vai ter uma sequência só para todas as entidades,
+    // se for para ter uma sequência pra cada entidade teria que configurar o id em cada classe da entidade
     private Integer id;
 
 

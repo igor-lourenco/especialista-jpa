@@ -24,11 +24,11 @@
         <validation-mode>CALLBACK</validation-mode> <!-- Obriga que tenha alguma implementacao do Bean Validation no pom.xml  -->
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.54:3307/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />
-            <property name="javax.persistence.jdbc.user" value="appuser" />
-            <property name="javax.persistence.jdbc.password" value="L@ur&amp;nco@Mysql135" />
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.54:3307/especialistajpadb?createDatabaseIfNotExist=true&amp;useTimezone=true&amp;serverTimezone=UTC" />-->
+<!--            <property name="javax.persistence.jdbc.user" value="appuser" />-->
+<!--            <property name="javax.persistence.jdbc.password" value="L@ur&amp;nco@Mysql135" />-->
+<!--            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />-->
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />-->
 
             <!-- Mostra o sql no console -->
             <property name="hibernate.show_sql" value="true" />
@@ -51,10 +51,10 @@
 <!--        ___________________________________________________________________________________________________________________________ -->
 
 <!--        >>>> Deleta o bando de dados e cria novamente toda vez que a aplicacao iniciar                                              -->
-<!--            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>  -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 
 <!--        >>>> Desabilita a geracao do database (como se nao existisse essa propriedade) e os scripts nao serao executados            -->
-            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+<!--            <property name="javax.persistence.schema-generation.database.action" value="none"/>-->
 
 <!--        >>>> Apenas envia os comando de delecao no banco de dados, e os scrips nao serao executados                                 -->
 <!--            <property name="javax.persistence.schema-generation.database.action" value="drop"/>-->
@@ -163,6 +163,8 @@
 <!--        ============================ CONFIGURACAO DO MULTITENANCY ==============================================================     -->
 <!--        =========================================================================================================================    -->
 
+            <property name="hibernate.multiTenancy" value="NONE" />
+
 <!--        ============================ USANDO MODELO POR SCHEMA ==============================================================     -->
 <!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo por SCHEMA, ou seja, mesmo banco, mas schemas diferentes -->
 <!--            <property name="hibernate.multiTenancy" value="SCHEMA" />-->
@@ -176,19 +178,32 @@
 <!--            <property name="hibernate.multi_tenant_connection_provider"-->
 <!--                      value="com.especialista.jpa.multitenancy.schema.EcmSchemaMultiTenantConnectionProvider"/>-->
 
+<!--        ========================================================================================================================     -->
 <!--        ============================ USANDO MODELO POR MAQUINA ==============================================================     -->
+<!--        =========================================================================================================================    -->
+
 <!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo por maquina, ou seja, banco em máquinas diferentes -->
-            <property name="hibernate.multiTenancy" value="DATABASE" />
+<!--            <property name="hibernate.multiTenancy" value="DATABASE" />-->
 
 <!--        >>> Define quem diz ao Hibernate qual é o tenant atual, ou seja, especifica qual tenant está ativo nesta requisição/execução -->
-            <property name="hibernate.tenant_identifier_resolver"
-                      value="com.especialista.jpa.multitenancy.maquina.EcmCurrentTenantIdentifierResolver"/>
+<!--            <property name="hibernate.tenant_identifier_resolver"-->
+<!--                      value="com.especialista.jpa.multitenancy.maquina.EcmCurrentTenantIdentifierResolver"/>-->
 
 <!--        >>> Define como obter uma Connection JDBC para um tenant específico, ou seja, eh essa classe que vai receber tenantIdentifier
                 e vai retornar uma Connection ja configurada para o schema correto                                                       -->
-            <property name="hibernate.multi_tenant_connection_provider"
-                      value="com.especialista.jpa.multitenancy.maquina.EcmMaquineMultiTenantConnectionProvider"/>
+<!--            <property name="hibernate.multi_tenant_connection_provider"-->
+<!--                      value="com.especialista.jpa.multitenancy.maquina.EcmMaquineMultiTenantConnectionProvider"/>-->
 
+
+<!--        ========================================================================================================================     -->
+<!--        ============================ USANDO POSTGRESQL ==============================================================     -->
+<!--        =========================================================================================================================    -->
+
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.0.54:5432/especialistajpadb" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="L@ur&amp;nco@Postgres" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect" />
 
         </properties>
     </persistence-unit>

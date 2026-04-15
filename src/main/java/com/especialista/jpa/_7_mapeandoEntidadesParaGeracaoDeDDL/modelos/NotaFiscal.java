@@ -2,6 +2,7 @@ package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -26,6 +27,7 @@ public class NotaFiscal extends EntidadeBaseInteger {
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
     @Column(nullable = false) // define se a coluna pode ser nula no banco
+    @Type(type = "org.hibernate.type.BinaryType") // para o postgresql
     private byte[] xml;
 
 

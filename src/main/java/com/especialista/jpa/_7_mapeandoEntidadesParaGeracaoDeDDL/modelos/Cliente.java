@@ -38,8 +38,8 @@ import java.util.Map;
     name = "tb_cliente",
 //    schema = "especialistajpadb", // Representa o esquema dentro do banco
 //    catalog = "especialistajpadb", // Representa o catálogo, que geralmente é o próprio banco de dados ou um agrupamento de esquemas.
-    uniqueConstraints = {@UniqueConstraint(name = "unq_cpf", columnNames = {"cpf"})}, // coluna no banco de dados que não pode se repetir
-    indexes = {@Index(name = "idx_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela
+    uniqueConstraints = {@UniqueConstraint(name = "unq_tb_cliente_cpf", columnNames = {"cpf"})}, // coluna no banco de dados que não pode se repetir
+    indexes = {@Index(name = "idx_tb_cliente_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela
 )
 public class Cliente extends EntidadeBaseInteger {
 

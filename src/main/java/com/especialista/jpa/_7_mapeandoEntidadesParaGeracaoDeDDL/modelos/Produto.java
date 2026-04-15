@@ -3,6 +3,7 @@ package com.especialista.jpa._7_mapeandoEntidadesParaGeracaoDeDDL.modelos;
 import com.especialista.jpa.DTOs.ProdutoDTO;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -46,8 +47,8 @@ import java.util.List;
 @Entity
 @Table(
     name = "tb_produto", /* catalog = "especialistajpadb", */
-    uniqueConstraints = {@UniqueConstraint(name = "unq_nome", columnNames = {"nome"})}, // coluna no banco de dados que não pode se repetir
-    indexes = {@Index(name = "idx_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela)
+    uniqueConstraints = {@UniqueConstraint(name = "unq_tb_produto_nome", columnNames = {"nome"})}, // coluna no banco de dados que não pode se repetir
+    indexes = {@Index(name = "idx_tb_produto_nome", columnList = "nome")} // para que o banco de dados organize os registros de determinada coluna de determinada tabela)
 )
 public class Produto extends EntidadeBaseInteger {
 
@@ -65,7 +66,8 @@ public class Produto extends EntidadeBaseInteger {
     private String nome;
 
 
-    @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
+//  @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
+//  @Lob comentado para o postgresql criar como text
     private String descricao;
 
 
@@ -125,5 +127,6 @@ public class Produto extends EntidadeBaseInteger {
 
 
     @Lob // Especifica que uma propriedade ou campo persistente deve ser persistido como um objeto grande em um tipo de objeto grande compatível com o banco de dados
+    @Type(type = "org.hibernate.type.BinaryType") // para o postgresql
     private byte[] foto;
 }

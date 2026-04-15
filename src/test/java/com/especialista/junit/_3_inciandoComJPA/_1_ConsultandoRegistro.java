@@ -67,7 +67,7 @@ public class _1_ConsultandoRegistro {
         System.out.println("3. Atualizando a referência...");
 
         ProdutoIniciandoComJPA produto = entityManager.find(ProdutoIniciandoComJPA.class, 1);
-        produto.setNome("Microfone Samson"); // dessa salva não será salvo no banco
+        produto.setNome("Microfone Samson"); // dessa forma não será salvo no banco
 
         System.out.println(">>> Atualizando o estado da instância do banco de dados, sobrescrevendo as alterações feitas na entidade, se houver");
         entityManager.refresh(produto);
