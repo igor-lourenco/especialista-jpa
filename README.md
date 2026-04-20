@@ -128,7 +128,7 @@ O fluxo típico é:
 
 - **Como a JPA “enxerga” o cache compartilhado:**
 
-A JPA define o conceito de **shared cache** e dá alguns controles:
+  A JPA define o conceito de **shared cache** e dá alguns controles:
 
   - **Habilitar/selecionar o que pode ser cacheado:**
     - @Cacheable: na entidade
