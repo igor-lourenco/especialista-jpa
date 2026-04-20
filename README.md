@@ -57,3 +57,48 @@ Uma entidade pode assumir alguns estados com relação ao EntityManager. Os esta
 ## Relacionamento das Entidades da aplicação
 
 ![Entidade.png](imagens%2FEntidades.png)
+
+
+## Cache de primeiro nível (também chamado de first-level cache)
+
+O cache de 1º nível é o conjunto de entidades **gerenciadas(Managed)** dentro do
+Persistence Context (o contexto de persistência do EntityManager) e existe sempre, independente de configuração.
+
+- **No JPA, o EntityManager mantém um Persistence Context interno:**</br>
+  - Chave: (Classe da entidade + ID)
+  - Valor: instância da entidade já carregada/gerenciada
+
+Na prática, é um Identity Map dentro do mesmo contexto, para um mesmo ID existe uma única instância. Isso serve pra quando fazer uma busca
+de uma mesma entidade duas vezes no mesmo EntityManager retornar a mesma instância.
+
+- **O cache de 1º nível vive dentro do EntityManager:**</br>
+  - Em Hibernate, isso corresponde ao Session (que implementa o EntityManager).
+  
+  - Ele é **per-contexto**, não é global.
+  
+  - Não é compartilhado entre threads e nem entre EntityManagers diferentes.
+
+
+- **Ele é preenchido quando:**</br>
+  - Carrega uma entidade:
+    - **find()**
+    - **getReference()** (proxy)
+    - Consultas JPQL/Criteria/Query que retornem entidades
+  - Persiste uma entidade:
+    - **persist(entity)** coloca a entidade no contexto como Managed.
+  - Faz merge:
+    - **merge()** pode criar/retornar uma instância Managed e colocá-la no contexto.
+
+Demonstração prática (mesmo objeto):
+
+![Cache_1_nivel.png](imagens%2FCache_1_nivel.png)
+
+Isso acontece porque a segunda chamada não precisa ir ao banco: o EntityManager encontra a entidade no cache de 1º nível.
+
+- **Melhora performance:**</br>
+  - **Evita round-trips ao banco:**</br>
+    - **find()** repetido não executa SQL novamente (se a entidade já estiver no contexto)
+  - **Evita duplicidade de instâncias**</br>
+    - Garante consistência de identidade: a == b para o mesmo ID no mesmo contexto
+  - **Permite dirty checking**
+    - Altera o objeto, e o provedor calcula o que precisa atualizar
