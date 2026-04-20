@@ -106,7 +106,7 @@ Isso acontece porque a segunda chamada não precisa ir ao banco: o EntityManager
 
 O cache de 2º nível é um **cache compartilhado entre múltiplos EntityManager/transações**, geralmente no escopo do **EntityManagerFactory (aplicação)**, usado para evitar hits repetidos ao banco ao carregar entidades por ID (e, dependendo do provedor, coleções/associações e resultados de query).
 
-- **Cache de 1º nível x 2º nível**
+- **Cache de 1º nível x 2º nível**</br>
   - **1º nível (L1):** Sempre existe, está dentro do EntityManager (um Persistence Context). Não é compartilhado.
   - **2º nível (L2):** Opcional, está **acima** do EntityManager, geralmente ligado ao **EntityManagerFactory** e pode ser compartilhado.
  
@@ -118,13 +118,12 @@ O fluxo típico é:
   4. Se não achar, vai ao banco, traz o registro, popula L1 (e possivelmente L2).
 
 
-- **O que exatamente o cache de 2º nível armazena:**
+- **O que exatamente o cache de 2º nível armazena:**</br>
 
-Na maioria dos provedores, o L2 armazena estado de entidade por ID (um snapshot serializável do estado). Ele não é um cache genérico de SQL ou ResultSet. É cache de entidades.
-Dependendo do provedor e configurações, pode armazenar também:
-
-  - **Coleções/relacionamentos:** por exemplo @OneToMany, em regiões próprias (muito comum no Hibernate).
-  - **Query cache (cache de resultados de consultas):** Normalmente é separado do L2 e precisa ser ligado explicitamente. Importante: **“Cache de query” ≠ “Cache de entidade”**.
+  Na maioria dos provedores, o L2 armazena estado de entidade por ID (um snapshot serializável do estado). Ele não é um cache genérico de SQL ou ResultSet. É cache de entidades.</br>  Dependendo do provedor e configurações, pode armazenar também:
+ 
+   - **Coleções/relacionamentos:** por exemplo @OneToMany, em regiões próprias (muito comum no Hibernate).
+   - **Query cache (cache de resultados de consultas):** Normalmente é separado do L2 e precisa ser ligado explicitamente. Importante: **“Cache de query” ≠ “Cache de entidade”**.
 
 
 - **Como a JPA “enxerga” o cache compartilhado:**
