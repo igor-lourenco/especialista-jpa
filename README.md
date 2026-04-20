@@ -123,32 +123,32 @@ O fluxo típico é:
 Na maioria dos provedores, o L2 armazena estado de entidade por ID (um snapshot serializável do estado). Ele não é um cache genérico de SQL ou ResultSet. É cache de entidades.
 Dependendo do provedor e configurações, pode armazenar também:
 
-- **Coleções/relacionamentos:** por exemplo @OneToMany, em regiões próprias (muito comum no Hibernate).
-- **Query cache (cache de resultados de consultas):** Normalmente é separado do L2 e precisa ser ligado explicitamente. Importante: **“Cache de query” ≠ “Cache de entidade”**.
+  - **Coleções/relacionamentos:** por exemplo @OneToMany, em regiões próprias (muito comum no Hibernate).
+  - **Query cache (cache de resultados de consultas):** Normalmente é separado do L2 e precisa ser ligado explicitamente. Importante: **“Cache de query” ≠ “Cache de entidade”**.
 
 
 - **Como a JPA “enxerga” o cache compartilhado:**
 
 A JPA define o conceito de **shared cache** e dá alguns controles:
 
-- **Habilitar/selecionar o que pode ser cacheado:**
-  - @Cacheable: na entidade
-  - SharedCacheMode:  **<shared-cache-mode>** no persistence.xml, modos comuns (shared-cache-mode):
-    - ALL: todas as entidades podem ser cacheadas
-    - NONE: desliga cache compartilhado
-    - ENABLE_SELECTIVE: só cacheia se a entidade estiver @Cacheable(true)
-    - DISABLE_SELECTIVE: cacheia tudo exceto @Cacheable(false)
-    - UNSPECIFIED: deixa para o provedor
+  - **Habilitar/selecionar o que pode ser cacheado:**
+    - @Cacheable: na entidade
+    - SharedCacheMode:  **<shared-cache-mode>** no persistence.xml, modos comuns (shared-cache-mode):
+      - ALL: todas as entidades podem ser cacheadas
+      - NONE: desliga cache compartilhado
+      - ENABLE_SELECTIVE: só cacheia se a entidade estiver @Cacheable(true)
+      - DISABLE_SELECTIVE: cacheia tudo exceto @Cacheable(false)
+      - UNSPECIFIED: deixa para o provedor
 
-- **Controlar leitura/gravação no cache via hints:**
-  - JPA também define hints para controlar como a operação interage com o cache:
-    - jakarta.persistence.cache.retrieveMode **(usar o cache ou não)**:
-      - USE (usa cache se houver)
-      - BYPASS (ignora cache ao ler)
-    - jakarta.persistence.cache.storeMode **(armazena o cache ou não)**:
-      - USE (pode armazenar no cache)
-      - BYPASS (não armazena no cache)
-      - REFRESH (atualiza o cache com o que veio do banco)
+  - **Controlar leitura/gravação no cache via hints:**
+    - JPA também define hints para controlar como a operação interage com o cache:
+      - jakarta.persistence.cache.retrieveMode **(usar o cache ou não)**:
+        - USE (usa cache se houver)
+        - BYPASS (ignora cache ao ler)
+      - jakarta.persistence.cache.storeMode **(armazena o cache ou não)**:
+        - USE (pode armazenar no cache)
+        - BYPASS (não armazena no cache)
+        - REFRESH (atualiza o cache com o que veio do banco)
 
 
 - **O cache compatilhada ajuda quando:**
