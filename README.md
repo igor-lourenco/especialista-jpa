@@ -154,3 +154,66 @@ O fluxo típico é:
   - Entidades são lidas repetidamente por ID (catálogo, parâmetros, tabelas de domínio)
   - Muitos requests pedem os mesmos objetos (ex.: Produto, Categoria, Pais, Perfil)
   - Quer reduzir latência e carga no banco.
+
+
+
+## Concorrência e locking
+
+Quando duas requisições (threads) tentam alterar o mesmo registro ao mesmo tempo, você pode ter:
+
+- **Lost update:** A salva por último e “apaga” a alteração de B sem perceber.
+- **Dirty read / non-repeatable read / phantom:** leituras inconsistentes dependendo do isolamento.
+
+JPA/Hibernate operam sempre dentro de:
+
+- Transação: @Transactional no Spring, por exemplo
+- Persistence Context: O **cache de 1º nível** do EntityManager/Session
+
+Dentro de uma mesma transação, se você carrega a entidade 2x, normalmente vem a mesma instância (do cache de 1º nível), Mas entre
+transações diferentes, cada uma tem seu próprio contexto, então o Hibernate não sabe automaticamente que outra transação alterou o dado
+
+
+### Dois modelos de controle de concorrência
+
+#### Optimistic Locking (bloqueio otimista)
+
+**Não bloqueia** ninguém enquanto lê/edita. Na hora de salvar, verifica se alguém alterou antes. Se alterou, lança Exception.
+
+- Melhor quando:
+  - Muito mais leitura do que escrita
+  - Conflitos raros
+  - Alta escala (evita lock no banco)
+  - Se houver conflito, precisa tratar (retry, mensagem ao usuário etc.)
+
+- Como funciona:
+1. Adiciona um campo @Version na entidade
+2. Hibernate inclui a versão no UPDATE/DELETE com um WHERE version = ?
+3. Se 0 linhas forem atualizadas → alguém mudou a versão → conflito(lança exception).
+
+- Também tem como pedir explicitamente que o Hibernate faça validações de versão (Lock modes otimistas):
+  - **LockModeType.OPTIMISTIC**
+    - Garante que haverá checagem de versão durante o flush/commit.
+  - **LockModeType.OPTIMISTIC_FORCE_INCREMENT**
+    - Além de checar, incrementa a versão mesmo sem mudar campos (útil para “reservar” uma entidade e invalidar caches/concorrência)
+
+#### Pessimistic Locking (bloqueio pessimista)
+
+**Bloqueia no banco** enquanto trabalha. Em geral vira um SELECT ... FOR UPDATE (ou variações), impedindo outros de atualizarem (e às vezes até lerem, dependendo do lock).
+
+- Melhor quando:
+  - Conflito é frequente
+  - A operação não pode falhar e você prefere “esperar”
+  - Precisa de forte serialização em um trecho crítico
+
+- Custos:
+  - Reduz paralelismo
+  - Risco de deadlock
+  - Transações longas = gargalo
+
+- Lock modes pessimistas
+  - **LockModeType.PESSIMISTIC_WRITE**
+    - Trava para escrever (o mais comum)
+  - **LockModeType.PESSIMISTIC_READ**
+    - Trava para leitura “consistente” (depende do banco, em vários casos se comporta parecido com write lock ou lock compartilhado)
+  - **LockModeType.PESSIMISTIC_FORCE_INCREMENT**
+    - Trava e ainda incrementa versão (mistura conceitos)
