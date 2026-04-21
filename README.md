@@ -217,3 +217,39 @@ transações diferentes, cada uma tem seu próprio contexto, então o Hibernate 
     - Trava para leitura “consistente” (depende do banco, em vários casos se comporta parecido com write lock ou lock compartilhado)
   - **LockModeType.PESSIMISTIC_FORCE_INCREMENT**
     - Trava e ainda incrementa versão (mistura conceitos)
+
+
+
+## Multitenancy
+
+Multitenancy no contexto de **JPA + Hibernate** é o conjunto de técnicas para fazer uma única instância da aplicação atender múltiplos “clientes/tenants” (empresas, organizações, etc.) mantendo isolamento de dados entre eles.
+
+A JPA não define um **modo multitenant** universal, quem fornece o mecanismo é o provedor ORM (no caso, o Hibernate) via configuração e integrações específicas
+
+### Modelos de multitenancy suportados pelo Hibernate
+
+#### Database per tenant (DATABASE)
+
+Cada tenant tem um banco físico separado. Isso maximiza isolamento, facilita backup por tenant, mas aumenta custo operacional (mais bancos, mais pools, migrações por tenant)
+
+- Como funciona:
+  - O provider devolve uma conexão apontando para o banco do tenant (ou escolhe o pool do tenant)
+
+#### Schema per tenant (SCHEMA)
+
+Um banco físico, mas um schema por tenant (ex: tenant_a.*, tenant_b.*). Isso dá bom isolamento e costuma ser um meio-termo entre custo e segurança
+
+- Como funciona:
+  - Pode ter:
+    - Pool por tenant (conexão já **nasce** no schema correto)
+    - Ou um pool único e, ao pegar a conexão, executar SET SCHEMA ... (ou equivalente do banco) antes de usar
+
+####  Shared schema / row-level / discriminator (DISCRIMINATOR / “Partitioned data”)
+
+Tudo fica no mesmo schema e mesmas tabelas, e cada linha pertence a um tenant por meio de uma coluna discriminadora (ex: tenant_id).
+
+- Como funciona:
+  - O ORM precisa garantir que toda query inclua a regra de tenant (ex: WHERE tenant_id = ?).
+
+- Observação importante:
+  - Queries nativas (native SQL) não recebem esse filtro automático, precisa filtrar manualmente

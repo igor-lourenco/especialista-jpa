@@ -178,10 +178,7 @@
 <!--            <property name="hibernate.multi_tenant_connection_provider"-->
 <!--                      value="com.especialista.jpa.multitenancy.schema.EcmSchemaMultiTenantConnectionProvider"/>-->
 
-<!--        ========================================================================================================================     -->
 <!--        ============================ USANDO MODELO POR MAQUINA ==============================================================     -->
-<!--        =========================================================================================================================    -->
-
 <!--        >>> Especifica que eh pro Hibernate usar o multitenancy usando o modelo por maquina, ou seja, banco em máquinas diferentes -->
 <!--            <property name="hibernate.multiTenancy" value="DATABASE" />-->
 
